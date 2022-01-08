@@ -1,0 +1,22 @@
+{
+	"name": "Text2",
+	"plugin-id": "Text",
+	"sid": 327044813927001,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "SongURL",
+			"type": "string",
+			"desc": "",
+			"sid": 989302976711821
+		},
+		{
+			"name": "IsURL",
+			"type": "boolean",
+			"desc": "",
+			"sid": 574880156684190
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": []
+}

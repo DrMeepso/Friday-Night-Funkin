@@ -1,0 +1,6081 @@
+{
+	"name": "MainE",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "InputE"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "MapGenarationE"
+		},
+		{
+			"eventType": "comment",
+			"text": "All songs must be translated through this for them to be understood https://jsonformatter.curiousconcept.com/#\nAlso this is the first time i have used json in a game before so the code may be messy\n\n-Meepso"
+		},
+		{
+			"eventType": "variable",
+			"name": "SongSpeed",
+			"type": "string",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 259069174636244
+		},
+		{
+			"eventType": "variable",
+			"name": "SoundLevel",
+			"type": "number",
+			"initialValue": "-20",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 951069005749692
+		},
+		{
+			"eventType": "variable",
+			"name": "NotePath",
+			"type": "string",
+			"initialValue": "song.",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 700485280577204
+		},
+		{
+			"eventType": "variable",
+			"name": "BPM",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 226629604342848
+		},
+		{
+			"eventType": "variable",
+			"name": "ArrowLayer",
+			"type": "number",
+			"initialValue": "2",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 439976279412881
+		},
+		{
+			"eventType": "variable",
+			"name": "SongSpeedMultiplyer",
+			"type": "number",
+			"initialValue": "5",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 217573322357611
+		},
+		{
+			"eventType": "variable",
+			"name": "SongPassthrough",
+			"type": "string",
+			"initialValue": "",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 458518127476873
+		},
+		{
+			"eventType": "variable",
+			"name": "DownScroll",
+			"type": "boolean",
+			"initialValue": "true",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 967332933503274
+		},
+		{
+			"eventType": "variable",
+			"name": "Finished",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 233987590252838
+		},
+		{
+			"eventType": "variable",
+			"name": "P2IdleAnim",
+			"type": "string",
+			"initialValue": "",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 773927226285283
+		},
+		{
+			"eventType": "variable",
+			"name": "SchoolVer",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 314243472504126
+		},
+		{
+			"eventType": "variable",
+			"name": "Dialog",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 166997655425935
+		},
+		{
+			"eventType": "variable",
+			"name": "DialogNumber",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 230864025855804
+		},
+		{
+			"eventType": "variable",
+			"name": "SkipDialog",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 386776881488080
+		},
+		{
+			"eventType": "variable",
+			"name": "DialogFound",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 258034849241821
+		},
+		{
+			"eventType": "variable",
+			"name": "CamZoom",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 146277780553326
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 861881828100246
+				}
+			],
+			"actions": [
+				{
+					"id": "set-enabled",
+					"objectClass": "Player2",
+					"sid": 660308558446858,
+					"behaviorType": "DragDrop",
+					"parameters": {
+						"state": "disabled"
+					}
+				},
+				{
+					"id": "set-cursor-style",
+					"objectClass": "Mouse",
+					"sid": 796438209976465,
+					"parameters": {
+						"cursor-style": "none"
+					}
+				},
+				{
+					"id": "stop-animation",
+					"objectClass": "gf",
+					"sid": 303651776257037
+				},
+				{
+					"id": "request-project-file",
+					"objectClass": "AJAX",
+					"sid": 772943835207046,
+					"parameters": {
+						"tag": "\"Keybinds\"",
+						"file": "Keybinds.json"
+					}
+				},
+				{
+					"id": "set-position",
+					"objectClass": "HealthSlider",
+					"sid": 848709735563384,
+					"parameters": {
+						"x": "HealthBar.x",
+						"y": "HealthBar.Y"
+					}
+				},
+				{
+					"id": "set-group-active",
+					"objectClass": "System",
+					"sid": 641901805216120,
+					"parameters": {
+						"group-name": "\"Input\"",
+						"state": "activated"
+					}
+				},
+				{
+					"id": "set-layer-background-color",
+					"objectClass": "System",
+					"sid": 353896596042016,
+					"parameters": {
+						"layer": "0",
+						"color": "rgbEx(255, 255, 255)"
+					}
+				},
+				{
+					"id": "set-layer-opacity",
+					"objectClass": "System",
+					"sid": 341448455428303,
+					"parameters": {
+						"layer": "2",
+						"opacity": "0"
+					}
+				},
+				{
+					"id": "set-layer-opacity",
+					"objectClass": "System",
+					"sid": 852301547068353,
+					"parameters": {
+						"layer": "1",
+						"opacity": "0"
+					}
+				},
+				{
+					"id": "set-layer-opacity",
+					"objectClass": "System",
+					"sid": 268683713499400,
+					"parameters": {
+						"layer": "0",
+						"opacity": "0"
+					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 979243915911315,
+					"parameters": {
+						"variable": "Finished",
+						"value": "false"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "SpeechBubble",
+					"sid": 613166375222631,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "DialogText",
+					"sid": 228068232243797,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 938296954929842,
+					"parameters": {
+						"variable": "DialogNumber",
+						"value": "0"
+					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 880143528860981,
+					"parameters": {
+						"variable": "DialogFound",
+						"value": "true"
+					}
+				},
+				{
+					"id": "set-minimum-framerate",
+					"objectClass": "System",
+					"sid": 150303857149227,
+					"parameters": {
+						"minimum-fps": "59"
+					}
+				}
+			],
+			"sid": 765081099074785,
+			"children": [
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Downscroll Shit ;(",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 784396586102561,
+									"parameters": {
+										"variable": "DownScroll"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-layer-angle",
+									"objectClass": "System",
+									"sid": 557626832468389,
+									"parameters": {
+										"layer": "2",
+										"angle": "180"
+									}
+								},
+								{
+									"id": "set-position-to-another-object",
+									"objectClass": "GreenHealth",
+									"sid": 247531093577600,
+									"parameters": {
+										"object": "HealthBar",
+										"image-point-optional": "1"
+									}
+								},
+								{
+									"id": "set-position-to-another-object",
+									"objectClass": "RedHealth",
+									"sid": 279601648330352,
+									"parameters": {
+										"object": "HealthBar",
+										"image-point-optional": "2"
+									}
+								},
+								{
+									"id": "set-animation-frame",
+									"objectClass": "GreenHealth",
+									"sid": 475961451602149,
+									"parameters": {
+										"frame-number": "1"
+									}
+								},
+								{
+									"id": "set-animation-frame",
+									"objectClass": "RedHealth",
+									"sid": 165845508218154,
+									"parameters": {
+										"frame-number": "1"
+									}
+								},
+								{
+									"id": "set-angle",
+									"objectClass": "ReadySetGo",
+									"sid": 587636678930393,
+									"parameters": {
+										"angle": "180"
+									}
+								}
+							],
+							"sid": 822354525813573,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 184294854155019,
+											"parameters": {
+												"object": "Notes"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-angle",
+											"objectClass": "Notes",
+											"sid": 375399904845036,
+											"parameters": {
+												"angle": "180"
+											}
+										}
+									],
+									"sid": 205395980725892,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-x",
+													"objectClass": "Notes",
+													"sid": 879419252691622,
+													"parameters": {
+														"comparison": 4,
+														"x-co-ordinate": "400"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Notes",
+													"sid": 771796481191066,
+													"parameters": {
+														"instance-variable": "Player",
+														"value": "false"
+													}
+												}
+											],
+											"sid": 510630379813956
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-x",
+													"objectClass": "Notes",
+													"sid": 422173033610091,
+													"parameters": {
+														"comparison": 2,
+														"x-co-ordinate": "400"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Notes",
+													"sid": 309480795569567,
+													"parameters": {
+														"instance-variable": "Player",
+														"value": "true"
+													}
+												}
+											],
+											"sid": 479478715456357
+										},
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [],
+											"sid": 939219161755098,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "Notes",
+															"sid": 955198350269034,
+															"parameters": {
+																"instance-variable": "Type",
+																"comparison": 0,
+																"value": "\"Left\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-instvar-value",
+															"objectClass": "Notes",
+															"sid": 179092185679093,
+															"parameters": {
+																"instance-variable": "Type",
+																"value": "\"Right1\""
+															}
+														}
+													],
+													"sid": 856231682515482
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "Notes",
+															"sid": 566490640481106,
+															"parameters": {
+																"instance-variable": "Type",
+																"comparison": 0,
+																"value": "\"Down\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-instvar-value",
+															"objectClass": "Notes",
+															"sid": 725852324066824,
+															"parameters": {
+																"instance-variable": "Type",
+																"value": "\"Up1\""
+															}
+														}
+													],
+													"sid": 390494877002029
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "Notes",
+															"sid": 373361395810312,
+															"parameters": {
+																"instance-variable": "Type",
+																"comparison": 0,
+																"value": "\"Up\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-instvar-value",
+															"objectClass": "Notes",
+															"sid": 931947469942820,
+															"parameters": {
+																"instance-variable": "Type",
+																"value": "\"Down1\""
+															}
+														}
+													],
+													"sid": 944822786122896
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "Notes",
+															"sid": 402897000660817,
+															"parameters": {
+																"instance-variable": "Type",
+																"comparison": 0,
+																"value": "\"Right\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-instvar-value",
+															"objectClass": "Notes",
+															"sid": 592328504323994,
+															"parameters": {
+																"instance-variable": "Type",
+																"value": "\"Left1\""
+															}
+														}
+													],
+													"sid": 176144912450487
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [],
+											"sid": 258155655476819,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "Notes",
+															"sid": 204143434543960,
+															"parameters": {
+																"instance-variable": "Type",
+																"comparison": 0,
+																"value": "\"Left1\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-instvar-value",
+															"objectClass": "Notes",
+															"sid": 353294449957248,
+															"parameters": {
+																"instance-variable": "Type",
+																"value": "\"Left\""
+															}
+														}
+													],
+													"sid": 290595870641690
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "Notes",
+															"sid": 804232456319338,
+															"parameters": {
+																"instance-variable": "Type",
+																"comparison": 0,
+																"value": "\"Down1\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-instvar-value",
+															"objectClass": "Notes",
+															"sid": 262993329269242,
+															"parameters": {
+																"instance-variable": "Type",
+																"value": "\"Down\""
+															}
+														}
+													],
+													"sid": 662466062591233
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "Notes",
+															"sid": 338792353981818,
+															"parameters": {
+																"instance-variable": "Type",
+																"comparison": 0,
+																"value": "\"Up1\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-instvar-value",
+															"objectClass": "Notes",
+															"sid": 940336182227656,
+															"parameters": {
+																"instance-variable": "Type",
+																"value": "\"Up\""
+															}
+														}
+													],
+													"sid": 100589619374090
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "Notes",
+															"sid": 429967671586222,
+															"parameters": {
+																"instance-variable": "Type",
+																"comparison": 0,
+																"value": "\"Right1\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-instvar-value",
+															"objectClass": "Notes",
+															"sid": 690732104164494,
+															"parameters": {
+																"instance-variable": "Type",
+																"value": "\"Right\""
+															}
+														}
+													],
+													"sid": 148100063570668
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-animation",
+													"objectClass": "Notes",
+													"sid": 817765430860984,
+													"parameters": {
+														"animation": "Notes.Type & \"_NoPush\"",
+														"from": "beginning"
+													}
+												}
+											],
+											"sid": 264331496221956
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [],
+									"sid": 200458899916167
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 459250840908500
+								}
+							],
+							"actions": [
+								{
+									"id": "set-layer-angle",
+									"objectClass": "System",
+									"sid": 755769945670898,
+									"parameters": {
+										"layer": "2",
+										"angle": "0"
+									}
+								},
+								{
+									"id": "set-position-to-another-object",
+									"objectClass": "GreenHealth",
+									"sid": 417821938710385,
+									"parameters": {
+										"object": "HealthBar",
+										"image-point-optional": "2"
+									}
+								},
+								{
+									"id": "set-position-to-another-object",
+									"objectClass": "RedHealth",
+									"sid": 173786740643761,
+									"parameters": {
+										"object": "HealthBar",
+										"image-point-optional": "1"
+									}
+								}
+							],
+							"sid": 230508830358270
+						}
+					],
+					"sid": 129463320206495
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 501655607452745,
+							"parameters": {
+								"variable": "SongPassthrough",
+								"comparison": 0,
+								"value": "\"\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 178660308480211,
+							"parameters": {
+								"layout": "FreePlayMenu"
+							}
+						}
+					],
+					"sid": 403477024446077
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 962131861370449
+						}
+					],
+					"actions": [],
+					"sid": 857033274565535,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 926696935144973,
+									"parameters": {
+										"variable": "IsURL"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "request-url",
+									"objectClass": "AJAX",
+									"sid": 974050821323310,
+									"parameters": {
+										"tag": "\"song\"",
+										"url": "SongPassthrough &\"/\"& URLSongPassthrough &\"-hard.json\""
+									}
+								},
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 220382112299947,
+									"parameters": {
+										"type": "log",
+										"message": "SongPassthrough &\"/\"& URLSongPassthrough &\"_Inst.webm\""
+									}
+								},
+								{
+									"id": "add-remote-url",
+									"objectClass": "Audio",
+									"sid": 270628662584547,
+									"parameters": {
+										"url": "SongPassthrough &\"/\"& URLSongPassthrough &\"_Inst.webm\"",
+										"type": "\"audio/webm; codecs=opus\"",
+										"name": "\"Inst\""
+									}
+								},
+								{
+									"id": "add-remote-url",
+									"objectClass": "Audio",
+									"sid": 572586990850953,
+									"parameters": {
+										"url": "SongPassthrough &\"/\"& URLSongPassthrough &\"_Voices.webm\"",
+										"type": "\"audio/webm; codecs=opus\"",
+										"name": "\"Voices\""
+									}
+								},
+								{
+									"id": "request-url",
+									"objectClass": "AJAX",
+									"sid": 474253401278106,
+									"parameters": {
+										"tag": "\"Stage\"",
+										"url": "SongPassthrough &\"/\"&\"Stage.Fri\""
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 222458592274927,
+									"parameters": {
+										"variable": "CamZoom",
+										"value": "1"
+									}
+								},
+								{
+									"id": "preload-by-name",
+									"objectClass": "Audio",
+									"sid": 248648070016971,
+									"parameters": {
+										"folder": "music",
+										"audio-file-name": "\"Voices\""
+									}
+								},
+								{
+									"id": "preload-by-name",
+									"objectClass": "Audio",
+									"sid": 658007763700998,
+									"parameters": {
+										"folder": "music",
+										"audio-file-name": "\"Inst\""
+									}
+								},
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 635623988925712,
+									"parameters": {
+										"type": "log",
+										"message": "SongPassthrough &\"/\"&\"Stage.Fri\""
+									}
+								}
+							],
+							"sid": 529707652417279
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 661272380905303
+								}
+							],
+							"actions": [
+								{
+									"id": "request-url",
+									"objectClass": "AJAX",
+									"sid": 640092376856906,
+									"parameters": {
+										"tag": "\"song\"",
+										"url": "replace(SongPassthrough,\"-normal\",\"\") & \".json\""
+									}
+								}
+							],
+							"sid": 446963364406627
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Note",
+							"sid": 821437569826833,
+							"parameters": {
+								"unique-id": "11"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "Note",
+							"sid": 323609286462301
+						}
+					],
+					"sid": 640481283084368
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 305928901105869,
+							"parameters": {
+								"first-value": "tokenat(SongPassthrough,0,\"-\")",
+								"comparison": 0,
+								"second-value": "\"spookeez\""
+							}
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 422071818193288,
+							"parameters": {
+								"first-value": "tokenat(SongPassthrough,0,\"-\")",
+								"comparison": 0,
+								"second-value": "\"south\""
+							}
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 486140104188402,
+							"parameters": {
+								"first-value": "tokenat(SongPassthrough,0,\"-\")",
+								"comparison": 0,
+								"second-value": "\"monster\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 798857745520686,
+							"parameters": {
+								"variable": "CamZoom",
+								"value": "0.8"
+							}
+						},
+						{
+							"id": "request-project-file",
+							"objectClass": "AJAX",
+							"sid": 384917821807860,
+							"parameters": {
+								"tag": "\"Stage\"",
+								"file": "Week2.Fri"
+							}
+						}
+					],
+					"sid": 827511524227043,
+					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 600785378002844
+						}
+					],
+					"actions": [],
+					"sid": 494347173969360,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 810404380925882,
+									"parameters": {
+										"first-value": "tokenat(SongPassthrough,0,\"-\")",
+										"comparison": 0,
+										"second-value": "\"pico\""
+									}
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 933056098318386,
+									"parameters": {
+										"first-value": "tokenat(SongPassthrough,0,\"-\")",
+										"comparison": 0,
+										"second-value": "\"philly\""
+									}
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 887629617467643,
+									"parameters": {
+										"first-value": "tokenat(SongPassthrough,0,\"-\")",
+										"comparison": 0,
+										"second-value": "\"blammed\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 670528917310064,
+									"parameters": {
+										"variable": "CamZoom",
+										"value": "0.9"
+									}
+								},
+								{
+									"id": "request-project-file",
+									"objectClass": "AJAX",
+									"sid": 319485127025032,
+									"parameters": {
+										"tag": "\"Stage\"",
+										"file": "Week3.Fri"
+									}
+								}
+							],
+							"sid": 551542317948527,
+							"isOrBlock": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 517837792928210
+								}
+							],
+							"actions": [],
+							"sid": 250388276569527,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 345673672486341,
+											"parameters": {
+												"variable": "IsURL"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 733271409463569,
+											"parameters": {
+												"variable": "CamZoom",
+												"value": "0.7"
+											}
+										},
+										{
+											"id": "request-project-file",
+											"objectClass": "AJAX",
+											"sid": 892628258213864,
+											"parameters": {
+												"tag": "\"Stage\"",
+												"file": "DefaultStage.Fri"
+											}
+										}
+									],
+									"sid": 139641249346573
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-completed",
+					"objectClass": "AJAX",
+					"sid": 519418776894927,
+					"parameters": {
+						"tag": "\"Keybinds\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "load",
+					"objectClass": "Keybinds",
+					"sid": 684808439682406,
+					"parameters": {
+						"json": "AJAX.LastData"
+					}
+				}
+			],
+			"sid": 281297997244787
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-tick",
+					"objectClass": "System",
+					"sid": 720501020444740
+				}
+			],
+			"actions": [
+				{
+					"id": "set-width",
+					"objectClass": "RedHealth",
+					"sid": 653832116783702,
+					"parameters": {
+						"width": "lerp(RedHealth.Width,distance(RedHealth.X,RedHealth.Y,HealthSlider.X,HealthSlider.Y),0.45)"
+					}
+				},
+				{
+					"id": "set-width",
+					"objectClass": "GreenHealth",
+					"sid": 522370964364754,
+					"parameters": {
+						"width": "lerp(GreenHealth.Width,distance(GreenHealth.X,GreenHealth.Y,HealthSlider.X,HealthSlider.Y),0.45)"
+					}
+				},
+				{
+					"id": "set-layer-scale",
+					"objectClass": "System",
+					"sid": 370994091911659,
+					"parameters": {
+						"layer": "3",
+						"scale": "lerp(LayerScale(3),CamZoom,0.1)"
+					}
+				},
+				{
+					"id": "set-layer-scale",
+					"objectClass": "System",
+					"sid": 575919579128906,
+					"parameters": {
+						"layer": "1",
+						"scale": "lerp(LayerScale(1),CamZoom,0.1)"
+					}
+				},
+				{
+					"id": "set-layer-scale",
+					"objectClass": "System",
+					"sid": 714313117313566,
+					"parameters": {
+						"layer": "0",
+						"scale": "lerp(LayerScale(0),CamZoom,0.1)"
+					}
+				}
+			],
+			"sid": 256136946627878,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 729607622335700,
+							"parameters": {
+								"object": "StageObjectStandIn"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-size",
+							"objectClass": "StageObjectStandIn",
+							"sid": 123901517668557,
+							"parameters": {
+								"width": "StageObjectStandIn.ImageWidth / 1.6",
+								"height": "StageObjectStandIn.ImageHeight / 1.6"
+							}
+						}
+					],
+					"sid": 862188692596277
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Auto",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 145264790789677,
+									"parameters": {
+										"object": "Note"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "move-to-top",
+									"objectClass": "Note",
+									"sid": 739111476314388
+								},
+								{
+									"id": "set-angle",
+									"objectClass": "Note",
+									"sid": 511068185120127,
+									"parameters": {
+										"angle": "Notes.Angle"
+									}
+								}
+							],
+							"sid": 232831089737563,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 488140476810167,
+											"parameters": {
+												"first-value": "Timer.Timer.TotalTime(\"Song\")",
+												"comparison": 4,
+												"second-value": "Note.StartTime"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-y",
+											"objectClass": "Note",
+											"sid": 248974054789293,
+											"parameters": {
+												"y": "Note.Y - (int(SongSpeed) * SongSpeedMultiplyer)"
+											}
+										}
+									],
+									"sid": 509415377880346
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 689424652626942,
+											"parameters": {
+												"variable": "DownScroll"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [],
+									"sid": 527349051460982,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-x",
+													"objectClass": "Note",
+													"sid": 825768817220208,
+													"parameters": {
+														"comparison": 2,
+														"x-co-ordinate": "400"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 160462274566432,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 804601470612694,
+															"parameters": {
+																"first-value": "Note.y",
+																"comparison": 2,
+																"second-value": "Notes.Y"
+															}
+														}
+													],
+													"actions": [],
+													"sid": 576267618232788,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "pick-nearestfurthest",
+																	"objectClass": "Notes",
+																	"sid": 488548960551787,
+																	"parameters": {
+																		"which": "nearest",
+																		"x": "Note.x",
+																		"y": "Note.Y"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"callFunction": "Play Enemy Animation",
+																	"sid": 329818566417459,
+																	"parameters": [
+																		"replace(MapLoader.Get(\"song.player2\"),\"-car\",\"\") & \"_\" &  lowercase(Notes.Type)",
+																		"replace(MapLoader.Get(\"song.player2\"),\"-car\",\"\") & \"_\" & \"idle\""
+																	]
+																},
+																{
+																	"id": "set-eventvar-value",
+																	"objectClass": "System",
+																	"sid": 603541500967396,
+																	"parameters": {
+																		"variable": "P2IdleAnim",
+																		"value": "replace(MapLoader.Get(\"song.player2\"),\"-car\",\"\") & \"_\" & \"idle\""
+																	}
+																},
+																{
+																	"id": "destroy",
+																	"objectClass": "Note",
+																	"sid": 306947320825369
+																},
+																{
+																	"id": "set-animation",
+																	"objectClass": "Notes",
+																	"sid": 346757472363178,
+																	"parameters": {
+																		"animation": "Notes.Type & \"_Push\"",
+																		"from": "beginning"
+																	}
+																},
+																{
+																	"id": "wait",
+																	"objectClass": "System",
+																	"sid": 171237664301979,
+																	"parameters": {
+																		"seconds": "0.1"
+																	}
+																},
+																{
+																	"id": "set-animation",
+																	"objectClass": "Notes",
+																	"sid": 901850464121510,
+																	"parameters": {
+																		"animation": "Notes.Type & \"_NoPush\"",
+																		"from": "beginning"
+																	}
+																},
+																{
+																	"id": "stop-timer",
+																	"objectClass": "Timer",
+																	"sid": 581291226395203,
+																	"behaviorType": "Timer",
+																	"parameters": {
+																		"tag": "\"muted\""
+																	}
+																},
+																{
+																	"id": "set-volume",
+																	"objectClass": "Audio",
+																	"sid": 544017823700548,
+																	"parameters": {
+																		"tag": "\"Singing Voice\"",
+																		"db": "SoundLevel"
+																	}
+																}
+															],
+															"sid": 786955240074663
+														}
+													]
+												}
+											]
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 109871130112395
+										}
+									],
+									"actions": [],
+									"sid": 990354391660267,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-x",
+													"objectClass": "Note",
+													"sid": 333162848403991,
+													"parameters": {
+														"comparison": 4,
+														"x-co-ordinate": "400"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 573364053077773,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 810102411639029,
+															"parameters": {
+																"first-value": "Note.y",
+																"comparison": 2,
+																"second-value": "Notes.Y"
+															}
+														}
+													],
+													"actions": [],
+													"sid": 312159351436389,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "pick-nearestfurthest",
+																	"objectClass": "Notes",
+																	"sid": 402008029306632,
+																	"parameters": {
+																		"which": "nearest",
+																		"x": "Note.x",
+																		"y": "Note.Y"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"callFunction": "Play Enemy Animation",
+																	"sid": 176647715396354,
+																	"parameters": [
+																		"replace(MapLoader.Get(\"song.player2\"),\"-car\",\"\") & \"_\" &  lowercase(Notes.Type)",
+																		"replace(MapLoader.Get(\"song.player2\"),\"-car\",\"\") & \"_\" & \"idle\""
+																	]
+																},
+																{
+																	"id": "set-eventvar-value",
+																	"objectClass": "System",
+																	"sid": 219295543939261,
+																	"parameters": {
+																		"variable": "P2IdleAnim",
+																		"value": "replace(MapLoader.Get(\"song.player2\"),\"-car\",\"\") & \"_\" & \"idle\""
+																	}
+																},
+																{
+																	"id": "destroy",
+																	"objectClass": "Note",
+																	"sid": 861421317725810
+																},
+																{
+																	"id": "set-animation",
+																	"objectClass": "Notes",
+																	"sid": 688423294025342,
+																	"parameters": {
+																		"animation": "Notes.Type & \"_Push\"",
+																		"from": "beginning"
+																	}
+																},
+																{
+																	"id": "wait",
+																	"objectClass": "System",
+																	"sid": 742187578656017,
+																	"parameters": {
+																		"seconds": "0.1"
+																	}
+																},
+																{
+																	"id": "set-animation",
+																	"objectClass": "Notes",
+																	"sid": 279038855021842,
+																	"parameters": {
+																		"animation": "Notes.Type & \"_NoPush\"",
+																		"from": "beginning"
+																	}
+																},
+																{
+																	"id": "stop-timer",
+																	"objectClass": "Timer",
+																	"sid": 240455754810997,
+																	"behaviorType": "Timer",
+																	"parameters": {
+																		"tag": "\"muted\""
+																	}
+																},
+																{
+																	"id": "set-volume",
+																	"objectClass": "Audio",
+																	"sid": 351147337396258,
+																	"parameters": {
+																		"tag": "\"Singing Voice\"",
+																		"db": "SoundLevel"
+																	}
+																}
+															],
+															"sid": 453607475073896
+														}
+													]
+												}
+											]
+										}
+									]
+								}
+							],
+							"isOrBlock": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 139889060597318,
+									"parameters": {
+										"object": "NoteTrail"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 155963251330942,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 263749399227662,
+											"parameters": {
+												"first-value": "Timer.Timer.TotalTime(\"Song\")",
+												"comparison": 4,
+												"second-value": "NoteTrail.StartTime"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-y",
+											"objectClass": "NoteTrail",
+											"sid": 852371572934692,
+											"parameters": {
+												"y": "NoteTrail.Y - (int(SongSpeed) * SongSpeedMultiplyer)"
+											}
+										}
+									],
+									"sid": 185985100393284
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 683737072547663,
+											"parameters": {
+												"variable": "DownScroll"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [],
+									"sid": 950412475762578,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-x",
+													"objectClass": "NoteTrail",
+													"sid": 162807507701874,
+													"parameters": {
+														"comparison": 2,
+														"x-co-ordinate": "400"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 319489616564113,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 994555316042716,
+															"parameters": {
+																"first-value": "NoteTrail.Y ",
+																"comparison": 3,
+																"second-value": "Notes.y"
+															}
+														}
+													],
+													"actions": [],
+													"sid": 438193360559503,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "pick-nearestfurthest",
+																	"objectClass": "Notes",
+																	"sid": 356818065296078,
+																	"parameters": {
+																		"which": "nearest",
+																		"x": "NoteTrail.x",
+																		"y": "NoteTrail.Y"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "destroy",
+																	"objectClass": "NoteTrail",
+																	"sid": 259096498101824
+																},
+																{
+																	"callFunction": "Play Enemy Animation",
+																	"sid": 591695864368434,
+																	"parameters": [
+																		"replace(MapLoader.Get(\"song.player2\"),\"-car\",\"\") & \"_\" &  lowercase(Notes.Type)",
+																		"replace(MapLoader.Get(\"song.player2\"),\"-car\",\"\") & \"_\" & \"idle\""
+																	]
+																},
+																{
+																	"id": "set-animation",
+																	"objectClass": "Notes",
+																	"sid": 480863898433931,
+																	"parameters": {
+																		"animation": "Notes.Type & \"_Push\"",
+																		"from": "beginning"
+																	}
+																},
+																{
+																	"id": "wait",
+																	"objectClass": "System",
+																	"sid": 174807513009755,
+																	"parameters": {
+																		"seconds": "0.1"
+																	}
+																},
+																{
+																	"id": "set-animation",
+																	"objectClass": "Notes",
+																	"sid": 978318043993001,
+																	"parameters": {
+																		"animation": "Notes.Type & \"_NoPush\"",
+																		"from": "beginning"
+																	}
+																},
+																{
+																	"id": "stop-timer",
+																	"objectClass": "Timer",
+																	"sid": 736815007743622,
+																	"behaviorType": "Timer",
+																	"parameters": {
+																		"tag": "\"muted\""
+																	}
+																},
+																{
+																	"id": "set-volume",
+																	"objectClass": "Audio",
+																	"sid": 744002035769334,
+																	"parameters": {
+																		"tag": "\"Singing Voice\"",
+																		"db": "SoundLevel"
+																	}
+																}
+															],
+															"sid": 707901250380769
+														}
+													]
+												}
+											]
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 676384241557563
+										}
+									],
+									"actions": [],
+									"sid": 737568135801715,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-x",
+													"objectClass": "NoteTrail",
+													"sid": 671187787125938,
+													"parameters": {
+														"comparison": 4,
+														"x-co-ordinate": "400"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 640218717339069,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 349652621289756,
+															"parameters": {
+																"first-value": "NoteTrail.Y ",
+																"comparison": 3,
+																"second-value": "Notes.y"
+															}
+														}
+													],
+													"actions": [],
+													"sid": 482486526102284,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "pick-nearestfurthest",
+																	"objectClass": "Notes",
+																	"sid": 409284688461515,
+																	"parameters": {
+																		"which": "nearest",
+																		"x": "NoteTrail.x",
+																		"y": "NoteTrail.Y"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "destroy",
+																	"objectClass": "NoteTrail",
+																	"sid": 664606073278498
+																},
+																{
+																	"callFunction": "Play Enemy Animation",
+																	"sid": 539856167132426,
+																	"parameters": [
+																		"replace(MapLoader.Get(\"song.player2\"),\"-car\",\"\") & \"_\" &  lowercase(Notes.Type)",
+																		"replace(MapLoader.Get(\"song.player2\"),\"-car\",\"\") & \"_\" & \"idle\""
+																	]
+																},
+																{
+																	"id": "set-animation",
+																	"objectClass": "Notes",
+																	"sid": 888196466894583,
+																	"parameters": {
+																		"animation": "Notes.Type & \"_Push\"",
+																		"from": "beginning"
+																	}
+																},
+																{
+																	"id": "wait",
+																	"objectClass": "System",
+																	"sid": 103520952724880,
+																	"parameters": {
+																		"seconds": "0.1"
+																	}
+																},
+																{
+																	"id": "set-animation",
+																	"objectClass": "Notes",
+																	"sid": 479091039522255,
+																	"parameters": {
+																		"animation": "Notes.Type & \"_NoPush\"",
+																		"from": "beginning"
+																	}
+																},
+																{
+																	"id": "stop-timer",
+																	"objectClass": "Timer",
+																	"sid": 918144554685618,
+																	"behaviorType": "Timer",
+																	"parameters": {
+																		"tag": "\"muted\""
+																	}
+																},
+																{
+																	"id": "set-volume",
+																	"objectClass": "Audio",
+																	"sid": 959152158423398,
+																	"parameters": {
+																		"tag": "\"Singing Voice\"",
+																		"db": "SoundLevel"
+																	}
+																}
+															],
+															"sid": 566100517986807
+														}
+													]
+												}
+											]
+										}
+									]
+								}
+							],
+							"isOrBlock": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 114544036853401,
+									"parameters": {
+										"object": "NoteCap"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 579735368173927,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 782791764387909,
+											"parameters": {
+												"first-value": "Timer.Timer.TotalTime(\"Song\")",
+												"comparison": 4,
+												"second-value": "NoteCap.StartTime"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-y",
+											"objectClass": "NoteCap",
+											"sid": 513982569780846,
+											"parameters": {
+												"y": "NoteCap.Y - (int(SongSpeed) * SongSpeedMultiplyer)"
+											}
+										}
+									],
+									"sid": 235499454183700
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 608656079771884,
+											"parameters": {
+												"variable": "DownScroll"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [],
+									"sid": 750239552211510,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-x",
+													"objectClass": "NoteCap",
+													"sid": 146478836623965,
+													"parameters": {
+														"comparison": 2,
+														"x-co-ordinate": "400"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 980078642568088,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 272462263475300,
+															"parameters": {
+																"first-value": "NoteCap.Y",
+																"comparison": 3,
+																"second-value": "Notes.y"
+															}
+														}
+													],
+													"actions": [],
+													"sid": 688959739102927,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "pick-nearestfurthest",
+																	"objectClass": "Notes",
+																	"sid": 973120728759575,
+																	"parameters": {
+																		"which": "nearest",
+																		"x": "NoteCap.X",
+																		"y": "NoteCap.Y"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "destroy",
+																	"objectClass": "NoteCap",
+																	"sid": 488117261785985
+																},
+																{
+																	"callFunction": "Play Enemy Animation",
+																	"sid": 650862747138347,
+																	"parameters": [
+																		"replace(MapLoader.Get(\"song.player2\"),\"-car\",\"\") & \"_\" &  lowercase(Notes.Type)",
+																		"replace(MapLoader.Get(\"song.player2\"),\"-car\",\"\") & \"_\" & \"idle\""
+																	]
+																},
+																{
+																	"id": "set-animation",
+																	"objectClass": "Notes",
+																	"sid": 678485290629541,
+																	"parameters": {
+																		"animation": "Notes.Type & \"_Push\"",
+																		"from": "beginning"
+																	}
+																},
+																{
+																	"id": "wait",
+																	"objectClass": "System",
+																	"sid": 279664192908429,
+																	"parameters": {
+																		"seconds": "0.1"
+																	}
+																},
+																{
+																	"id": "set-animation",
+																	"objectClass": "Notes",
+																	"sid": 892009826130893,
+																	"parameters": {
+																		"animation": "Notes.Type & \"_NoPush\"",
+																		"from": "beginning"
+																	}
+																},
+																{
+																	"id": "stop-timer",
+																	"objectClass": "Timer",
+																	"sid": 444973312737730,
+																	"behaviorType": "Timer",
+																	"parameters": {
+																		"tag": "\"muted\""
+																	}
+																},
+																{
+																	"id": "set-volume",
+																	"objectClass": "Audio",
+																	"sid": 525014139507967,
+																	"parameters": {
+																		"tag": "\"Singing Voice\"",
+																		"db": "SoundLevel"
+																	}
+																},
+																{
+																	"id": "log",
+																	"objectClass": "Browser",
+																	"sid": 467672172116923,
+																	"parameters": {
+																		"type": "log",
+																		"message": "replace(MapLoader.Get(\"song.player2\"),\"-car\",\"\") & \"_\" &  lowercase(Notes.Type)"
+																	}
+																}
+															],
+															"sid": 605349640511190
+														}
+													]
+												}
+											]
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 638212579749778
+										}
+									],
+									"actions": [],
+									"sid": 182155255232883,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-x",
+													"objectClass": "NoteCap",
+													"sid": 278094304753357,
+													"parameters": {
+														"comparison": 4,
+														"x-co-ordinate": "400"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 506330991540041,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 187787074201353,
+															"parameters": {
+																"first-value": "NoteCap.Y",
+																"comparison": 3,
+																"second-value": "Notes.y"
+															}
+														}
+													],
+													"actions": [],
+													"sid": 950211210197017,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "pick-nearestfurthest",
+																	"objectClass": "Notes",
+																	"sid": 436704486301514,
+																	"parameters": {
+																		"which": "nearest",
+																		"x": "NoteCap.X",
+																		"y": "NoteCap.Y"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "destroy",
+																	"objectClass": "NoteCap",
+																	"sid": 492117527936348
+																},
+																{
+																	"callFunction": "Play Enemy Animation",
+																	"sid": 816701407208003,
+																	"parameters": [
+																		"replace(MapLoader.Get(\"song.player2\"),\"-car\",\"\") & \"_\" &  lowercase(Notes.Type)",
+																		"replace(MapLoader.Get(\"song.player2\"),\"-car\",\"\") & \"_\" & \"idle\""
+																	]
+																},
+																{
+																	"id": "set-animation",
+																	"objectClass": "Notes",
+																	"sid": 665262590823678,
+																	"parameters": {
+																		"animation": "Notes.Type & \"_Push\"",
+																		"from": "beginning"
+																	}
+																},
+																{
+																	"id": "wait",
+																	"objectClass": "System",
+																	"sid": 691520312696170,
+																	"parameters": {
+																		"seconds": "0.1"
+																	}
+																},
+																{
+																	"id": "set-animation",
+																	"objectClass": "Notes",
+																	"sid": 817707627042048,
+																	"parameters": {
+																		"animation": "Notes.Type & \"_NoPush\"",
+																		"from": "beginning"
+																	}
+																},
+																{
+																	"id": "stop-timer",
+																	"objectClass": "Timer",
+																	"sid": 323234225340666,
+																	"behaviorType": "Timer",
+																	"parameters": {
+																		"tag": "\"muted\""
+																	}
+																},
+																{
+																	"id": "set-volume",
+																	"objectClass": "Audio",
+																	"sid": 518062468613196,
+																	"parameters": {
+																		"tag": "\"Singing Voice\"",
+																		"db": "SoundLevel"
+																	}
+																},
+																{
+																	"id": "log",
+																	"objectClass": "Browser",
+																	"sid": 756082406953435,
+																	"parameters": {
+																		"type": "log",
+																		"message": "replace(MapLoader.Get(\"song.player2\"),\"-car\",\"\") & \"_\" &  lowercase(Notes.Type)"
+																	}
+																}
+															],
+															"sid": 301815777539693
+														}
+													]
+												}
+											]
+										}
+									]
+								}
+							],
+							"isOrBlock": true
+						}
+					],
+					"sid": 932266518248090
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 690519148293278,
+							"parameters": {
+								"object": "Notes"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "move-to-bottom",
+							"objectClass": "Notes",
+							"sid": 506231619899981
+						}
+					],
+					"sid": 564832832387230
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 322906563621555,
+							"parameters": {
+								"object": "HealthIcon"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position",
+							"objectClass": "HealthIcon",
+							"sid": 459446023637909,
+							"parameters": {
+								"x": "lerp(HealthIcon.X,HealthSlider.x,0.45)",
+								"y": "lerp(HealthIcon.Y,HealthSlider.Y,0.45)"
+							}
+						}
+					],
+					"sid": 593942015740726,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "HealthIcon",
+									"sid": 178755565270535,
+									"parameters": {
+										"instance-variable": "Player"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-size",
+									"objectClass": "HealthIcon",
+									"sid": 769239728315192,
+									"parameters": {
+										"width": "lerp(HealthIcon.Width,HealthIcon.LerpSize,0.1)",
+										"height": "lerp(HealthIcon.Height,HealthIcon.LerpSize,0.1)"
+									}
+								}
+							],
+							"sid": 616765749204592
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "HealthIcon",
+									"sid": 114869804384599,
+									"parameters": {
+										"instance-variable": "Player"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-size",
+									"objectClass": "HealthIcon",
+									"sid": 548473391573937,
+									"parameters": {
+										"width": "lerp(HealthIcon.Width,-HealthIcon.LerpSize,0.1)",
+										"height": "lerp(HealthIcon.Height,HealthIcon.LerpSize,0.1)"
+									}
+								}
+							],
+							"sid": 807356996632191
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 460261188093977,
+							"parameters": {
+								"variable": "Finished"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-layer-opacity",
+							"objectClass": "System",
+							"sid": 984781557447948,
+							"parameters": {
+								"layer": "2",
+								"opacity": "lerp(LayerOpacity(2),0,0.4)"
+							}
+						},
+						{
+							"id": "set-layer-opacity",
+							"objectClass": "System",
+							"sid": 493733823336773,
+							"parameters": {
+								"layer": "1",
+								"opacity": "lerp(LayerOpacity(1),0,0.4)"
+							}
+						},
+						{
+							"id": "set-layer-opacity",
+							"objectClass": "System",
+							"sid": 923602483857179,
+							"parameters": {
+								"layer": "0",
+								"opacity": "lerp(LayerOpacity(0),0,0.4)"
+							}
+						}
+					],
+					"sid": 407430345316080
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 676512080805315,
+							"parameters": {
+								"first-value": "StageObjectStandIn.Count",
+								"comparison": 4,
+								"second-value": "0"
+							}
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 786239565341227,
+							"parameters": {
+								"variable": "Finished"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-layer-opacity",
+							"objectClass": "System",
+							"sid": 437435132951596,
+							"parameters": {
+								"layer": "2",
+								"opacity": "lerp(LayerOpacity(2),100,0.1)"
+							}
+						},
+						{
+							"id": "set-layer-opacity",
+							"objectClass": "System",
+							"sid": 802322108942452,
+							"parameters": {
+								"layer": "1",
+								"opacity": "lerp(LayerOpacity(1),100,0.1)"
+							}
+						},
+						{
+							"id": "set-layer-opacity",
+							"objectClass": "System",
+							"sid": 515438408145308,
+							"parameters": {
+								"layer": "0",
+								"opacity": "lerp(LayerOpacity(0),100,0.1)"
+							}
+						}
+					],
+					"sid": 582106163748470
+				}
+			]
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Miss",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-y",
+							"objectClass": "Note",
+							"sid": 716550042890139,
+							"parameters": {
+								"comparison": 2,
+								"y-co-ordinate": "(Note.Height / 2 + 10) - ((Note.Height / 2 + 10) * 2)"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "Note",
+							"sid": 127440982072464
+						},
+						{
+							"id": "stop-timer",
+							"objectClass": "Timer",
+							"sid": 875556112018722,
+							"behaviorType": "Timer",
+							"parameters": {
+								"tag": "\"muted\""
+							}
+						},
+						{
+							"id": "start-timer",
+							"objectClass": "Timer",
+							"sid": 704350226428239,
+							"behaviorType": "Timer",
+							"parameters": {
+								"duration": "3",
+								"type": "once",
+								"tag": "\"muted\""
+							}
+						},
+						{
+							"id": "set-volume",
+							"objectClass": "Audio",
+							"sid": 623330025640544,
+							"parameters": {
+								"tag": "\"Singing Voice\"",
+								"db": "-1000"
+							}
+						}
+					],
+					"sid": 113466876085465,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 477301497979415,
+									"parameters": {
+										"variable": "DownScroll"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-x",
+									"objectClass": "HealthSlider",
+									"sid": 229243392455808,
+									"parameters": {
+										"x": "HealthSlider.X - 15"
+									}
+								}
+							],
+							"sid": 623829093324331
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 762010755418492
+								}
+							],
+							"actions": [
+								{
+									"id": "set-x",
+									"objectClass": "HealthSlider",
+									"sid": 926134859881345,
+									"parameters": {
+										"x": "HealthSlider.X + 15"
+									}
+								}
+							],
+							"sid": 715063864141660
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-y",
+							"objectClass": "NoteTrail",
+							"sid": 852745110073930,
+							"parameters": {
+								"comparison": 2,
+								"y-co-ordinate": "(NoteTrail.Height / 2 + 10) - ((NoteTrail.Height / 2 + 10) * 2)"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "NoteTrail",
+							"sid": 623633199779293
+						},
+						{
+							"id": "start-timer",
+							"objectClass": "Timer",
+							"sid": 776762708477386,
+							"behaviorType": "Timer",
+							"parameters": {
+								"duration": "3",
+								"type": "once",
+								"tag": "\"muted\""
+							}
+						},
+						{
+							"id": "set-volume",
+							"objectClass": "Audio",
+							"sid": 167005771505677,
+							"parameters": {
+								"tag": "\"Singing Voice\"",
+								"db": "-1000"
+							}
+						}
+					],
+					"sid": 372944528474388,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 383689887511925,
+									"parameters": {
+										"variable": "DownScroll"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-x",
+									"objectClass": "HealthSlider",
+									"sid": 243519792372474,
+									"parameters": {
+										"x": "HealthSlider.X - (5/3)"
+									}
+								}
+							],
+							"sid": 318310237511067
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 588528196319065
+								}
+							],
+							"actions": [
+								{
+									"id": "set-x",
+									"objectClass": "HealthSlider",
+									"sid": 710579520774541,
+									"parameters": {
+										"x": "HealthSlider.X + (5/3)"
+									}
+								}
+							],
+							"sid": 683744016802232
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-y",
+							"objectClass": "NoteCap",
+							"sid": 350229041929805,
+							"parameters": {
+								"comparison": 2,
+								"y-co-ordinate": "(NoteCap.Height / 2 + 10) - ((NoteCap.Height / 2 + 10) * 2)"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "NoteCap",
+							"sid": 244288373782509
+						},
+						{
+							"id": "stop-timer",
+							"objectClass": "Timer",
+							"sid": 619740225229148,
+							"behaviorType": "Timer",
+							"parameters": {
+								"tag": "\"muted\""
+							}
+						},
+						{
+							"id": "start-timer",
+							"objectClass": "Timer",
+							"sid": 245037369489495,
+							"behaviorType": "Timer",
+							"parameters": {
+								"duration": "3",
+								"type": "once",
+								"tag": "\"muted\""
+							}
+						},
+						{
+							"id": "set-volume",
+							"objectClass": "Audio",
+							"sid": 683680270159110,
+							"parameters": {
+								"tag": "\"Singing Voice\"",
+								"db": "-1000"
+							}
+						}
+					],
+					"sid": 695177034629571,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 990948630536477,
+									"parameters": {
+										"variable": "DownScroll"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-x",
+									"objectClass": "HealthSlider",
+									"sid": 611010149266589,
+									"parameters": {
+										"x": "HealthSlider.X - (5/3)"
+									}
+								}
+							],
+							"sid": 913649624805352
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 632994546998560
+								}
+							],
+							"actions": [
+								{
+									"id": "set-x",
+									"objectClass": "HealthSlider",
+									"sid": 715454169587842,
+									"parameters": {
+										"x": "HealthSlider.X + (5/3)"
+									}
+								}
+							],
+							"sid": 875671600726310
+						}
+					]
+				}
+			],
+			"sid": 719984841623679
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-parse-error",
+					"objectClass": "MapLoader",
+					"sid": 451126057358649
+				}
+			],
+			"actions": [
+				{
+					"id": "alert",
+					"objectClass": "Browser",
+					"sid": 229441563117468,
+					"parameters": {
+						"message": "\"Error reading map json file!\" & newline & \"This could be caused be a minified json file\""
+					}
+				},
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 982541342614503,
+					"parameters": {
+						"layout": "FreePlayMenu"
+					}
+				}
+			],
+			"sid": 381111157412440
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-ended",
+					"objectClass": "Audio",
+					"sid": 606466934907712,
+					"parameters": {
+						"tag": "\"Back\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 102652445045899,
+					"parameters": {
+						"seconds": "0.2"
+					}
+				}
+			],
+			"sid": 609276732191116,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-layer-opacity",
+							"objectClass": "System",
+							"sid": 230069591466414,
+							"parameters": {
+								"layer": "2",
+								"comparison": 4,
+								"opacity": "50 "
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 237118189275309,
+							"parameters": {
+								"variable": "Finished",
+								"value": "true"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 425016674665937,
+							"parameters": {
+								"seconds": "1"
+							}
+						},
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 523590420627822,
+							"parameters": {
+								"layout": "FreePlayMenu"
+							}
+						}
+					],
+					"sid": 117219993993548
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-tag-playing",
+					"objectClass": "Audio",
+					"sid": 997821397350509,
+					"parameters": {
+						"tag": "\"Back\""
+					}
+				}
+			],
+			"actions": [],
+			"sid": 746550321521290,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 763459496731312,
+							"parameters": {
+								"interval-seconds": "(60000 / BPM) /1000"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 734922651184066,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 602816744098254,
+									"parameters": {
+										"object": "HealthIcon"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 510056776117432,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 412468700043412,
+											"parameters": {
+												"variable": "DownScroll"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [],
+									"sid": 347430067897430,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-boolean-instance-variable-set",
+													"objectClass": "HealthIcon",
+													"sid": 646570742510219,
+													"parameters": {
+														"instance-variable": "Player"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-size",
+													"objectClass": "HealthIcon",
+													"sid": 617911985917147,
+													"parameters": {
+														"width": "90",
+														"height": "90"
+													}
+												}
+											],
+											"sid": 655071569601476
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-boolean-instance-variable-set",
+													"objectClass": "HealthIcon",
+													"sid": 669915801017165,
+													"parameters": {
+														"instance-variable": "Player"
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [
+												{
+													"id": "set-size",
+													"objectClass": "HealthIcon",
+													"sid": 784718543561335,
+													"parameters": {
+														"width": "-90",
+														"height": "90"
+													}
+												}
+											],
+											"sid": 401694830928506
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 366679399203811,
+											"parameters": {
+												"variable": "DownScroll"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 435543647708672,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-boolean-instance-variable-set",
+													"objectClass": "HealthIcon",
+													"sid": 295059682737198,
+													"parameters": {
+														"instance-variable": "Player"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-size",
+													"objectClass": "HealthIcon",
+													"sid": 957814292914850,
+													"parameters": {
+														"width": "90",
+														"height": "90"
+													}
+												}
+											],
+											"sid": 240198064148153
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-boolean-instance-variable-set",
+													"objectClass": "HealthIcon",
+													"sid": 231347813282805,
+													"parameters": {
+														"instance-variable": "Player"
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [
+												{
+													"id": "set-size",
+													"objectClass": "HealthIcon",
+													"sid": 303867918947966,
+													"parameters": {
+														"width": "-90",
+														"height": "90"
+													}
+												}
+											],
+											"sid": 330414254060866
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 850436415915363,
+							"parameters": {
+								"interval-seconds": "((60000 / BPM) /1000) * 2"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation-frame",
+							"objectClass": "PhillyWin",
+							"sid": 584067345004690,
+							"parameters": {
+								"frame-number": "choose(0,1,2,3,4)"
+							}
+						}
+					],
+					"sid": 519854435902509
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 895235151391119,
+							"parameters": {
+								"interval-seconds": "((60000 / BPM) /1000) * 4"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-layer-scale",
+							"objectClass": "System",
+							"sid": 383802398500722,
+							"parameters": {
+								"layer": "3",
+								"scale": "CamZoom + 0.02"
+							}
+						},
+						{
+							"id": "set-layer-scale",
+							"objectClass": "System",
+							"sid": 128946983472608,
+							"parameters": {
+								"layer": "1",
+								"scale": "CamZoom + 0.02"
+							}
+						},
+						{
+							"id": "set-layer-scale",
+							"objectClass": "System",
+							"sid": 382619967092009,
+							"parameters": {
+								"layer": "0",
+								"scale": "CamZoom + 0.02"
+							}
+						}
+					],
+					"sid": 664921794038248
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 274316130747992,
+					"parameters": {
+						"variable": "DownScroll"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 439756584620870,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 269407517615401,
+							"parameters": {
+								"first-value": "distance(HealthSlider.X,HealthSlider.Y,HealthBar.X,HealthBar.Y)",
+								"comparison": 4,
+								"second-value": "(HealthBar.Width / 2) - 7"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 162725771196859,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 396790140639791,
+									"parameters": {
+										"first-value": "HealthSlider.X ",
+										"comparison": 2,
+										"second-value": "HealthBar.X"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 337384819672156,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 586351621585292
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "Game Over",
+											"sid": 363241678115373
+										}
+									],
+									"sid": 354988380678985
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 871573944743654,
+					"parameters": {
+						"variable": "DownScroll"
+					},
+					"isInverted": true
+				}
+			],
+			"actions": [],
+			"sid": 763740378058693,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 836960939667801,
+							"parameters": {
+								"first-value": "distance(HealthSlider.X,HealthSlider.Y,HealthBar.X,HealthBar.Y)",
+								"comparison": 4,
+								"second-value": "(HealthBar.Width / 2) - 7"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 418842346137892,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 400724592788152,
+									"parameters": {
+										"first-value": "HealthSlider.X ",
+										"comparison": 4,
+										"second-value": "HealthBar.X"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 105955182563641,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "trigger-once-while-true",
+											"objectClass": "System",
+											"sid": 533457442991878
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "Game Over",
+											"sid": 777951010928700
+										}
+									],
+									"sid": 959482457810020
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-timer",
+					"objectClass": "Timer",
+					"sid": 890486326381741,
+					"behaviorType": "Timer",
+					"parameters": {
+						"tag": "\"muted\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-volume",
+					"objectClass": "Audio",
+					"sid": 392950534494432,
+					"parameters": {
+						"tag": "\"Singing Voice\"",
+						"db": "SoundLevel"
+					}
+				}
+			],
+			"sid": 183330899980714
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 405463036569951,
+					"parameters": {
+						"first-value": "distance(HealthSlider.X,HealthSlider.Y,HealthBar.X,HealthBar.Y)",
+						"comparison": 4,
+						"second-value": "HealthBar.Width *0.15"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 701216962048421,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 511463878600426,
+							"parameters": {
+								"variable": "DownScroll"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 295404452627812,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-x",
+									"objectClass": "HealthSlider",
+									"sid": 763638498424765,
+									"parameters": {
+										"comparison": 2,
+										"x-co-ordinate": "HealthBar.X"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 278528122268276,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "HealthIcon",
+											"sid": 148224827431417,
+											"parameters": {
+												"instance-variable": "Player"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation-frame",
+											"objectClass": "HealthIcon",
+											"sid": 276245647270340,
+											"parameters": {
+												"frame-number": "1"
+											}
+										}
+									],
+									"sid": 965866156006814
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "HealthIcon",
+											"sid": 991295348138868,
+											"parameters": {
+												"instance-variable": "Player"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation-frame",
+											"objectClass": "HealthIcon",
+											"sid": 700841796317887,
+											"parameters": {
+												"frame-number": "0"
+											}
+										}
+									],
+									"sid": 139160415358776
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-x",
+									"objectClass": "HealthSlider",
+									"sid": 814001512049176,
+									"parameters": {
+										"comparison": 4,
+										"x-co-ordinate": "HealthBar.X"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 203191999572168,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "HealthIcon",
+											"sid": 588008659121078,
+											"parameters": {
+												"instance-variable": "Player"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation-frame",
+											"objectClass": "HealthIcon",
+											"sid": 470784106372048,
+											"parameters": {
+												"frame-number": "1"
+											}
+										}
+									],
+									"sid": 135572971768565
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "HealthIcon",
+											"sid": 495960779422371,
+											"parameters": {
+												"instance-variable": "Player"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation-frame",
+											"objectClass": "HealthIcon",
+											"sid": 743367973688368,
+											"parameters": {
+												"frame-number": "0"
+											}
+										}
+									],
+									"sid": 991764640261727
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 811584585224488,
+							"parameters": {
+								"variable": "DownScroll"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [],
+					"sid": 374638366577893,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-x",
+									"objectClass": "HealthSlider",
+									"sid": 945148841973079,
+									"parameters": {
+										"comparison": 4,
+										"x-co-ordinate": "HealthBar.X"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 692164071340591,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "HealthIcon",
+											"sid": 246986707195164,
+											"parameters": {
+												"instance-variable": "Player"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation-frame",
+											"objectClass": "HealthIcon",
+											"sid": 792519850173020,
+											"parameters": {
+												"frame-number": "1"
+											}
+										}
+									],
+									"sid": 561598525861369
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "HealthIcon",
+											"sid": 326877788694546,
+											"parameters": {
+												"instance-variable": "Player"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation-frame",
+											"objectClass": "HealthIcon",
+											"sid": 524212026923316,
+											"parameters": {
+												"frame-number": "0"
+											}
+										}
+									],
+									"sid": 661955494310239
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-x",
+									"objectClass": "HealthSlider",
+									"sid": 775680867115791,
+									"parameters": {
+										"comparison": 2,
+										"x-co-ordinate": "HealthBar.X"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 623016974644220,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "HealthIcon",
+											"sid": 368464344950493,
+											"parameters": {
+												"instance-variable": "Player"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation-frame",
+											"objectClass": "HealthIcon",
+											"sid": 816883494573688,
+											"parameters": {
+												"frame-number": "1"
+											}
+										}
+									],
+									"sid": 489125015436619
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "HealthIcon",
+											"sid": 307267718185490,
+											"parameters": {
+												"instance-variable": "Player"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation-frame",
+											"objectClass": "HealthIcon",
+											"sid": 405559455301469,
+											"parameters": {
+												"frame-number": "0"
+											}
+										}
+									],
+									"sid": 550759631110387
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "else",
+					"objectClass": "System",
+					"sid": 326589235003048
+				}
+			],
+			"actions": [],
+			"sid": 229590643914831,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 953750990175604,
+							"parameters": {
+								"object": "HealthIcon"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation-frame",
+							"objectClass": "HealthIcon",
+							"sid": 344686996157676,
+							"parameters": {
+								"frame-number": "0"
+							}
+						}
+					],
+					"sid": 157587957008017
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-tag-playing",
+					"objectClass": "Audio",
+					"sid": 605394334138449,
+					"parameters": {
+						"tag": "\"Back\""
+					}
+				},
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 810702123455171,
+					"parameters": {
+						"first-value": "Audio.PlaybackTime(\"Back\")",
+						"comparison": 2,
+						"second-value": "1"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 290358844164831,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 756919546475644,
+							"parameters": {
+								"first-value": "Note.Count",
+								"comparison": 0,
+								"second-value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "alert",
+							"objectClass": "Browser",
+							"sid": 266182944260379,
+							"parameters": {
+								"message": "\"Fuck \" & newline & \"Error Code: 001 Notes failed to be created!\""
+							}
+						},
+						{
+							"id": "stop-all",
+							"objectClass": "Audio",
+							"sid": 937756481390639
+						},
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 597730610601652,
+							"parameters": {
+								"layout": "FreePlayMenu"
+							}
+						}
+					],
+					"sid": 727091955219949
+				}
+			]
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Player 2",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "P2Idle",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 677332804945934
+				},
+				{
+					"functionName": "Play Enemy Animation",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "Animation",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 338483192203821
+						},
+						{
+							"name": "Idle",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 275320722756831
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "stop-timer",
+							"objectClass": "Timer",
+							"sid": 478859060375579,
+							"behaviorType": "Timer",
+							"parameters": {
+								"tag": "\"P2 Dance\""
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "Player2",
+							"sid": 909236897658002,
+							"parameters": {
+								"animation": "Idle",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "Player2",
+							"sid": 336399731139220,
+							"parameters": {
+								"animation": "Animation",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "start-timer",
+							"objectClass": "Timer",
+							"sid": 329116622930809,
+							"disabled": true,
+							"behaviorType": "Timer",
+							"parameters": {
+								"duration": "0.4",
+								"type": "once",
+								"tag": "\"P2 Dance\""
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 859091087690691,
+							"parameters": {
+								"variable": "P2Idle",
+								"value": "P2IdleAnim"
+							}
+						}
+					],
+					"sid": 741110899671348
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-animation-finished",
+							"objectClass": "Player2",
+							"sid": 967047757056892,
+							"parameters": {
+								"animation": "replace(MapLoader.Get(\"song.player2\"),\"-car\",\"\") & \"_\" & \"up\""
+							}
+						},
+						{
+							"id": "on-animation-finished",
+							"objectClass": "Player2",
+							"sid": 196533277268894,
+							"parameters": {
+								"animation": "replace(MapLoader.Get(\"song.player2\"),\"-car\",\"\") & \"_\" & \"down\""
+							}
+						},
+						{
+							"id": "on-animation-finished",
+							"objectClass": "Player2",
+							"sid": 476095064906490,
+							"parameters": {
+								"animation": "replace(MapLoader.Get(\"song.player2\"),\"-car\",\"\") & \"_\" & \"left\""
+							}
+						},
+						{
+							"id": "on-animation-finished",
+							"objectClass": "Player2",
+							"sid": 992740570149257,
+							"parameters": {
+								"animation": "replace(MapLoader.Get(\"song.player2\"),\"-car\",\"\") & \"_\" & \"right\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Player2",
+							"sid": 611349689407784,
+							"parameters": {
+								"animation": "P2IdleAnim",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 427228672227667,
+					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 740948548432170
+						}
+					],
+					"actions": [],
+					"sid": 443353751579103,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 430029758660156,
+									"parameters": {
+										"first-value": "MapLoader.Get(\"song.player2\")",
+										"comparison": 0,
+										"second-value": "\"tankman\""
+									}
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 459779466896536,
+									"parameters": {
+										"first-value": "MapLoader.Get(\"song.player2\")",
+										"comparison": 0,
+										"second-value": "\"pico\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-mirrored",
+									"objectClass": "Player2",
+									"sid": 422106845005854,
+									"parameters": {
+										"state": "mirrored"
+									}
+								}
+							],
+							"sid": 717011736351590,
+							"isOrBlock": true
+						}
+					]
+				}
+			],
+			"sid": 439254340924311
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Dialog",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-completed",
+							"objectClass": "AJAX",
+							"sid": 945707853698831,
+							"parameters": {
+								"tag": "\"Speech\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 355231351816764,
+							"parameters": {
+								"variable": "Dialog",
+								"value": "true"
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "SpeechBubble",
+							"sid": 115833772304121,
+							"parameters": {
+								"animation": "\"Open\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 454149939852542
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-error",
+							"objectClass": "AJAX",
+							"sid": 213278803058978,
+							"parameters": {
+								"tag": "\"Speech\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "request-project-file",
+							"objectClass": "AJAX",
+							"sid": 639086674871907,
+							"parameters": {
+								"tag": "\"Speech\"",
+								"file": "Speech Reset.txt"
+							}
+						}
+					],
+					"sid": 781575734317239
+				},
+				{
+					"eventType": "variable",
+					"name": "Number",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 420964336086224
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 316723127924837,
+							"parameters": {
+								"variable": "Dialog"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 208837103215047,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-animation-finished",
+									"objectClass": "SpeechBubble",
+									"sid": 541994079887797,
+									"parameters": {
+										"animation": "\"Open\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "DialogText",
+									"sid": 764396312543224,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "SpeechBubble",
+									"sid": 526172019220503,
+									"parameters": {
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "SpeechBubble",
+									"sid": 137523200152125,
+									"parameters": {
+										"animation": "\"Default\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "typewriter-text",
+									"objectClass": "DialogText",
+									"sid": 549213950965760,
+									"parameters": {
+										"text": "tokenat(tokenat(AJAX.LastData,0,newline),2,\":\")",
+										"duration": "0.05 * len(tokenat(tokenat(AJAX.LastData,0,newline),2,\":\"))"
+									}
+								},
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 622243808202397,
+									"parameters": {
+										"type": "log",
+										"message": "tokenat(tokenat(AJAX.LastData,0,newline),1,\":\")"
+									}
+								},
+								{
+									"callFunction": "Dialog Rotation",
+									"sid": 677048197820655,
+									"parameters": [
+										"tokenat(tokenat(AJAX.LastData,0,newline),1,\":\")"
+									]
+								}
+							],
+							"sid": 580231864130416,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 227242202060959,
+											"parameters": {
+												"first-value": "tokenat(tokenat(AJAX.LastData,0,newline),1,\":\")",
+												"comparison": 0,
+												"second-value": "\"K\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-visible",
+											"objectClass": "SpeechBubble",
+											"sid": 811614326651008,
+											"parameters": {
+												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "SpeechBubble",
+											"sid": 151359654781352,
+											"parameters": {
+												"animation": "\"Close\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-animation-speed",
+											"objectClass": "SpeechBubble",
+											"sid": 433163333433680,
+											"parameters": {
+												"speed": "1000"
+											}
+										}
+									],
+									"sid": 216318336904068
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-any-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 429445732727514
+								},
+								{
+									"id": "is-visible",
+									"objectClass": "SpeechBubble",
+									"sid": 581647665427892
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 231466314623071,
+									"parameters": {
+										"variable": "DialogNumber",
+										"value": "1"
+									}
+								},
+								{
+									"id": "typewriter-text",
+									"objectClass": "DialogText",
+									"sid": 302413455908824,
+									"parameters": {
+										"text": "tokenat(tokenat(AJAX.LastData,DialogNumber,newline),2,\":\")",
+										"duration": "0.05 * len(tokenat(tokenat(AJAX.LastData,DialogNumber,newline),2,\":\"))"
+									}
+								},
+								{
+									"callFunction": "Dialog Rotation",
+									"sid": 789801808810296,
+									"parameters": [
+										"tokenat(tokenat(AJAX.LastData,DialogNumber,newline),1,\":\")"
+									]
+								}
+							],
+							"sid": 971150687323413
+						}
+					]
+				},
+				{
+					"functionName": "Dialog Rotation",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "Bruh",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 290053513333988
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 113232008774790,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 831428945023004,
+									"parameters": {
+										"first-value": "Bruh",
+										"comparison": 0,
+										"second-value": "\"bf\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-mirrored",
+									"objectClass": "SpeechBubble",
+									"sid": 288663696793243,
+									"parameters": {
+										"state": "not-mirrored"
+									}
+								}
+							],
+							"sid": 802670993381944
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 643388096068141,
+									"parameters": {
+										"first-value": "Bruh",
+										"comparison": 0,
+										"second-value": "\"dad\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-mirrored",
+									"objectClass": "SpeechBubble",
+									"sid": 791288077505609,
+									"parameters": {
+										"state": "mirrored"
+									}
+								}
+							],
+							"sid": 314053915386825
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 712126331094079,
+									"parameters": {
+										"first-value": "Bruh",
+										"comparison": 0,
+										"second-value": "\"\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 728760969928581,
+									"parameters": {
+										"variable": "Dialog",
+										"value": "false"
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "SpeechBubble",
+									"sid": 547805772347847,
+									"parameters": {
+										"animation": "\"Close\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 582685518814033
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-animation-finished",
+							"objectClass": "SpeechBubble",
+							"sid": 921919754298822,
+							"parameters": {
+								"animation": "\"Close\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 472860904156364,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 288165944035909
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "SpeechBubble",
+									"sid": 107112282890647,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "DialogText",
+									"sid": 809982913232381,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"callFunction": "Start Game",
+									"sid": 781764507424646
+								}
+							],
+							"sid": 967050270994053
+						}
+					]
+				}
+			],
+			"sid": 201231014870482
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Scene Loading",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-completed",
+							"objectClass": "AJAX",
+							"sid": 904217977672974,
+							"parameters": {
+								"tag": "\"song\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Player",
+							"sid": 858074121325620,
+							"parameters": {
+								"animation": "MapLoader.Get(\"song.player1\")&\"-Idle\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "parse",
+							"objectClass": "MapLoader",
+							"sid": 180515686564467,
+							"parameters": {
+								"data": "AJAX.LastData"
+							}
+						},
+						{
+							"id": "parse",
+							"objectClass": "MapLoader",
+							"sid": 615891474047937,
+							"parameters": {
+								"data": "MapLoader.ToCompactString"
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "Player2",
+							"sid": 490089015185076,
+							"parameters": {
+								"animation": "replace(MapLoader.Get(\"song.player2\"),\"-car\",\"\") & \"_\" & \"idle\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "preload",
+							"objectClass": "Audio",
+							"sid": 577246790192015,
+							"parameters": {
+								"audio-file": "intro1"
+							}
+						},
+						{
+							"id": "preload",
+							"objectClass": "Audio",
+							"sid": 388063726364651,
+							"parameters": {
+								"audio-file": "intro2"
+							}
+						},
+						{
+							"id": "preload",
+							"objectClass": "Audio",
+							"sid": 750766323428572,
+							"parameters": {
+								"audio-file": "intro3"
+							}
+						},
+						{
+							"id": "preload",
+							"objectClass": "Audio",
+							"sid": 955914485310782,
+							"parameters": {
+								"audio-file": "introGo"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 383117209608017,
+							"parameters": {
+								"variable": "SongSpeed",
+								"value": "MapLoader.Get(\"song.speed\") * 10"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 925623725036130,
+							"parameters": {
+								"variable": "SongSpeed",
+								"value": "int(SongSpeed) / 10"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 566097431240579,
+							"parameters": {
+								"variable": "BPM",
+								"value": "MapLoader.Get(\"song.bpm\")"
+							}
+						},
+						{
+							"callFunction": "Generate Map",
+							"sid": 742787406074740
+						}
+					],
+					"sid": 838123994628294,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 636637719556943,
+									"parameters": {
+										"variable": "IsURL"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "Text",
+									"sid": 898035712531385,
+									"parameters": {
+										"text": "replace(ModURL,\".json\",\"\") & \" | \" & \"C3 Engine\" & \" | \" & \"Pre-Alpha!\""
+									}
+								}
+							],
+							"sid": 585346008284946
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 868821653124836
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "Text",
+									"sid": 540855989336043,
+									"parameters": {
+										"text": "replace(SongPassthrough,\".json\",\"\") & \" | \" & \"C3 Engine\" & \" | \" & \"Pre-Alpha!\""
+									}
+								},
+								{
+									"id": "preload-by-name",
+									"objectClass": "Audio",
+									"sid": 725583933849516,
+									"parameters": {
+										"folder": "music",
+										"audio-file-name": "lowercase(MapLoader.Get(\"song.song\")) & \"_Voices\""
+									}
+								},
+								{
+									"id": "preload-by-name",
+									"objectClass": "Audio",
+									"sid": 749821245411939,
+									"parameters": {
+										"folder": "music",
+										"audio-file-name": "lowercase(MapLoader.Get(\"song.song\")) & \"_Inst\""
+									}
+								}
+							],
+							"sid": 868836493614541
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "has-key",
+									"objectClass": "MapLoader",
+									"sid": 519327429116962,
+									"parameters": {
+										"path": "\"notes\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 730187592326885,
+									"parameters": {
+										"variable": "NotePath",
+										"value": "\"\""
+									}
+								},
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 601127865277867,
+									"parameters": {
+										"type": "log",
+										"message": "\"Map Base = NEW\""
+									}
+								}
+							],
+							"sid": 559675118646642
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 967853766883647
+								}
+							],
+							"actions": [
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 438668538863922,
+									"parameters": {
+										"type": "log",
+										"message": "\"Map Base = OLD\""
+									}
+								}
+							],
+							"sid": 566232713167557
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 549304794284388,
+									"parameters": {
+										"object": "HealthIcon"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-position-to-another-object",
+									"objectClass": "HealthIcon",
+									"sid": 387375111587000,
+									"parameters": {
+										"object": "HealthSlider",
+										"image-point-optional": "0"
+									}
+								}
+							],
+							"sid": 731480456192762,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "HealthIcon",
+											"sid": 378457587269160,
+											"parameters": {
+												"instance-variable": "Player"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-width",
+											"objectClass": "HealthIcon",
+											"sid": 742204845244494,
+											"parameters": {
+												"width": "-HealthIcon.Width"
+											}
+										}
+									],
+									"sid": 518081057035683
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 627240341965695,
+											"parameters": {
+												"variable": "DownScroll"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "rotate-counter-clockwise",
+											"objectClass": "HealthIcon",
+											"sid": 536319876677903,
+											"parameters": {
+												"degrees": "180"
+											}
+										}
+									],
+									"sid": 546303106299206
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "HealthIcon",
+											"sid": 305395993781035,
+											"parameters": {
+												"instance-variable": "Player"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "HealthIcon",
+											"sid": 857760473086287,
+											"parameters": {
+												"animation": "replace(MapLoader.Get(\"song.player2\"),\"-car\",\"\")",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-animation-frame",
+											"objectClass": "HealthIcon",
+											"sid": 368563425794111,
+											"parameters": {
+												"frame-number": "0"
+											}
+										}
+									],
+									"sid": 564222406484008
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "HealthIcon",
+											"sid": 197173392706449,
+											"parameters": {
+												"instance-variable": "Player"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "HealthIcon",
+											"sid": 296995353867976,
+											"parameters": {
+												"animation": "\"BF\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-animation-frame",
+											"objectClass": "HealthIcon",
+											"sid": 146589852990452,
+											"parameters": {
+												"frame-number": "0"
+											}
+										}
+									],
+									"sid": 900089471796566
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [],
+							"sid": 150111363970730
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 980105608095100,
+									"parameters": {
+										"variable": "SkipDialog"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "request-project-file",
+									"objectClass": "AJAX",
+									"sid": 683848021546685,
+									"parameters": {
+										"tag": "\"Speech\"",
+										"file": "Speech Reset.txt"
+									}
+								}
+							],
+							"sid": 761989284347222
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 934911988569660,
+									"parameters": {
+										"variable": "SkipDialog"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "request-url",
+									"objectClass": "AJAX",
+									"sid": 965659032107403,
+									"parameters": {
+										"tag": "\"Speech\"",
+										"url": "tokenat(SongPassthrough,0,\"-\") & \"Dialogue.txt\""
+									}
+								}
+							],
+							"sid": 738673351416900
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-completed",
+							"objectClass": "AJAX",
+							"sid": 986130338378949,
+							"parameters": {
+								"tag": "\"Stage\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "load",
+							"objectClass": "Save",
+							"sid": 112357357453920,
+							"parameters": {
+								"json": "AJAX.LastData"
+							}
+						}
+					],
+					"sid": 162360624161746,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each-key",
+									"objectClass": "Save",
+									"sid": 291043083481956
+								}
+							],
+							"actions": [],
+							"sid": 418428211768683,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 358989565054998,
+											"parameters": {
+												"first-value": "tokenat(Save.CurrentKey,0,\" \")",
+												"comparison": 0,
+												"second-value": "\"Object\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "create-object",
+											"objectClass": "System",
+											"sid": 994612655023222,
+											"parameters": {
+												"object-to-create": "StageObjectStandIn",
+												"layer": "0",
+												"x": "int(tokenat(Save.CurrentValue,0,\":\"))",
+												"y": "int(tokenat(Save.CurrentValue,1,\":\"))",
+												"create-hierarchy": false
+											}
+										},
+										{
+											"id": "set-enabled",
+											"objectClass": "StageObjectStandIn",
+											"sid": 763693819821858,
+											"behaviorType": "DragDrop",
+											"parameters": {
+												"state": "disabled"
+											}
+										},
+										{
+											"id": "set-z-elevation",
+											"objectClass": "StageObjectStandIn",
+											"sid": 939761263171245,
+											"parameters": {
+												"z": "int(tokenat(Save.CurrentValue,2,\":\"))"
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "StageObjectStandIn",
+											"sid": 442221553910742,
+											"parameters": {
+												"animation": "tokenat(Save.CurrentValue,3,\":\")",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-z-elevation",
+											"objectClass": "ReadySetGo",
+											"sid": 273901727662643,
+											"parameters": {
+												"z": "int(tokenat(Save.CurrentValue,2,\":\")) + 2"
+											}
+										}
+									],
+									"sid": 813597660970329,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "is-animation-playing",
+													"objectClass": "StageObjectStandIn",
+													"sid": 440248843259976,
+													"parameters": {
+														"animation": "\"philly-city\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "spawn-another-object",
+													"objectClass": "StageObjectStandIn",
+													"sid": 859644550096934,
+													"parameters": {
+														"object": "PhillyWin",
+														"layer": "0",
+														"image-point": "0",
+														"create-hierarchy": false
+													}
+												},
+												{
+													"id": "set-z-elevation",
+													"objectClass": "PhillyWin",
+													"sid": 309743100298555,
+													"parameters": {
+														"z": "StageObjectStandIn.ZElevation+0.1"
+													}
+												},
+												{
+													"id": "set-size",
+													"objectClass": "PhillyWin",
+													"sid": 667745488697162,
+													"parameters": {
+														"width": "PhillyWin.ImageWidth / 1.6",
+														"height": "PhillyWin.ImageHeight / 1.6"
+													}
+												}
+											],
+											"sid": 578679956793237
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 508719217157134,
+											"parameters": {
+												"first-value": "tokenat(Save.CurrentKey,0,\" \")",
+												"comparison": 0,
+												"second-value": "\"BF\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-position",
+											"objectClass": "Player",
+											"sid": 420643008235612,
+											"parameters": {
+												"x": "int(tokenat(Save.CurrentValue,0,\" \"))",
+												"y": "int(tokenat(Save.CurrentValue,1,\" \"))"
+											}
+										},
+										{
+											"id": "set-z-elevation",
+											"objectClass": "Player",
+											"sid": 551575087230910,
+											"parameters": {
+												"z": "int(tokenat(Save.CurrentValue,2,\" \"))"
+											}
+										}
+									],
+									"sid": 373369471610862
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 827549330426708,
+											"parameters": {
+												"first-value": "tokenat(Save.CurrentKey,0,\" \")",
+												"comparison": 0,
+												"second-value": "\"GF\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-position",
+											"objectClass": "gf",
+											"sid": 468659353676953,
+											"parameters": {
+												"x": "int(tokenat(Save.CurrentValue,0,\" \"))",
+												"y": "int(tokenat(Save.CurrentValue,1,\" \"))"
+											}
+										},
+										{
+											"id": "set-z-elevation",
+											"objectClass": "gf",
+											"sid": 680809921023580,
+											"parameters": {
+												"z": "int(tokenat(Save.CurrentValue,2,\" \"))"
+											}
+										}
+									],
+									"sid": 501649693120250
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 546178596964553,
+											"parameters": {
+												"first-value": "tokenat(Save.CurrentKey,0,\" \")",
+												"comparison": 0,
+												"second-value": "\"P2\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-position",
+											"objectClass": "Player2",
+											"sid": 140553265832045,
+											"parameters": {
+												"x": "int(tokenat(Save.CurrentValue,0,\" \"))",
+												"y": "int(tokenat(Save.CurrentValue,1,\" \"))"
+											}
+										},
+										{
+											"id": "set-z-elevation",
+											"objectClass": "Player2",
+											"sid": 602997656622721,
+											"parameters": {
+												"z": "int(tokenat(Save.CurrentValue,2,\" \"))"
+											}
+										},
+										{
+											"id": "set-enabled",
+											"objectClass": "Player2",
+											"sid": 460521201969602,
+											"behaviorType": "DragDrop",
+											"parameters": {
+												"state": "disabled"
+											}
+										}
+									],
+									"sid": 478489367599537
+								}
+							]
+						}
+					]
+				}
+			],
+			"sid": 267644591697498
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Game Over",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "Game Over",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 259017478064804,
+							"parameters": {
+								"group-name": "\"Input\"",
+								"state": "deactivated"
+							}
+						},
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 686424757760811,
+							"parameters": {
+								"type": "log",
+								"message": "\"Failed\""
+							}
+						},
+						{
+							"id": "stop",
+							"objectClass": "Audio",
+							"sid": 776885181674090,
+							"parameters": {
+								"tag": "\"Back\""
+							}
+						},
+						{
+							"id": "stop",
+							"objectClass": "Audio",
+							"sid": 773222191672842,
+							"parameters": {
+								"tag": "\"Singing Voice\""
+							}
+						},
+						{
+							"id": "stop-timer",
+							"objectClass": "Timer",
+							"sid": 212266853214620,
+							"behaviorType": "Timer",
+							"parameters": {
+								"tag": "\"Song\""
+							}
+						},
+						{
+							"id": "stop-timer",
+							"objectClass": "Timer",
+							"sid": 688091474878314,
+							"behaviorType": "Timer",
+							"parameters": {
+								"tag": "\"Muted\""
+							}
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 910237322689087,
+							"parameters": {
+								"audio-file": "fnf_loss_sfx",
+								"loop": "not-looping",
+								"volume": "SoundLevel",
+								"tag-optional": "\"\""
+							}
+						},
+						{
+							"id": "spawn-another-object",
+							"objectClass": "Player",
+							"sid": 204237842150990,
+							"parameters": {
+								"object": "Playergameover",
+								"layer": "3",
+								"image-point": "0",
+								"create-hierarchy": false
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Player",
+							"sid": 395238741343979,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "Playergameover",
+							"sid": 485547099437011,
+							"parameters": {
+								"animation": "\"Die\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 314204531582404,
+							"parameters": {
+								"variable": "Finished",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 537873078546100,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 601486430671893,
+									"parameters": {
+										"variable": "SchoolVer"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "spawn-another-object",
+									"objectClass": "Playergameover",
+									"sid": 663232958384623,
+									"parameters": {
+										"object": "CensorBar",
+										"layer": "3",
+										"image-point": "1",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "add-child",
+									"objectClass": "Playergameover",
+									"sid": 303344008864179,
+									"parameters": {
+										"child": "CensorBar",
+										"transform-x": true,
+										"transform-y": true,
+										"transform-w": true,
+										"transform-h": true,
+										"transform-a": true,
+										"transform-z-elevation": true,
+										"destroy-with-parent": false
+									}
+								}
+							],
+							"sid": 921056047103003
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-animation-finished",
+							"objectClass": "Playergameover",
+							"sid": 567830138823925,
+							"parameters": {
+								"animation": "\"Die\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Playergameover",
+							"sid": 736764750125173,
+							"parameters": {
+								"animation": "\"Waiting\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 918022555372867
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-animation-playing",
+							"objectClass": "Playergameover",
+							"sid": 514557674538778,
+							"parameters": {
+								"animation": "\"Waiting\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 476087481582051,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 443196100491709
+								}
+							],
+							"actions": [
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 275948428076287,
+									"parameters": {
+										"audio-file": "gameOver",
+										"loop": "looping",
+										"volume": "SoundLevel",
+										"tag-optional": "\"GameOver\""
+									}
+								}
+							],
+							"sid": 691743024510895
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 282028951367335,
+									"parameters": {
+										"key": 13
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Playergameover",
+									"sid": 924353007738480,
+									"parameters": {
+										"animation": "\"Restart\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "stop",
+									"objectClass": "Audio",
+									"sid": 270166870186315,
+									"parameters": {
+										"tag": "\"GameOver\""
+									}
+								},
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 862335818215779,
+									"parameters": {
+										"audio-file": "gameOverEnd",
+										"loop": "not-looping",
+										"volume": "SoundLevel",
+										"tag-optional": "\"\""
+									}
+								}
+							],
+							"sid": 963559717708956
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 877920856527751,
+									"parameters": {
+										"key": 8
+									}
+								},
+								{
+									"id": "on-back-button",
+									"objectClass": "Browser",
+									"sid": 546173354360162
+								}
+							],
+							"actions": [
+								{
+									"id": "stop",
+									"objectClass": "Audio",
+									"sid": 433696898393891,
+									"parameters": {
+										"tag": "\"GameOver\""
+									}
+								},
+								{
+									"id": "stop",
+									"objectClass": "Audio",
+									"sid": 305359278150147,
+									"parameters": {
+										"tag": "\"Singing Voice\""
+									}
+								},
+								{
+									"id": "go-to-layout",
+									"objectClass": "System",
+									"sid": 558954327491408,
+									"parameters": {
+										"layout": "FreePlayMenu"
+									}
+								}
+							],
+							"sid": 165426441270291,
+							"isOrBlock": true
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-animation-playing",
+							"objectClass": "Playergameover",
+							"sid": 650414836319693,
+							"parameters": {
+								"animation": "\"Die\""
+							}
+						},
+						{
+							"id": "is-animation-playing",
+							"objectClass": "Playergameover",
+							"sid": 721629895691405,
+							"parameters": {
+								"animation": "\"Waiting\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position",
+							"objectClass": "Playergameover",
+							"sid": 406488416648436,
+							"parameters": {
+								"x": "lerp(Playergameover.X,ViewportWidth(2)/2,0.05)",
+								"y": "lerp(Playergameover.Y,ViewportHeight(2)/2 + (Playergameover.Height / 2),0.05)"
+							}
+						}
+					],
+					"sid": 932346532084118,
+					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-animation-finished",
+							"objectClass": "Playergameover",
+							"sid": 647502848031707,
+							"parameters": {
+								"animation": "\"Restart\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 275596034809820,
+							"parameters": {
+								"seconds": "1.0"
+							}
+						},
+						{
+							"id": "restart-layout",
+							"objectClass": "System",
+							"sid": 512254350799354
+						}
+					],
+					"sid": 340021701647078
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 728678051141815
+						}
+					],
+					"actions": [],
+					"sid": 801763519984520,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "Playergameover",
+									"sid": 635182233446038,
+									"parameters": {
+										"unique-id": "35"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "Playergameover",
+									"sid": 733230397039592
+								}
+							],
+							"sid": 101730083929424
+						}
+					]
+				}
+			],
+			"sid": 269046009664319
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Debug",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 152887508348408,
+							"parameters": {
+								"key": 55
+							}
+						}
+					],
+					"actions": [],
+					"sid": 953843482778341,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 672025782012798,
+									"parameters": {
+										"object": "Notes"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-enabled",
+									"objectClass": "Notes",
+									"sid": 184490282830450,
+									"behaviorType": "Rotate",
+									"parameters": {
+										"state": "enabled"
+									}
+								}
+							],
+							"sid": 320541668326306
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 687111643116550,
+							"parameters": {
+								"key": 96
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Game Over",
+							"sid": 255225345679732
+						}
+					],
+					"sid": 395666046925500
+				}
+			],
+			"sid": 121376687920966
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Start Game",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "Start Game",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 500574563212386,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 380326342147500,
+									"parameters": {
+										"seconds": "0.1"
+									}
+								},
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 427729928740702,
+									"parameters": {
+										"audio-file": "intro3",
+										"loop": "not-looping",
+										"volume": "SoundLevel",
+										"tag-optional": "\"\""
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 202442995972188,
+									"parameters": {
+										"seconds": "(60000 / BPM) /1000"
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "ReadySetGo",
+									"sid": 607867331939037,
+									"parameters": {
+										"animation": "\"ready\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 387024951275743,
+									"parameters": {
+										"audio-file": "intro2",
+										"loop": "not-looping",
+										"volume": "SoundLevel",
+										"tag-optional": "\"\""
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 357485579051940,
+									"parameters": {
+										"seconds": "(60000 / BPM) /1000"
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "ReadySetGo",
+									"sid": 947307308667635,
+									"parameters": {
+										"animation": "\"set\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 852836287958352,
+									"parameters": {
+										"audio-file": "intro1",
+										"loop": "not-looping",
+										"volume": "SoundLevel",
+										"tag-optional": "\"\""
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 611349729625854,
+									"parameters": {
+										"seconds": "(60000 / BPM) /1000"
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "ReadySetGo",
+									"sid": 314998919601998,
+									"parameters": {
+										"animation": "\"go\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 786035048121357,
+									"parameters": {
+										"audio-file": "introGo",
+										"loop": "not-looping",
+										"volume": "SoundLevel",
+										"tag-optional": "\"\""
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 573449886553153,
+									"parameters": {
+										"seconds": "(60000 / BPM) /1000"
+									}
+								},
+								{
+									"id": "start-timer",
+									"objectClass": "Timer",
+									"sid": 802072251968596,
+									"behaviorType": "Timer",
+									"parameters": {
+										"duration": "1.0",
+										"type": "regular",
+										"tag": "\"Song\""
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 731375118093627,
+									"parameters": {
+										"seconds": "distance(0,69,0,528) / (int(SongSpeed) * SongSpeedMultiplyer) /60"
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "gf",
+									"sid": 385758842569588,
+									"parameters": {
+										"animation": "\"Dance\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "set-animation-speed",
+									"objectClass": "gf",
+									"sid": 106902232937028,
+									"parameters": {
+										"speed": "((BPM / 60) / gf.AnimationFrameCount) * 450"
+									}
+								}
+							],
+							"sid": 656122823087193,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "play-by-name",
+											"objectClass": "Audio",
+											"sid": 795589260054617,
+											"parameters": {
+												"folder": "sounds",
+												"audio-file-name": "lowercase(MapLoader.Get(\"song.song\")) & \"_Inst\"",
+												"loop": "not-looping",
+												"volume": "SoundLevel",
+												"tag-optional": "\"Back\""
+											}
+										}
+									],
+									"sid": 606878482790798,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-two-values",
+													"objectClass": "System",
+													"sid": 219326334126195,
+													"parameters": {
+														"first-value": "MapLoader.Get(\"song.needsVoices\")",
+														"comparison": 0,
+														"second-value": "1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "play-by-name",
+													"objectClass": "Audio",
+													"sid": 682833068652717,
+													"parameters": {
+														"folder": "sounds",
+														"audio-file-name": "lowercase(MapLoader.Get(\"song.song\")) & \"_Voices\"",
+														"loop": "not-looping",
+														"volume": "SoundLevel",
+														"tag-optional": "\"Singing Voice\""
+													}
+												}
+											],
+											"sid": 130486440320089
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 724985518813995,
+											"parameters": {
+												"object": "Note"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 598792628584799,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 267219540796728,
+													"parameters": {
+														"variable": "DownScroll"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-angle",
+													"objectClass": "Note",
+													"sid": 672277101117337,
+													"parameters": {
+														"angle": "180"
+													}
+												}
+											],
+											"sid": 283137034930565
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			],
+			"sid": 787862416108431
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Error Handling",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-error",
+							"objectClass": "AJAX",
+							"sid": 702602722695438,
+							"parameters": {
+								"tag": "\"song\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "alert",
+							"objectClass": "Browser",
+							"sid": 139817344309975,
+							"parameters": {
+								"message": "\"Can't find/load \" & SongPassthrough & \"!\""
+							}
+						},
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 262086872382072,
+							"parameters": {
+								"layout": "FreePlayMenu"
+							}
+						}
+					],
+					"sid": 703063155063459
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-error",
+							"objectClass": "AJAX",
+							"sid": 658489285705374,
+							"parameters": {
+								"tag": "\"Keybinds\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "alert",
+							"objectClass": "Browser",
+							"sid": 381324510084447,
+							"parameters": {
+								"message": "\"Can't find/load */www/Keybinds.json\""
+							}
+						},
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 998036835034231,
+							"parameters": {
+								"layout": "FreePlayMenu"
+							}
+						}
+					],
+					"sid": 461941969702389
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 185982116934796,
+							"parameters": {
+								"interval-seconds": "5"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 388838972043880,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 607055899271870,
+									"parameters": {
+										"first-value": "Audio.PlaybackTime(\"Back\")",
+										"comparison": 1,
+										"second-value": "Timer.Timer.TotalTime(\"song\") - (distance(0,69,0,528) / (int(SongSpeed) * SongSpeedMultiplyer) /60)"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "seek-to",
+									"objectClass": "Audio",
+									"sid": 103314305347432,
+									"parameters": {
+										"tag": "\"Back\"",
+										"position": "Timer.Timer.TotalTime(\"song\") - (distance(0,69,0,528) / (int(SongSpeed) * SongSpeedMultiplyer) /60)"
+									}
+								},
+								{
+									"id": "seek-to",
+									"objectClass": "Audio",
+									"sid": 347241768508271,
+									"parameters": {
+										"tag": "\"Singing Voice\"",
+										"position": "Timer.Timer.TotalTime(\"song\") - (distance(0,69,0,528) / (int(SongSpeed) * SongSpeedMultiplyer) /60)"
+									}
+								}
+							],
+							"sid": 170860312523073
+						}
+					]
+				}
+			],
+			"sid": 505987391800738
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Health Bar",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 401143030270107,
+							"parameters": {
+								"variable": "DownScroll"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 955177034083843,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 687925014537197,
+									"parameters": {
+										"first-value": "HealthSlider.X ",
+										"comparison": 4,
+										"second-value": "HealthBar.X"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 712931639452201,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 733629315699592,
+											"parameters": {
+												"first-value": "distance(HealthSlider.X,HealthSlider.Y,HealthBar.X,HealthBar.Y)",
+												"comparison": 4,
+												"second-value": "(HealthBar.Width / 2) - 7"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-x",
+											"objectClass": "HealthSlider",
+											"sid": 988265414503831,
+											"parameters": {
+												"x": "(HealthBar.X + (HealthBar.Width /2))"
+											}
+										}
+									],
+									"sid": 941340989713314
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 955935934537754,
+							"parameters": {
+								"variable": "DownScroll"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [],
+					"sid": 688662373021203,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 179549983776441,
+									"parameters": {
+										"first-value": "HealthSlider.X ",
+										"comparison": 2,
+										"second-value": "HealthBar.X"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 605859876257190,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 643767631426791,
+											"parameters": {
+												"first-value": "distance(HealthSlider.X,HealthSlider.Y,HealthBar.X,HealthBar.Y)",
+												"comparison": 4,
+												"second-value": "(HealthBar.Width / 2) + 7"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-x",
+											"objectClass": "HealthSlider",
+											"sid": 614683002220159,
+											"parameters": {
+												"x": "(HealthBar.X - (HealthBar.Width /2))"
+											}
+										}
+									],
+									"sid": 505555829497132
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 222101810401667
+						}
+					],
+					"actions": [],
+					"sid": 992609600498327,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 670968463370531,
+									"parameters": {
+										"object": "HealthIcon"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-position",
+									"objectClass": "HealthIcon",
+									"sid": 842669381766700,
+									"parameters": {
+										"x": "lerp(HealthIcon.X,HealthSlider.x,0.45)",
+										"y": "lerp(HealthIcon.Y,HealthSlider.Y,0.45)"
+									}
+								}
+							],
+							"sid": 604217489663176,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "HealthIcon",
+											"sid": 487656990773567,
+											"parameters": {
+												"instance-variable": "Player"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-size",
+											"objectClass": "HealthIcon",
+											"sid": 906801365799169,
+											"parameters": {
+												"width": "lerp(HealthIcon.Width,HealthIcon.LerpSize,0.1)",
+												"height": "lerp(HealthIcon.Height,HealthIcon.LerpSize,0.1)"
+											}
+										}
+									],
+									"sid": 876291616164164
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "HealthIcon",
+											"sid": 388632908435808,
+											"parameters": {
+												"instance-variable": "Player"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-size",
+											"objectClass": "HealthIcon",
+											"sid": 342206880798390,
+											"parameters": {
+												"width": "lerp(HealthIcon.Width,-HealthIcon.LerpSize,0.1)",
+												"height": "lerp(HealthIcon.Height,HealthIcon.LerpSize,0.1)"
+											}
+										}
+									],
+									"sid": 185643181622163
+								}
+							]
+						}
+					]
+				}
+			],
+			"sid": 375896474522533
+		}
+	],
+	"sid": 571741772327395
+}

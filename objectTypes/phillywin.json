@@ -1,0 +1,184 @@
+{
+	"name": "PhillyWin",
+	"plugin-id": "Sprite",
+	"sid": 849395084739436,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "OldX",
+			"type": "number",
+			"desc": "",
+			"sid": 693377259114707
+		},
+		{
+			"name": "OldY",
+			"type": "number",
+			"desc": "",
+			"sid": 201768885622093
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "DragnDrop",
+			"name": "DragDrop",
+			"sid": 137230985453279
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 1729,
+						"height": 955,
+						"originX": 0.5,
+						"originY": 1,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 4149172,
+						"collisionPoly": {
+							"points": [
+								0.21631000578369,
+								0.39162303664921466,
+								0.8183921341816078,
+								0.32774869109947646,
+								0.8565644881434356,
+								0.5,
+								0.6229034123770966,
+								0.3172774869109948,
+								0.264893001735107,
+								0.5193717277486911,
+								0.07981492192018508,
+								0.5
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 1729,
+						"height": 955,
+						"originX": 0.5,
+						"originY": 1,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 2753531,
+						"collisionPoly": {
+							"points": [
+								0.21631000578369,
+								0.39162303664921466,
+								0.8183921341816078,
+								0.32774869109947646,
+								0.8565644881434356,
+								0.5,
+								0.6229034123770966,
+								0.3172774869109948,
+								0.264893001735107,
+								0.5193717277486911,
+								0.07981492192018508,
+								0.5
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 1729,
+						"height": 955,
+						"originX": 0.5,
+						"originY": 1,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 9216861,
+						"collisionPoly": {
+							"points": [
+								0.21631000578369,
+								0.39162303664921466,
+								0.8183921341816078,
+								0.32774869109947646,
+								0.8565644881434356,
+								0.5,
+								0.6229034123770966,
+								0.3172774869109948,
+								0.264893001735107,
+								0.5193717277486911,
+								0.07981492192018508,
+								0.5
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 1729,
+						"height": 955,
+						"originX": 0.5,
+						"originY": 1,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 4952614,
+						"collisionPoly": {
+							"points": [
+								0.21631000578369,
+								0.39162303664921466,
+								0.8183921341816078,
+								0.32774869109947646,
+								0.8565644881434356,
+								0.5,
+								0.6229034123770966,
+								0.3172774869109948,
+								0.264893001735107,
+								0.5193717277486911,
+								0.07981492192018508,
+								0.5
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					},
+					{
+						"width": 1729,
+						"height": 955,
+						"originX": 0.5,
+						"originY": 1,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 115178,
+						"collisionPoly": {
+							"points": [
+								0.21631000578369,
+								0.39162303664921466,
+								0.8183921341816078,
+								0.32774869109947646,
+								0.8565644881434356,
+								0.5,
+								0.6229034123770966,
+								0.3172774869109948,
+								0.264893001735107,
+								0.5193717277486911,
+								0.07981492192018508,
+								0.5
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 319653405739914,
+				"name": "philly-win",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 0
+			}
+		],
+		"subfolders": []
+	}
+}

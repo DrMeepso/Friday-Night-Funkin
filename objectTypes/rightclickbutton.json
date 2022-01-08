@@ -1,0 +1,44 @@
+{
+	"name": "RightClickButton",
+	"plugin-id": "Sprite",
+	"sid": 258773240440518,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "Value",
+			"type": "number",
+			"desc": "",
+			"sid": 392682617104840
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 250,
+						"height": 250,
+						"originX": 0,
+						"originY": 0,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 6721561,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 502365196357517,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

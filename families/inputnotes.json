@@ -1,0 +1,11 @@
+{
+	"name": "InputNotes",
+	"plugin-id": "Sprite",
+	"sid": 961951869381585,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"members": [
+		"Notes"
+	]
+}

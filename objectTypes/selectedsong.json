@@ -1,0 +1,50 @@
+{
+	"name": "SelectedSong",
+	"plugin-id": "Sprite",
+	"sid": 273634793396747,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "SelectedType",
+			"type": "number",
+			"desc": "",
+			"sid": 766112593312934
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "scrollto",
+			"name": "ScrollTo",
+			"sid": 139661103253633
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 157,
+						"height": 159,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 6530701,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 346548350392633,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

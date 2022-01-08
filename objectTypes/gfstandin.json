@@ -1,0 +1,56 @@
+{
+	"name": "GFStandIn",
+	"plugin-id": "Sprite",
+	"sid": 955821801973340,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "OldY",
+			"type": "number",
+			"desc": "",
+			"sid": 425427364588760
+		},
+		{
+			"name": "OldX",
+			"type": "number",
+			"desc": "",
+			"sid": 508571307446431
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "DragnDrop",
+			"name": "DragDrop",
+			"sid": 594165803725836
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 703,
+						"height": 648,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 9317347,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 897560520317444,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

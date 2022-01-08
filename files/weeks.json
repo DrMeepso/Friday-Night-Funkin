@@ -1,0 +1,23 @@
+{
+  "weeks": [
+    "week1",
+    "week2"
+  ],
+  "defineweeks": {
+    "week1": {
+      "name": "Week 2",
+	  "stage": "default",
+      "songs": [
+        "bopeebo",
+        "milf"
+      ]
+    },
+    "week2": {
+      "name": "Week 2",
+      "songs": [
+        "none",
+        "none"
+      ]
+    }
+  }
+}

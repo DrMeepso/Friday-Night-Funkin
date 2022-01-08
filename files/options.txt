@@ -1,0 +1,8 @@
+//Make the notes scroll form top to bottom
+Downscroll:true
+//Blur the blue balls (Requested by me friend)
+SchoolVertion:false
+//Do i need to discribe this one???
+SkipDialog:false
+//your a fucking monster if you enable this one
+RemoveBG:false

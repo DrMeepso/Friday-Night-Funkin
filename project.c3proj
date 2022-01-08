@@ -1,0 +1,1448 @@
+{
+	"projectFormatVersion": 1,
+	"savedWithRelease": 27602,
+	"name": "FNFRewrite",
+	"runtime": "c3",
+	"useWorker": "auto",
+	"bundleAddons": true,
+	"usedAddons": [
+		{
+			"type": "plugin",
+			"id": "Text",
+			"name": "Text",
+			"author": "Scirra",
+			"version": "r276.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Json",
+			"name": "JSON",
+			"author": "Scirra",
+			"version": "r276.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Sprite",
+			"name": "Sprite",
+			"author": "Scirra",
+			"version": "r276.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Dictionary",
+			"name": "Dictionary",
+			"author": "Scirra",
+			"version": "r276.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Button",
+			"name": "Button",
+			"author": "Scirra",
+			"version": "r276.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "List",
+			"name": "List",
+			"author": "Scirra",
+			"version": "r276.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "AJAX",
+			"name": "AJAX",
+			"author": "Scirra",
+			"version": "r276.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Audio",
+			"name": "Audio",
+			"author": "Scirra",
+			"version": "r276.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Keyboard",
+			"name": "Keyboard",
+			"author": "Scirra",
+			"version": "r276.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Browser",
+			"name": "Browser",
+			"author": "Scirra",
+			"version": "r276.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Mouse",
+			"name": "Mouse",
+			"author": "Scirra",
+			"version": "r276.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "filechooser",
+			"name": "File chooser",
+			"author": "Scirra",
+			"version": "r276.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Touch",
+			"name": "Touch",
+			"author": "Scirra",
+			"version": "r276.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "PlatformInfo",
+			"name": "Platform info",
+			"author": "Scirra",
+			"version": "r276.2",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Rotate",
+			"name": "Rotate",
+			"author": "Scirra",
+			"version": "r276.2",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Fade",
+			"name": "Fade",
+			"author": "Scirra",
+			"version": "r276.2",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Timer",
+			"name": "Timer",
+			"author": "Scirra",
+			"version": "r276.2",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Pin",
+			"name": "Pin",
+			"author": "Scirra",
+			"version": "r276.2",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "scrollto",
+			"name": "Scroll To",
+			"author": "Scirra",
+			"version": "r276.2",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "DragnDrop",
+			"name": "Drag & Drop",
+			"author": "Scirra",
+			"version": "r276.2",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Anchor",
+			"name": "Anchor",
+			"author": "Scirra",
+			"version": "r276.2",
+			"bundled": false
+		},
+		{
+			"type": "effect",
+			"id": "pixellatemask",
+			"name": "Pixellate mask",
+			"author": "Scirra",
+			"version": "r276.2",
+			"bundled": false
+		}
+	],
+	"uniqueId": "wc2r749wf9i",
+	"objectTypes": {
+		"items": [
+			"AJAX",
+			"Audio",
+			"Keyboard",
+			"Browser",
+			"Mouse",
+			"Keybinds",
+			"FileChooser",
+			"Touch",
+			"PlatformInfo"
+		],
+		"subfolders": [
+			{
+				"items": [
+					"DebugText",
+					"Input",
+					"Note",
+					"Notes",
+					"NoteTrail",
+					"Player",
+					"ReadySetGo",
+					"Timer",
+					"MapLoader",
+					"NoteCap",
+					"Text",
+					"HealthBar",
+					"HealthIcon",
+					"HealthSlider",
+					"GreenHealth",
+					"RedHealth",
+					"gf",
+					"Playergameover",
+					"Player2",
+					"CensorBar",
+					"SpeechBubble",
+					"DialogText",
+					"Cam"
+				],
+				"subfolders": [],
+				"name": "Game"
+			},
+			{
+				"items": [
+					"Text2",
+					"SelectedSong",
+					"Backgroud"
+				],
+				"subfolders": [],
+				"name": "Menu"
+			},
+			{
+				"items": [
+					"GFStandIn",
+					"BFStandIn",
+					"Actions",
+					"RightClickMenu",
+					"RightClickButton",
+					"ButtonText",
+					"StageObjectStandIn",
+					"Camra",
+					"Button",
+					"List",
+					"Save",
+					"PhillyWin",
+					"Sprite"
+				],
+				"subfolders": [],
+				"name": "BGMaker"
+			}
+		]
+	},
+	"autosaveData": null,
+	"containers": [],
+	"families": {
+		"items": [
+			"InputNotes"
+		],
+		"subfolders": []
+	},
+	"layouts": {
+		"items": [
+			"FreePlayMenu",
+			"Play",
+			"BGMaker"
+		],
+		"subfolders": []
+	},
+	"eventSheets": {
+		"items": [
+			"FreePlayMenuE",
+			"BGMakerDev"
+		],
+		"subfolders": [
+			{
+				"items": [
+					"MainE",
+					"InputE",
+					"MapGenarationE"
+				],
+				"subfolders": [],
+				"name": "Game"
+			}
+		]
+	},
+	"rootFileFolders": {
+		"script": {
+			"items": [],
+			"subfolders": []
+		},
+		"sound": {
+			"items": [],
+			"subfolders": [
+				{
+					"items": [
+						{
+							"name": "introGo.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 599977883612100
+						},
+						{
+							"name": "intro3.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 179373483548884
+						},
+						{
+							"name": "intro2.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 844751629955231
+						},
+						{
+							"name": "intro1.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 773929310872270
+						},
+						{
+							"name": "clickText.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 478418597662681
+						},
+						{
+							"name": "fnf_loss_sfx.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 360852039082987
+						},
+						{
+							"name": "cancelMenu.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 753659456725645
+						},
+						{
+							"name": "confirmMenu.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 204811063713728
+						},
+						{
+							"name": "scrollMenu.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 398650542319148
+						},
+						{
+							"name": "breakfast.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 658351887180100
+						},
+						{
+							"name": "gameOver.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 655712668613383
+						},
+						{
+							"name": "gameOverEnd.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 928329692835744
+						}
+					],
+					"subfolders": [],
+					"name": "shared"
+				}
+			]
+		},
+		"music": {
+			"items": [],
+			"subfolders": [
+				{
+					"items": [
+						{
+							"name": "bopeebo_Voices.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 282394558598439
+						},
+						{
+							"name": "bopeebo_Inst.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 117051871888096
+						}
+					],
+					"subfolders": [],
+					"name": "bopeebo"
+				},
+				{
+					"items": [
+						{
+							"name": "milf_Voices.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 473351485746193
+						},
+						{
+							"name": "milf_Inst.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 644701995345163
+						}
+					],
+					"subfolders": [],
+					"name": "milf"
+				},
+				{
+					"items": [
+						{
+							"name": "ballistic_Inst.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 422955510897879
+						},
+						{
+							"name": "ballistic_Voices.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 827093808573916
+						}
+					],
+					"subfolders": [],
+					"name": "ballistic"
+				},
+				{
+					"items": [
+						{
+							"name": "madness_Inst.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 992135013706247
+						},
+						{
+							"name": "madness_Voices.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 191935797017872
+						}
+					],
+					"subfolders": [],
+					"name": "madness"
+				},
+				{
+					"items": [
+						{
+							"name": "ugh_Inst.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 767847602417604
+						},
+						{
+							"name": "ugh_Voices.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 474870362271815
+						}
+					],
+					"subfolders": [],
+					"name": "ugh"
+				},
+				{
+					"items": [
+						{
+							"name": "guns_Inst.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 824063970548772
+						},
+						{
+							"name": "guns_Voices.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 542980987412500
+						}
+					],
+					"subfolders": [],
+					"name": "guns"
+				},
+				{
+					"items": [
+						{
+							"name": "fresh_Voices.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 638259039210679
+						},
+						{
+							"name": "fresh_Inst.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 729758749089956
+						}
+					],
+					"subfolders": [],
+					"name": "fresh"
+				},
+				{
+					"items": [
+						{
+							"name": "dadbattle_Voices.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 675791812525900
+						},
+						{
+							"name": "dadbattle_Inst.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 472553048346442
+						}
+					],
+					"subfolders": [],
+					"name": "dadbattle"
+				},
+				{
+					"items": [
+						{
+							"name": "stress_Inst.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 117738888851933
+						},
+						{
+							"name": "stress_Voices.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 263170722034828
+						}
+					],
+					"subfolders": [],
+					"name": "stress"
+				},
+				{
+					"items": [
+						{
+							"name": "headache_Inst.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 613509640471687
+						},
+						{
+							"name": "headache_Voices.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 278925184899918
+						}
+					],
+					"subfolders": [],
+					"name": "headache"
+				},
+				{
+					"items": [
+						{
+							"name": "nerves_Inst.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 562812318825511
+						},
+						{
+							"name": "nerves_Voices.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 529854454639203
+						}
+					],
+					"subfolders": [],
+					"name": "nerves"
+				},
+				{
+					"items": [
+						{
+							"name": "release_Inst.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 581581475531522
+						},
+						{
+							"name": "release_Voices.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 179607789861785
+						}
+					],
+					"subfolders": [],
+					"name": "release"
+				},
+				{
+					"items": [
+						{
+							"name": "parish_Voices.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 157589545302033
+						},
+						{
+							"name": "parish_Inst.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 234309509065581
+						}
+					],
+					"subfolders": [],
+					"name": "parish"
+				},
+				{
+					"items": [
+						{
+							"name": "worship_Voices.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 643853080095505
+						},
+						{
+							"name": "worship_Inst.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 982398514119000
+						}
+					],
+					"subfolders": [],
+					"name": "worship"
+				},
+				{
+					"items": [
+						{
+							"name": "zavodila_Voices.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 351071570136478
+						},
+						{
+							"name": "zavodila_Inst.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 613089822519504
+						}
+					],
+					"subfolders": [],
+					"name": "zavodila"
+				},
+				{
+					"items": [
+						{
+							"name": "gospel_Voices.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 625222788143092
+						},
+						{
+							"name": "gospel_Inst.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 247363119740800
+						}
+					],
+					"subfolders": [],
+					"name": "gospel"
+				},
+				{
+					"items": [
+						{
+							"name": "casanova_Voices.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 483371981190119
+						},
+						{
+							"name": "casanova_Inst.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 292526267703566
+						}
+					],
+					"subfolders": [],
+					"name": "casanova"
+				},
+				{
+					"items": [
+						{
+							"name": "spookeez_Inst.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 784130996113234
+						},
+						{
+							"name": "spookeez_Voices.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 227913056370500
+						}
+					],
+					"subfolders": [],
+					"name": "spookeez"
+				},
+				{
+					"items": [
+						{
+							"name": "south_Inst.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 903578832355889
+						},
+						{
+							"name": "south_Voices.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 361719209801274
+						}
+					],
+					"subfolders": [],
+					"name": "south"
+				},
+				{
+					"items": [
+						{
+							"name": "monster_Inst.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 503966309655811
+						},
+						{
+							"name": "monster_Voices.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 851424083306874
+						}
+					],
+					"subfolders": [],
+					"name": "monster"
+				},
+				{
+					"items": [
+						{
+							"name": "pico_Inst.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 652853937159910
+						},
+						{
+							"name": "pico_Voices.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 472049285026271
+						}
+					],
+					"subfolders": [],
+					"name": "pico"
+				},
+				{
+					"items": [
+						{
+							"name": "philly_Voices.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 806831937529481
+						},
+						{
+							"name": "philly_Inst.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 815613719618573
+						}
+					],
+					"subfolders": [],
+					"name": "philly"
+				},
+				{
+					"items": [
+						{
+							"name": "blammed_Voices.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 813310247656312
+						},
+						{
+							"name": "blammed_Inst.webm",
+							"type": "audio/webm; codecs=opus",
+							"sid": 798508883242830
+						}
+					],
+					"subfolders": [],
+					"name": "blammed"
+				}
+			]
+		},
+		"video": {
+			"items": [],
+			"subfolders": []
+		},
+		"font": {
+			"items": [
+				{
+					"name": "pixel.otf",
+					"type": "application/font-sfnt",
+					"sid": 346715593059171
+				},
+				{
+					"name": "vcr.ttf",
+					"type": "application/font-sfnt",
+					"sid": 125355959614848
+				},
+				{
+					"name": "Funkin-Regular.ttf",
+					"type": "application/font-sfnt",
+					"sid": 393118720140213
+				}
+			],
+			"subfolders": []
+		},
+		"icon": {
+			"items": [
+				{
+					"name": "icon-16.png",
+					"type": "image/png",
+					"sid": 808632305349770,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-32.png",
+					"type": "image/png",
+					"sid": 692490356985737,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-64.png",
+					"type": "image/png",
+					"sid": 540631126968987,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-128.png",
+					"type": "image/png",
+					"sid": 974126032507921,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-256.png",
+					"type": "image/png",
+					"sid": 634415643571500,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-512.png",
+					"type": "image/png",
+					"sid": 529005385555069,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "loading-logo.png",
+					"type": "image/png",
+					"sid": 293570885701544,
+					"icon-info": {
+						"purpose": "loading-logo"
+					}
+				}
+			],
+			"subfolders": []
+		},
+		"general": {
+			"items": [
+				{
+					"name": "Keybinds.json",
+					"type": "application/json",
+					"sid": 647587529864079
+				},
+				{
+					"name": "FreeplaySongs.txt",
+					"type": "text/plain",
+					"sid": 689482372238922
+				},
+				{
+					"name": "Options.txt",
+					"type": "text/plain",
+					"sid": 693955545105047
+				},
+				{
+					"name": "Speech Reset.txt",
+					"type": "text/plain",
+					"sid": 340585237689364
+				}
+			],
+			"subfolders": [
+				{
+					"items": [],
+					"subfolders": [
+						{
+							"items": [
+								{
+									"name": "bopeebo-easy.json",
+									"type": "application/json",
+									"sid": 981471010501360
+								},
+								{
+									"name": "bopeebo-hard.json",
+									"type": "application/json",
+									"sid": 626730399111218
+								},
+								{
+									"name": "bopeebo.json",
+									"type": "application/json",
+									"sid": 266417060008868
+								}
+							],
+							"subfolders": [],
+							"name": "bopeebo"
+						},
+						{
+							"items": [
+								{
+									"name": "milf-easy.json",
+									"type": "application/json",
+									"sid": 593264846942396
+								},
+								{
+									"name": "milf-hard.json",
+									"type": "application/json",
+									"sid": 331611446404553
+								},
+								{
+									"name": "milf.json",
+									"type": "application/json",
+									"sid": 328373292550476
+								}
+							],
+							"subfolders": [],
+							"name": "milf"
+						},
+						{
+							"items": [
+								{
+									"name": "ballistic-easy.json",
+									"type": "application/json",
+									"sid": 415778164838170
+								},
+								{
+									"name": "ballistic-hard.json",
+									"type": "application/json",
+									"sid": 618346338516231
+								},
+								{
+									"name": "ballistic.json",
+									"type": "application/json",
+									"sid": 730884640697628
+								}
+							],
+							"subfolders": [],
+							"name": "ballistic"
+						},
+						{
+							"items": [
+								{
+									"name": "madness-easy.json",
+									"type": "application/json",
+									"sid": 249172144154000
+								},
+								{
+									"name": "madness.json",
+									"type": "application/json",
+									"sid": 890794991873099
+								},
+								{
+									"name": "madness-hard.json",
+									"type": "application/json",
+									"sid": 165503411603467
+								}
+							],
+							"subfolders": [],
+							"name": "madness"
+						},
+						{
+							"items": [
+								{
+									"name": "ugh-hard.json",
+									"type": "application/json",
+									"sid": 139355445086433
+								},
+								{
+									"name": "ugh.json",
+									"type": "application/json",
+									"sid": 139183474970164
+								},
+								{
+									"name": "ugh-easy.json",
+									"type": "application/json",
+									"sid": 656995993890959
+								}
+							],
+							"subfolders": [],
+							"name": "ugh"
+						},
+						{
+							"items": [
+								{
+									"name": "guns-easy.json",
+									"type": "application/json",
+									"sid": 943655767968887
+								},
+								{
+									"name": "guns-hard.json",
+									"type": "application/json",
+									"sid": 570695544302195
+								},
+								{
+									"name": "guns.json",
+									"type": "application/json",
+									"sid": 327034210377192
+								}
+							],
+							"subfolders": [],
+							"name": "guns"
+						},
+						{
+							"items": [
+								{
+									"name": "fresh-easy.json",
+									"type": "application/json",
+									"sid": 422929996036611
+								},
+								{
+									"name": "fresh-hard.json",
+									"type": "application/json",
+									"sid": 842348714369779
+								},
+								{
+									"name": "fresh.json",
+									"type": "application/json",
+									"sid": 837495058853307
+								}
+							],
+							"subfolders": [],
+							"name": "fresh"
+						},
+						{
+							"items": [
+								{
+									"name": "dadbattle.json",
+									"type": "application/json",
+									"sid": 762451721367984
+								},
+								{
+									"name": "dadbattle-easy.json",
+									"type": "application/json",
+									"sid": 181354149207003
+								},
+								{
+									"name": "dadbattle-hard.json",
+									"type": "application/json",
+									"sid": 519484515259902
+								}
+							],
+							"subfolders": [],
+							"name": "dadbattle"
+						},
+						{
+							"items": [
+								{
+									"name": "stress.json",
+									"type": "application/json",
+									"sid": 953908836963512
+								},
+								{
+									"name": "stress-hard.json",
+									"type": "application/json",
+									"sid": 244859229597442
+								},
+								{
+									"name": "stress-easy.json",
+									"type": "application/json",
+									"sid": 822298710766183
+								}
+							],
+							"subfolders": [],
+							"name": "stress"
+						},
+						{
+							"items": [
+								{
+									"name": "headache.json",
+									"type": "application/json",
+									"sid": 473309714653334
+								},
+								{
+									"name": "headacheDialogue.txt",
+									"type": "text/plain",
+									"sid": 741830690272410
+								},
+								{
+									"name": "headache-easy.json",
+									"type": "application/json",
+									"sid": 976417192935968
+								},
+								{
+									"name": "headache-hard.json",
+									"type": "application/json",
+									"sid": 981154705430541
+								}
+							],
+							"subfolders": [],
+							"name": "headache"
+						},
+						{
+							"items": [
+								{
+									"name": "nerves.json",
+									"type": "application/json",
+									"sid": 461853668545712
+								},
+								{
+									"name": "nervesDialogue.txt",
+									"type": "text/plain",
+									"sid": 667403962143354
+								},
+								{
+									"name": "nerves-easy.json",
+									"type": "application/json",
+									"sid": 753799562392174
+								},
+								{
+									"name": "nerves-hard.json",
+									"type": "application/json",
+									"sid": 151188271216435
+								}
+							],
+							"subfolders": [],
+							"name": "nerves"
+						},
+						{
+							"items": [
+								{
+									"name": "release.json",
+									"type": "application/json",
+									"sid": 995407276828299
+								},
+								{
+									"name": "releaseDialogue.txt",
+									"type": "text/plain",
+									"sid": 581506679245145
+								},
+								{
+									"name": "release-easy.json",
+									"type": "application/json",
+									"sid": 868035184201356
+								},
+								{
+									"name": "release-hard.json",
+									"type": "application/json",
+									"sid": 466982407294814
+								}
+							],
+							"subfolders": [],
+							"name": "release"
+						},
+						{
+							"items": [
+								{
+									"name": "parish.json",
+									"type": "application/json",
+									"sid": 657437180576556
+								},
+								{
+									"name": "parish-hard.json",
+									"type": "application/json",
+									"sid": 403500883869517
+								},
+								{
+									"name": "parish-easy.json",
+									"type": "application/json",
+									"sid": 365082262781395
+								}
+							],
+							"subfolders": [],
+							"name": "parish"
+						},
+						{
+							"items": [
+								{
+									"name": "worship.json",
+									"type": "application/json",
+									"sid": 176838614434210
+								},
+								{
+									"name": "worship-hard.json",
+									"type": "application/json",
+									"sid": 117587140703936
+								},
+								{
+									"name": "worship-easy.json",
+									"type": "application/json",
+									"sid": 171628054653146
+								}
+							],
+							"subfolders": [],
+							"name": "worship"
+						},
+						{
+							"items": [
+								{
+									"name": "zavodila.json",
+									"type": "application/json",
+									"sid": 364357663908861
+								},
+								{
+									"name": "zavodila-hard.json",
+									"type": "application/json",
+									"sid": 767786359395605
+								},
+								{
+									"name": "zavodila-easy.json",
+									"type": "application/json",
+									"sid": 984762938338591
+								}
+							],
+							"subfolders": [],
+							"name": "zavodila"
+						},
+						{
+							"items": [
+								{
+									"name": "gospel.json",
+									"type": "application/json",
+									"sid": 816299903350752
+								},
+								{
+									"name": "gospel-hard.json",
+									"type": "application/json",
+									"sid": 403415823932032
+								},
+								{
+									"name": "gospel-easy.json",
+									"type": "application/json",
+									"sid": 330232951693984
+								}
+							],
+							"subfolders": [],
+							"name": "gospel"
+						},
+						{
+							"items": [
+								{
+									"name": "casanova-hard.json",
+									"type": "application/json",
+									"sid": 261931191986040
+								},
+								{
+									"name": "casanova.json",
+									"type": "application/json",
+									"sid": 471404557588569
+								},
+								{
+									"name": "casanova-easy.json",
+									"type": "application/json",
+									"sid": 715680916572398
+								}
+							],
+							"subfolders": [],
+							"name": "casanova"
+						},
+						{
+							"items": [
+								{
+									"name": "spookeez.json",
+									"type": "application/json",
+									"sid": 772737094925749
+								},
+								{
+									"name": "spookeez-hard.json",
+									"type": "application/json",
+									"sid": 483277032466188
+								},
+								{
+									"name": "spookeez-easy.json",
+									"type": "application/json",
+									"sid": 836988032347700
+								}
+							],
+							"subfolders": [],
+							"name": "spookeez"
+						},
+						{
+							"items": [
+								{
+									"name": "south-hard.json",
+									"type": "application/json",
+									"sid": 644000753502584
+								},
+								{
+									"name": "south-easy.json",
+									"type": "application/json",
+									"sid": 192340862901118
+								},
+								{
+									"name": "south.json",
+									"type": "application/json",
+									"sid": 172130312573436
+								}
+							],
+							"subfolders": [],
+							"name": "south"
+						},
+						{
+							"items": [
+								{
+									"name": "monster.json",
+									"type": "application/json",
+									"sid": 206033574254641
+								},
+								{
+									"name": "monster-hard.json",
+									"type": "application/json",
+									"sid": 595719276906539
+								},
+								{
+									"name": "monster-easy.json",
+									"type": "application/json",
+									"sid": 418577147261992
+								}
+							],
+							"subfolders": [],
+							"name": "monster"
+						},
+						{
+							"items": [
+								{
+									"name": "pico-easy.json",
+									"type": "application/json",
+									"sid": 662930990709393
+								},
+								{
+									"name": "pico-hard.json",
+									"type": "application/json",
+									"sid": 730088976128676
+								},
+								{
+									"name": "pico.json",
+									"type": "application/json",
+									"sid": 207361360892436
+								}
+							],
+							"subfolders": [],
+							"name": "pico"
+						},
+						{
+							"items": [
+								{
+									"name": "philly-easy.json",
+									"type": "application/json",
+									"sid": 960139197057142
+								},
+								{
+									"name": "philly.json",
+									"type": "application/json",
+									"sid": 144239162483388
+								},
+								{
+									"name": "philly-hard.json",
+									"type": "application/json",
+									"sid": 147424883345062
+								}
+							],
+							"subfolders": [],
+							"name": "philly"
+						},
+						{
+							"items": [
+								{
+									"name": "blammed.json",
+									"type": "application/json",
+									"sid": 715287419367007
+								},
+								{
+									"name": "blammed-hard.json",
+									"type": "application/json",
+									"sid": 405473609540778
+								},
+								{
+									"name": "blammed-easy.json",
+									"type": "application/json",
+									"sid": 500955763401019
+								}
+							],
+							"subfolders": [],
+							"name": "blammed"
+						}
+					],
+					"name": "Map Data"
+				},
+				{
+					"items": [
+						{
+							"name": "Weeks.json",
+							"type": "application/json",
+							"sid": 949688669106904
+						}
+					],
+					"subfolders": [],
+					"name": "Weeks"
+				},
+				{
+					"items": [
+						{
+							"name": "DefaultStage.Fri",
+							"type": "application/octet-stream",
+							"sid": 553759252653590
+						},
+						{
+							"name": "Week2.Fri",
+							"type": "application/octet-stream",
+							"sid": 939083200682571
+						},
+						{
+							"name": "Week3.Fri",
+							"type": "application/octet-stream",
+							"sid": 870101179554925
+						}
+					],
+					"subfolders": [],
+					"name": "Stages"
+				}
+			]
+		}
+	},
+	"timelines": {
+		"items": [],
+		"subfolders": [
+			{
+				"items": [],
+				"subfolders": []
+			}
+		]
+	},
+	"properties": {
+		"description": "",
+		"version": "Alpha 1.2.7.5",
+		"author": "",
+		"authorEmail": "",
+		"authorWebsite": "",
+		"appId": "",
+		"pixelRounding": false,
+		"useLoaderLayout": false,
+		"fullscreenMode": "letterbox-scale",
+		"fullscreenQuality": "high",
+		"viewportFit": "auto",
+		"backgroundColor": [
+			0,
+			0,
+			0,
+			0
+		],
+		"splashColor": [
+			1,
+			1,
+			1,
+			0
+		],
+		"useThemeColor": false,
+		"themeColor": [
+			1,
+			1,
+			1,
+			0
+		],
+		"orientations": "portrait",
+		"webgpu": "auto",
+		"gpuPreference": "high-performance",
+		"scriptsType": "module",
+		"framerateMode": "vsync",
+		"compositingMode": "standard",
+		"sampling": "trilinear",
+		"downscaling": "medium",
+		"renderingMode": "auto",
+		"anisotropicFiltering": "auto",
+		"maxSpriteSheetSize": 2048,
+		"loaderStyle": "progress-logo",
+		"preloadSounds": true,
+		"cordovaiOSScheme": "app",
+		"cordovaAndroidScheme": "file"
+	},
+	"viewportWidth": 852,
+	"viewportHeight": 480,
+	"firstLayout": "FreePlayMenu"
+}

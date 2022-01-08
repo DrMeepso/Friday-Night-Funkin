@@ -1,0 +1,44 @@
+{
+	"name": "RightClickMenu",
+	"plugin-id": "Sprite",
+	"sid": 349625048422398,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "Selected",
+			"type": "number",
+			"desc": "",
+			"sid": 855741386694890
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 250,
+						"height": 250,
+						"originX": 0,
+						"originY": 0,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 5649499,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 616746303966388,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

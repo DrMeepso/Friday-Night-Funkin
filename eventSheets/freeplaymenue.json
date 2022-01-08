@@ -1,0 +1,1801 @@
+{
+	"name": "FreePlayMenuE",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "IsURL",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 387640345439764
+		},
+		{
+			"eventType": "variable",
+			"name": "ModURL",
+			"type": "string",
+			"initialValue": "",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 655015217473452
+		},
+		{
+			"eventType": "variable",
+			"name": "URLSongPassthrough",
+			"type": "string",
+			"initialValue": "",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 223942176834229
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 769660080395620
+				}
+			],
+			"actions": [
+				{
+					"id": "request-project-file",
+					"objectClass": "AJAX",
+					"sid": 924992938652495,
+					"parameters": {
+						"tag": "\"songs\"",
+						"file": "FreeplaySongs.txt"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 948775431294345,
+					"parameters": {
+						"variable": "SongPassthrough",
+						"value": "\"\""
+					}
+				},
+				{
+					"id": "set-animation-frame",
+					"objectClass": "Backgroud",
+					"sid": 446435017287400,
+					"parameters": {
+						"frame-number": "round(random(Backgroud.AnimationFrameCount,0))"
+					}
+				},
+				{
+					"id": "request-project-file",
+					"objectClass": "AJAX",
+					"sid": 819675867208616,
+					"parameters": {
+						"tag": "\"Op\"",
+						"file": "Options.txt"
+					}
+				},
+				{
+					"id": "set-cursor-style",
+					"objectClass": "Mouse",
+					"sid": 483895099806663,
+					"parameters": {
+						"cursor-style": "none"
+					}
+				},
+				{
+					"id": "request-url",
+					"objectClass": "AJAX",
+					"sid": 205012538999517,
+					"parameters": {
+						"tag": "\"Update\"",
+						"url": "\"https://gamebanana.com/mods/289416?api=UpdatesModule\""
+					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 923885506996370,
+					"parameters": {
+						"variable": "IsURL",
+						"value": "false"
+					}
+				},
+				{
+					"id": "request-project-file",
+					"objectClass": "AJAX",
+					"sid": 475803113200105,
+					"parameters": {
+						"tag": "\"Keybinds\"",
+						"file": "Keybinds.json"
+					}
+				}
+			],
+			"sid": 707881823496896,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "Bruh",
+					"type": "string",
+					"initialValue": "{   \"clear\": \"1\" }",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 560355166199468
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "parse",
+							"objectClass": "MapLoader",
+							"sid": 161156212319779,
+							"parameters": {
+								"data": "Bruh"
+							}
+						}
+					],
+					"sid": 460070877169016
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-on-mobile",
+							"objectClass": "PlatformInfo",
+							"sid": 267532209728925,
+							"isInverted": true
+						}
+					],
+					"actions": [],
+					"sid": 139061257747840,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 462900292771852,
+									"parameters": {
+										"object": "Notes"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "Notes",
+									"sid": 320570623492500
+								}
+							],
+							"sid": 842302515340308
+						}
+					]
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-completed",
+					"objectClass": "AJAX",
+					"sid": 189007502284480,
+					"parameters": {
+						"tag": "\"songs\""
+					}
+				}
+			],
+			"actions": [],
+			"sid": 167319487111898,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "repeat",
+							"objectClass": "System",
+							"sid": 588172041767828,
+							"parameters": {
+								"count": "tokencount(AJAX.LastData,newline)"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 460545903492465,
+							"parameters": {
+								"object-to-create": "Text2",
+								"layer": "1",
+								"x": "4",
+								"y": "loopindex * 40",
+								"create-hierarchy": false
+							}
+						},
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Text2",
+							"sid": 196715660861264,
+							"parameters": {
+								"instance-variable": "IsURL",
+								"value": "false"
+							}
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 654319277178198,
+							"parameters": {
+								"object-to-create": "HealthIcon",
+								"layer": "1",
+								"x": "Text2.X + Text2.Width",
+								"y": "Text2.Y + Text2.Height - 20",
+								"create-hierarchy": false
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "Text2",
+							"sid": 565527216919234,
+							"parameters": {
+								"text": "tokenat(tokenat(AJAX.LastData,loopindex,newline),0,\":\")"
+							}
+						},
+						{
+							"id": "pin-to-object-properties",
+							"objectClass": "HealthIcon",
+							"sid": 998600624185604,
+							"behaviorType": "Pin",
+							"parameters": {
+								"pin-to": "Text2",
+								"x": true,
+								"y": true,
+								"angle": true,
+								"width-type": "no",
+								"height-type": "no",
+								"z": false
+							}
+						},
+						{
+							"id": "set-size",
+							"objectClass": "HealthIcon",
+							"sid": 403288460379469,
+							"parameters": {
+								"width": "55",
+								"height": "55"
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "HealthIcon",
+							"sid": 483710870497569,
+							"parameters": {
+								"animation": "tokenat(tokenat(AJAX.LastData,loopindex,newline),1,\":\")",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 215084232578156
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-tick",
+					"objectClass": "System",
+					"sid": 855676680940005
+				}
+			],
+			"actions": [],
+			"sid": 536850484129996,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 382186222679520,
+							"parameters": {
+								"object": "Text2"
+							}
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 432792738703801,
+							"parameters": {
+								"variable": "SongPassthrough",
+								"comparison": 0,
+								"value": "\"\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-layer-opacity",
+							"objectClass": "System",
+							"sid": 556303489259000,
+							"parameters": {
+								"layer": "2",
+								"opacity": "lerp(LayerOpacity(2),0,0.01)"
+							}
+						},
+						{
+							"id": "set-y",
+							"objectClass": "Text2",
+							"sid": 436931076551018,
+							"parameters": {
+								"y": "Text2.IID* 40"
+							}
+						}
+					],
+					"sid": 418784111632318,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 908487736331534,
+									"parameters": {
+										"first-value": "SelectedSong.SelectedType",
+										"comparison": 0,
+										"second-value": "Text2.IID"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-position",
+									"objectClass": "SelectedSong",
+									"sid": 490236209762506,
+									"parameters": {
+										"x": "lerp(SelectedSong.X,Text2.x + Text2.Width + 20,0.1)",
+										"y": "lerp(SelectedSong.Y,Text2.Y + Text2.Height/2,0.4)"
+									}
+								},
+								{
+									"id": "set-x",
+									"objectClass": "Text2",
+									"sid": 108147025754705,
+									"parameters": {
+										"x": "lerp(Text2.X,50,0.1)"
+									}
+								}
+							],
+							"sid": 823338926369940
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 354316331978116
+								}
+							],
+							"actions": [
+								{
+									"id": "set-x",
+									"objectClass": "Text2",
+									"sid": 151116211706132,
+									"parameters": {
+										"x": "lerp(Text2.X,4,0.1)"
+									}
+								}
+							],
+							"sid": 423327964396639
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-text",
+									"objectClass": "Text2",
+									"sid": 166782030261192,
+									"parameters": {
+										"text-to-compare": "\"Text\"",
+										"case-sensitivity": "ignore-case"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "Text2",
+									"sid": 237865607659707
+								}
+							],
+							"sid": 900236124360494
+						}
+					]
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 368324108768698,
+					"parameters": {
+						"key": 13
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 872444467944943,
+					"parameters": {
+						"audio-file": "confirmMenu",
+						"loop": "not-looping",
+						"volume": "SoundLevel",
+						"tag-optional": "\"\""
+					}
+				}
+			],
+			"sid": 442267874388065,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 276033231480342,
+							"parameters": {
+								"object": "Text2"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 952921509455736,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 284921341028993,
+									"parameters": {
+										"first-value": "SelectedSong.SelectedType",
+										"comparison": 0,
+										"second-value": "Text2.IID"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 742343577874142,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Text2",
+											"sid": 541245815066771,
+											"parameters": {
+												"instance-variable": "IsURL"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 371594326931005,
+											"parameters": {
+												"variable": "IsURL",
+												"value": "true"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 429158061887541,
+											"parameters": {
+												"variable": "SongPassthrough",
+												"value": "Text2.SongURL"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 302422096452508,
+											"parameters": {
+												"variable": "URLSongPassthrough",
+												"value": "Text2.Text"
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 317385308082269,
+											"parameters": {
+												"seconds": "1"
+											}
+										},
+										{
+											"id": "go-to-layout",
+											"objectClass": "System",
+											"sid": 273456370195760,
+											"parameters": {
+												"layout": "Play"
+											}
+										}
+									],
+									"sid": 719694529770928
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 791618519182665
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 436424965075799,
+											"parameters": {
+												"variable": "SongPassthrough",
+												"value": "Text2.Text & \"-\" & \"hard\""
+											}
+										},
+										{
+											"id": "preload-by-name",
+											"objectClass": "Audio",
+											"sid": 383379367997129,
+											"parameters": {
+												"folder": "sounds",
+												"audio-file-name": "Text2.Text & \"_Inst\""
+											}
+										},
+										{
+											"id": "preload-by-name",
+											"objectClass": "Audio",
+											"sid": 495837657455487,
+											"parameters": {
+												"folder": "sounds",
+												"audio-file-name": "Text2.Text & \"_Voices\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 500713455643432,
+											"parameters": {
+												"seconds": "1"
+											}
+										},
+										{
+											"id": "go-to-layout",
+											"objectClass": "System",
+											"sid": 505341183874561,
+											"parameters": {
+												"layout": "Play"
+											}
+										}
+									],
+									"sid": 964512388163572
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 186728168772719,
+					"parameters": {
+						"key": 38
+					}
+				},
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 998441028074129,
+					"parameters": {
+						"variable": "SongPassthrough",
+						"comparison": 0,
+						"value": "\"\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "subtract-from-instvar",
+					"objectClass": "SelectedSong",
+					"sid": 855209938899735,
+					"parameters": {
+						"instance-variable": "SelectedType",
+						"value": "1"
+					}
+				},
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 959910739590277,
+					"parameters": {
+						"audio-file": "scrollMenu",
+						"loop": "not-looping",
+						"volume": "SoundLevel",
+						"tag-optional": "\"\""
+					}
+				}
+			],
+			"sid": 772662200584021,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "SelectedSong",
+							"sid": 774926131657102,
+							"parameters": {
+								"instance-variable": "SelectedType",
+								"comparison": 3,
+								"value": "-1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "SelectedSong",
+							"sid": 732742809565773,
+							"parameters": {
+								"instance-variable": "SelectedType",
+								"value": "Text2.Count -1"
+							}
+						}
+					],
+					"sid": 893331234177633
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 623847482468860,
+					"parameters": {
+						"key": 40
+					}
+				},
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 147416278568448,
+					"parameters": {
+						"variable": "SongPassthrough",
+						"comparison": 0,
+						"value": "\"\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "add-to-instvar",
+					"objectClass": "SelectedSong",
+					"sid": 852596333587637,
+					"parameters": {
+						"instance-variable": "SelectedType",
+						"value": "1"
+					}
+				},
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 161739093555918,
+					"parameters": {
+						"audio-file": "scrollMenu",
+						"loop": "not-looping",
+						"volume": "SoundLevel",
+						"tag-optional": "\"\""
+					}
+				}
+			],
+			"sid": 140152964262926,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "SelectedSong",
+							"sid": 263682603704349,
+							"parameters": {
+								"instance-variable": "SelectedType",
+								"comparison": 5,
+								"value": "Text2.Count"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "SelectedSong",
+							"sid": 848711192821095,
+							"parameters": {
+								"instance-variable": "SelectedType",
+								"value": "0"
+							}
+						}
+					],
+					"sid": 384158196322019
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 861497275628062,
+					"parameters": {
+						"variable": "SongPassthrough",
+						"comparison": 1,
+						"value": "\"\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-layer-opacity",
+					"objectClass": "System",
+					"sid": 655273477312455,
+					"parameters": {
+						"layer": "2",
+						"opacity": "lerp(LayerOpacity(2),100,0.1)"
+					}
+				}
+			],
+			"sid": 237623007613809,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 233850685239443,
+							"parameters": {
+								"object": "Text2"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 779354586870070,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 968646355743092,
+									"parameters": {
+										"first-value": "SelectedSong.SelectedType",
+										"comparison": 0,
+										"second-value": "Text2.IID"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-position",
+									"objectClass": "SelectedSong",
+									"sid": 978419760090300,
+									"parameters": {
+										"x": "lerp(SelectedSong.X,5,0.1)",
+										"y": "lerp(SelectedSong.Y,Text2.Y + Text2.Height/2,0.1)"
+									}
+								},
+								{
+									"id": "set-x",
+									"objectClass": "Text2",
+									"sid": 657625786585344,
+									"parameters": {
+										"x": "lerp(Text2.X,-Text2.Width,0.1)"
+									}
+								}
+							],
+							"sid": 613451854384824
+						}
+					]
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-touched-object",
+					"objectClass": "Touch",
+					"sid": 450478297525019,
+					"parameters": {
+						"object": "Notes"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 611154677488321,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Notes",
+							"sid": 287754355363594,
+							"parameters": {
+								"instance-variable": "Type",
+								"comparison": 0,
+								"value": "\"Up\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 202402723703211,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 240335791926563,
+									"parameters": {
+										"variable": "SongPassthrough",
+										"comparison": 0,
+										"value": "\"\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "subtract-from-instvar",
+									"objectClass": "SelectedSong",
+									"sid": 651593975887222,
+									"parameters": {
+										"instance-variable": "SelectedType",
+										"value": "1"
+									}
+								},
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 494893306604817,
+									"parameters": {
+										"audio-file": "scrollMenu",
+										"loop": "not-looping",
+										"volume": "SoundLevel",
+										"tag-optional": "\"\""
+									}
+								}
+							],
+							"sid": 859490940334169,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "SelectedSong",
+											"sid": 700050443567299,
+											"parameters": {
+												"instance-variable": "SelectedType",
+												"comparison": 3,
+												"value": "-1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "SelectedSong",
+											"sid": 484669110283075,
+											"parameters": {
+												"instance-variable": "SelectedType",
+												"value": "Text2.Count -1"
+											}
+										}
+									],
+									"sid": 815946894898452
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Notes",
+							"sid": 908289161374951,
+							"parameters": {
+								"instance-variable": "Type",
+								"comparison": 0,
+								"value": "\"Down\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 246360556903310,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 167500871132451,
+									"parameters": {
+										"variable": "SongPassthrough",
+										"comparison": 0,
+										"value": "\"\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-instvar",
+									"objectClass": "SelectedSong",
+									"sid": 134619358676210,
+									"parameters": {
+										"instance-variable": "SelectedType",
+										"value": "1"
+									}
+								},
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 971846995627919,
+									"parameters": {
+										"audio-file": "scrollMenu",
+										"loop": "not-looping",
+										"volume": "SoundLevel",
+										"tag-optional": "\"\""
+									}
+								}
+							],
+							"sid": 560097962683335,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "SelectedSong",
+											"sid": 745256712186357,
+											"parameters": {
+												"instance-variable": "SelectedType",
+												"comparison": 5,
+												"value": "Text2.Count"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "SelectedSong",
+											"sid": 658796920611492,
+											"parameters": {
+												"instance-variable": "SelectedType",
+												"value": "0"
+											}
+										}
+									],
+									"sid": 660490083485284
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-tag-playing",
+					"objectClass": "Audio",
+					"sid": 985740190202691,
+					"parameters": {
+						"tag": "\"Back\""
+					}
+				},
+				{
+					"id": "is-tag-playing",
+					"objectClass": "Audio",
+					"sid": 956332893230093,
+					"parameters": {
+						"tag": "\"Singing Voice\""
+					}
+				}
+			],
+			"actions": [],
+			"sid": 318677613234234,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 255911256572859
+						}
+					],
+					"actions": [
+						{
+							"id": "alert",
+							"objectClass": "Browser",
+							"sid": 293860503526686,
+							"parameters": {
+								"message": "\"The game has unexpectedly shit it self!\" & newline & \"Error code: 002\""
+							}
+						},
+						{
+							"id": "reload",
+							"objectClass": "Browser",
+							"sid": 120828523492690
+						}
+					],
+					"sid": 814629954742122
+				}
+			],
+			"isOrBlock": true
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 678690573720917,
+					"parameters": {
+						"key": 55
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 350651911624021,
+					"parameters": {
+						"audio-file": "confirmMenu",
+						"loop": "not-looping",
+						"volume": "SoundLevel",
+						"tag-optional": "\"\""
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 580282258902400,
+					"parameters": {
+						"variable": "SongPassthrough",
+						"value": "\"Editor\""
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 454648017118455,
+					"parameters": {
+						"seconds": "1"
+					}
+				},
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 940139907560132,
+					"parameters": {
+						"layout": "BGMaker"
+					}
+				},
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 521426581296085,
+					"parameters": {
+						"object-to-create": "Text2",
+						"layer": "1",
+						"x": "20",
+						"y": "Text2.Width",
+						"create-hierarchy": false
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "SelectedSong",
+					"sid": 324767875390202,
+					"parameters": {
+						"instance-variable": "SelectedType",
+						"value": "Text2.IID"
+					}
+				}
+			],
+			"sid": 220124146312324
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-completed",
+					"objectClass": "AJAX",
+					"sid": 601352751649537,
+					"parameters": {
+						"tag": "\"Op\""
+					}
+				}
+			],
+			"actions": [],
+			"sid": 464861179149594,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "repeat",
+							"objectClass": "System",
+							"sid": 840674046316002,
+							"parameters": {
+								"count": "tokencount(AJAX.LastData,newline)"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 455106367329879,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 691657142934542,
+									"parameters": {
+										"first-value": "tokenat(tokenat(AJAX.LastData,loopindex,newline),0,\":\")",
+										"comparison": 0,
+										"second-value": "\"Downscroll\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 352867411208473,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 115434074260373,
+											"parameters": {
+												"first-value": "tokenat(tokenat(AJAX.LastData,loopindex,newline),1,\":\")",
+												"comparison": 0,
+												"second-value": "\"true\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 371708561007755,
+											"parameters": {
+												"variable": "DownScroll",
+												"value": "true"
+											}
+										}
+									],
+									"sid": 420063745759675
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 714193751552612,
+											"parameters": {
+												"first-value": "tokenat(tokenat(AJAX.LastData,loopindex,newline),1,\":\")",
+												"comparison": 0,
+												"second-value": "\"false\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 681209216158441,
+											"parameters": {
+												"variable": "DownScroll",
+												"value": "false"
+											}
+										}
+									],
+									"sid": 186891647818185
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-on-mobile",
+									"objectClass": "PlatformInfo",
+									"sid": 514027453099717
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 260749203096558,
+									"parameters": {
+										"variable": "DownScroll",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 820980677983748
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 861388257438568,
+									"parameters": {
+										"first-value": "tokenat(tokenat(AJAX.LastData,loopindex,newline),0,\":\")",
+										"comparison": 0,
+										"second-value": "\"SchoolVertion\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 505633644838976,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 685186659885819,
+											"parameters": {
+												"first-value": "tokenat(tokenat(AJAX.LastData,loopindex,newline),1,\":\")",
+												"comparison": 0,
+												"second-value": "\"true\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 628798254282109,
+											"parameters": {
+												"variable": "SchoolVer",
+												"value": "true"
+											}
+										}
+									],
+									"sid": 622837954472561
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 518633534159735,
+											"parameters": {
+												"first-value": "tokenat(tokenat(AJAX.LastData,loopindex,newline),1,\":\")",
+												"comparison": 0,
+												"second-value": "\"false\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 752090485918898,
+											"parameters": {
+												"variable": "SchoolVer",
+												"value": "false"
+											}
+										}
+									],
+									"sid": 473938314319257
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 317078052138495,
+									"parameters": {
+										"first-value": "tokenat(tokenat(AJAX.LastData,loopindex,newline),0,\":\")",
+										"comparison": 0,
+										"second-value": "\"SkipDialog\""
+									}
+								}
+							],
+							"actions": [],
+							"sid": 489098792604740,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 287869349793216,
+											"parameters": {
+												"first-value": "tokenat(tokenat(AJAX.LastData,loopindex,newline),1,\":\")",
+												"comparison": 0,
+												"second-value": "\"true\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 479272258685284,
+											"parameters": {
+												"variable": "SkipDialog",
+												"value": "true"
+											}
+										}
+									],
+									"sid": 865279337215110
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 347562106701078,
+											"parameters": {
+												"first-value": "tokenat(tokenat(AJAX.LastData,loopindex,newline),1,\":\")",
+												"comparison": 0,
+												"second-value": "\"false\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 752824720063723,
+											"parameters": {
+												"variable": "SkipDialog",
+												"value": "false"
+											}
+										}
+									],
+									"sid": 629081427730715
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-completed",
+					"objectClass": "AJAX",
+					"sid": 881320570865117,
+					"parameters": {
+						"tag": "\"Update\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "parse",
+					"objectClass": "MapLoader",
+					"sid": 174971868654636,
+					"parameters": {
+						"data": "AJAX.LastData"
+					}
+				}
+			],
+			"sid": 606573039076354,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-value",
+							"objectClass": "MapLoader",
+							"sid": 666444403305663,
+							"parameters": {
+								"path": "\"_aCellValues.0._sName\"",
+								"cmp": 0,
+								"value": "projectversion"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "alert",
+							"objectClass": "Browser",
+							"sid": 347616912654900,
+							"parameters": {
+								"message": "\"There is a update!\" & newline & \"Come with me to Game Bannana!\""
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 296816238421159,
+							"parameters": {
+								"seconds": "0.1"
+							}
+						},
+						{
+							"id": "go-to-url",
+							"objectClass": "Browser",
+							"sid": 657913309696364,
+							"parameters": {
+								"url": "\"https://gamebanana.com/mods/289416\"",
+								"target": "top"
+							}
+						}
+					],
+					"sid": 602290179381722
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-completed",
+					"objectClass": "AJAX",
+					"sid": 572285439152578,
+					"parameters": {
+						"tag": "\"Keybinds\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "load",
+					"objectClass": "Keybinds",
+					"sid": 299037666525124,
+					"parameters": {
+						"json": "AJAX.LastData"
+					}
+				}
+			],
+			"sid": 170803372720680
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Load Form URL",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "LoadFromURL",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "URL",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 618104967002501
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 524764882614146,
+							"parameters": {
+								"variable": "ModURL",
+								"value": "URL"
+							}
+						}
+					],
+					"sid": 315155941375894,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 744923559102802,
+									"parameters": {
+										"first-value": "tokenat(replace(URL,\"https://\",\"\"),1,\".\")",
+										"comparison": 0,
+										"second-value": "\"github\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "request-url",
+									"objectClass": "AJAX",
+									"sid": 276828780716442,
+									"parameters": {
+										"tag": "\"LoadURL\"",
+										"url": "URL & \"/mod.cfg\""
+									}
+								}
+							],
+							"sid": 660113026646671
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 575132735028284
+								}
+							],
+							"actions": [
+								{
+									"id": "alert",
+									"objectClass": "Browser",
+									"sid": 869442406250713,
+									"parameters": {
+										"message": "\"Invalid Mod URL\" & newline & \"Must be on github!\""
+									}
+								}
+							],
+							"sid": 624467310430527
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-completed",
+							"objectClass": "AJAX",
+							"sid": 886431855945926,
+							"parameters": {
+								"tag": "\"LoadURL\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 950408221652369,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "repeat",
+									"objectClass": "System",
+									"sid": 680632625990716,
+									"parameters": {
+										"count": "tokencount(AJAX.LastData,newline)"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 752102273983791,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 558465969652131,
+											"parameters": {
+												"first-value": "tokenat(tokenat(AJAX.LastData,loopindex,newline),0,\":\")",
+												"comparison": 0,
+												"second-value": "\"loadsong\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "create-object",
+											"objectClass": "System",
+											"sid": 212880528301288,
+											"parameters": {
+												"object-to-create": "Text2",
+												"layer": "0",
+												"x": "0",
+												"y": "0",
+												"create-hierarchy": false
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Text2",
+											"sid": 590240956328548,
+											"parameters": {
+												"text": "tokenat(tokenat(AJAX.LastData,loopindex,newline),1,\":\")"
+											}
+										},
+										{
+											"id": "log",
+											"objectClass": "Browser",
+											"sid": 698816870820669,
+											"parameters": {
+												"type": "log",
+												"message": "tokenat(tokenat(AJAX.LastData,loopindex,newline),1,\":\")"
+											}
+										},
+										{
+											"id": "create-object",
+											"objectClass": "System",
+											"sid": 271555455418935,
+											"parameters": {
+												"object-to-create": "HealthIcon",
+												"layer": "1",
+												"x": "Text2.X + Text2.Width",
+												"y": "Text2.Y + Text2.Height - 20",
+												"create-hierarchy": false
+											}
+										},
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "HealthIcon",
+											"sid": 872710430944349,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "Text2",
+												"x": true,
+												"y": true,
+												"angle": true,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										},
+										{
+											"id": "set-size",
+											"objectClass": "HealthIcon",
+											"sid": 676877185400253,
+											"parameters": {
+												"width": "55",
+												"height": "55"
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "HealthIcon",
+											"sid": 722748945651377,
+											"parameters": {
+												"animation": "tokenat(tokenat(AJAX.LastData,loopindex,newline),1,\":\")",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Text2",
+											"sid": 165626370825521,
+											"parameters": {
+												"instance-variable": "IsURL",
+												"value": "true"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "Text2",
+											"sid": 861210768665616,
+											"parameters": {
+												"instance-variable": "SongURL",
+												"value": "ModURL & tokenat(tokenat(AJAX.LastData,loopindex,newline),1,\":\")"
+											}
+										}
+									],
+									"sid": 466205494056218
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-error",
+							"objectClass": "AJAX",
+							"sid": 139963678439997,
+							"parameters": {
+								"tag": "\"LoadURL\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "alert",
+							"objectClass": "Browser",
+							"sid": 881922460651512,
+							"parameters": {
+								"message": "\"Mod URL Error!\" & newline & \"Cant find files\""
+							}
+						}
+					],
+					"sid": 197708296305442
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 971928384489932,
+							"parameters": {
+								"key": 57
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "LoadFromURL",
+							"sid": 277066216103147,
+							"parameters": [
+								"\"https://drmeepso.github.io/FNF-Base/\""
+							]
+						}
+					],
+					"sid": 293892371686700
+				}
+			],
+			"sid": 860533662732235
+		}
+	],
+	"sid": 528557297056638
+}

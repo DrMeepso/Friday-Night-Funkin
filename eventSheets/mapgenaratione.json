@@ -1,0 +1,3041 @@
+{
+	"name": "MapGenarationE",
+	"events": [
+		{
+			"functionName": "Generate Map",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 802201530068522,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for",
+							"objectClass": "System",
+							"sid": 185220581752579,
+							"parameters": {
+								"name": "\"Stream\"",
+								"start-index": "0",
+								"end-index": "MapLoader.ArraySize(NotePath&\"notes\")"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 437730484468293,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 373994843468343,
+									"parameters": {
+										"first-value": "MapLoader.ArraySize(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes\")",
+										"comparison": 4,
+										"second-value": "0"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 596075853342847,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for",
+											"objectClass": "System",
+											"sid": 334613863089099,
+											"parameters": {
+												"name": "\"Notes\"",
+												"start-index": "0",
+												"end-index": "MapLoader.ArraySize(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes\") - 1"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 880917910607301,
+									"children": [
+										{
+											"eventType": "group",
+											"disabled": false,
+											"title": "Player 1s Trun",
+											"description": "",
+											"isActiveOnStart": true,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 362063061719877,
+															"parameters": {
+																"first-value": "MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".1\")",
+																"comparison": 0,
+																"second-value": "0"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "append-text",
+															"objectClass": "DebugText",
+															"sid": 976290399134382,
+															"parameters": {
+																"text": "newline & \"Left\""
+															}
+														}
+													],
+													"sid": 901710199676511,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "Notes",
+																	"sid": 993103906854747,
+																	"parameters": {
+																		"instance-variable": "Type",
+																		"comparison": 0,
+																		"value": "\"Left\""
+																	}
+																}
+															],
+															"actions": [],
+															"sid": 381950484017864,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "compare-two-values",
+																			"objectClass": "System",
+																			"sid": 477007284288835,
+																			"parameters": {
+																				"first-value": "MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".mustHitSection\")",
+																				"comparison": 0,
+																				"second-value": "1"
+																			}
+																		}
+																	],
+																	"actions": [],
+																	"sid": 139706326932738,
+																	"children": [
+																		{
+																			"eventType": "block",
+																			"conditions": [
+																				{
+																					"id": "is-boolean-instance-variable-set",
+																					"objectClass": "Notes",
+																					"sid": 754216518068405,
+																					"parameters": {
+																						"instance-variable": "Player"
+																					}
+																				}
+																			],
+																			"actions": [
+																				{
+																					"id": "create-object",
+																					"objectClass": "System",
+																					"sid": 299939285822958,
+																					"parameters": {
+																						"object-to-create": "Note",
+																						"layer": "ArrowLayer",
+																						"x": "Notes.X",
+																						"y": "528",
+																						"create-hierarchy": false
+																					}
+																				},
+																				{
+																					"id": "set-animation-frame",
+																					"objectClass": "Note",
+																					"sid": 281910277367973,
+																					"parameters": {
+																						"frame-number": "0"
+																					}
+																				},
+																				{
+																					"id": "set-instvar-value",
+																					"objectClass": "Note",
+																					"sid": 598840807631357,
+																					"parameters": {
+																						"instance-variable": "StartTime",
+																						"value": "int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".0\")) / 1000"
+																					}
+																				}
+																			],
+																			"sid": 126103248864068,
+																			"children": [
+																				{
+																					"eventType": "block",
+																					"conditions": [
+																						{
+																							"id": "repeat",
+																							"objectClass": "System",
+																							"sid": 726715769483724,
+																							"parameters": {
+																								"count": "round(int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".2\"))/150) * 3"
+																							}
+																						}
+																					],
+																					"actions": [
+																						{
+																							"id": "create-object",
+																							"objectClass": "System",
+																							"sid": 670215389542782,
+																							"parameters": {
+																								"object-to-create": "NoteTrail",
+																								"layer": "ArrowLayer",
+																								"x": "Notes.x",
+																								"y": "528 + (loopindex  * NoteTrail.Height)",
+																								"create-hierarchy": false
+																							}
+																						},
+																						{
+																							"id": "set-instvar-value",
+																							"objectClass": "NoteTrail",
+																							"sid": 816689831796369,
+																							"parameters": {
+																								"instance-variable": "StartTime",
+																								"value": "int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".0\")) / 1000"
+																							}
+																						},
+																						{
+																							"id": "set-animation-frame",
+																							"objectClass": "NoteTrail",
+																							"sid": 933442258187651,
+																							"parameters": {
+																								"frame-number": "0"
+																							}
+																						}
+																					],
+																					"sid": 395108928013725,
+																					"children": [
+																						{
+																							"eventType": "block",
+																							"conditions": [
+																								{
+																									"id": "compare-two-values",
+																									"objectClass": "System",
+																									"sid": 838979799451722,
+																									"parameters": {
+																										"first-value": "loopindex + 1",
+																										"comparison": 0,
+																										"second-value": "round(int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".2\"))/150) * 3"
+																									}
+																								}
+																							],
+																							"actions": [
+																								{
+																									"id": "create-object",
+																									"objectClass": "System",
+																									"sid": 444706887997697,
+																									"parameters": {
+																										"object-to-create": "NoteCap",
+																										"layer": "ArrowLayer",
+																										"x": "Notes.x",
+																										"y": "528 + ((loopindex + 1)  * NoteCap.Height)",
+																										"create-hierarchy": false
+																									}
+																								},
+																								{
+																									"id": "set-instvar-value",
+																									"objectClass": "NoteCap",
+																									"sid": 764698139346508,
+																									"parameters": {
+																										"instance-variable": "StartTime",
+																										"value": "int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".0\")) / 1000"
+																									}
+																								},
+																								{
+																									"id": "set-animation-frame",
+																									"objectClass": "NoteCap",
+																									"sid": 301095496859500,
+																									"parameters": {
+																										"frame-number": "0"
+																									}
+																								}
+																							],
+																							"sid": 285751534127615
+																						}
+																					]
+																				}
+																			]
+																		}
+																	]
+																},
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "compare-two-values",
+																			"objectClass": "System",
+																			"sid": 258173681343020,
+																			"parameters": {
+																				"first-value": "MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".mustHitSection\")",
+																				"comparison": 0,
+																				"second-value": "0"
+																			}
+																		}
+																	],
+																	"actions": [],
+																	"sid": 213121822143497,
+																	"children": [
+																		{
+																			"eventType": "block",
+																			"conditions": [
+																				{
+																					"id": "is-boolean-instance-variable-set",
+																					"objectClass": "Notes",
+																					"sid": 170120043732817,
+																					"parameters": {
+																						"instance-variable": "Player"
+																					},
+																					"isInverted": true
+																				}
+																			],
+																			"actions": [
+																				{
+																					"id": "create-object",
+																					"objectClass": "System",
+																					"sid": 960717900559581,
+																					"parameters": {
+																						"object-to-create": "Note",
+																						"layer": "ArrowLayer",
+																						"x": "Notes.X",
+																						"y": "528",
+																						"create-hierarchy": false
+																					}
+																				},
+																				{
+																					"id": "set-animation-frame",
+																					"objectClass": "Note",
+																					"sid": 753874179911823,
+																					"parameters": {
+																						"frame-number": "0"
+																					}
+																				},
+																				{
+																					"id": "set-instvar-value",
+																					"objectClass": "Note",
+																					"sid": 538659040524067,
+																					"parameters": {
+																						"instance-variable": "StartTime",
+																						"value": "int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".0\")) / 1000"
+																					}
+																				}
+																			],
+																			"sid": 828500710553521,
+																			"children": [
+																				{
+																					"eventType": "block",
+																					"conditions": [
+																						{
+																							"id": "repeat",
+																							"objectClass": "System",
+																							"sid": 956315081612387,
+																							"parameters": {
+																								"count": "round(int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".2\"))/150) * 3"
+																							}
+																						}
+																					],
+																					"actions": [
+																						{
+																							"id": "create-object",
+																							"objectClass": "System",
+																							"sid": 186456135004464,
+																							"parameters": {
+																								"object-to-create": "NoteTrail",
+																								"layer": "ArrowLayer",
+																								"x": "Notes.x",
+																								"y": "528 + (loopindex  * NoteTrail.Height)",
+																								"create-hierarchy": false
+																							}
+																						},
+																						{
+																							"id": "set-instvar-value",
+																							"objectClass": "NoteTrail",
+																							"sid": 723619549054933,
+																							"parameters": {
+																								"instance-variable": "StartTime",
+																								"value": "int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".0\")) / 1000"
+																							}
+																						},
+																						{
+																							"id": "set-animation-frame",
+																							"objectClass": "NoteTrail",
+																							"sid": 836560764446543,
+																							"parameters": {
+																								"frame-number": "0"
+																							}
+																						}
+																					],
+																					"sid": 700623228186429,
+																					"children": [
+																						{
+																							"eventType": "block",
+																							"conditions": [
+																								{
+																									"id": "compare-two-values",
+																									"objectClass": "System",
+																									"sid": 293840749624731,
+																									"parameters": {
+																										"first-value": "loopindex + 1",
+																										"comparison": 0,
+																										"second-value": "round(int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".2\"))/150) * 3"
+																									}
+																								}
+																							],
+																							"actions": [
+																								{
+																									"id": "create-object",
+																									"objectClass": "System",
+																									"sid": 873403971285252,
+																									"parameters": {
+																										"object-to-create": "NoteCap",
+																										"layer": "ArrowLayer",
+																										"x": "Notes.x",
+																										"y": "528 + ((loopindex + 1)  * NoteCap.Height)",
+																										"create-hierarchy": false
+																									}
+																								},
+																								{
+																									"id": "set-instvar-value",
+																									"objectClass": "NoteCap",
+																									"sid": 301027732267788,
+																									"parameters": {
+																										"instance-variable": "StartTime",
+																										"value": "int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".0\")) / 1000"
+																									}
+																								},
+																								{
+																									"id": "set-animation-frame",
+																									"objectClass": "NoteCap",
+																									"sid": 487665086009835,
+																									"parameters": {
+																										"frame-number": "0"
+																									}
+																								}
+																							],
+																							"sid": 819213299771153
+																						}
+																					]
+																				}
+																			]
+																		}
+																	]
+																}
+															]
+														}
+													]
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 710197719751881,
+															"parameters": {
+																"first-value": "MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".1\")",
+																"comparison": 0,
+																"second-value": "1"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "append-text",
+															"objectClass": "DebugText",
+															"sid": 418531039534228,
+															"parameters": {
+																"text": "newline & \"Down\""
+															}
+														}
+													],
+													"sid": 957143799366343,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "Notes",
+																	"sid": 430376166544316,
+																	"parameters": {
+																		"instance-variable": "Type",
+																		"comparison": 0,
+																		"value": "\"Down\""
+																	}
+																}
+															],
+															"actions": [],
+															"sid": 256753767843754,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "compare-two-values",
+																			"objectClass": "System",
+																			"sid": 611279577985565,
+																			"parameters": {
+																				"first-value": "MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".mustHitSection\")",
+																				"comparison": 0,
+																				"second-value": "1"
+																			}
+																		}
+																	],
+																	"actions": [],
+																	"sid": 719927846661450,
+																	"children": [
+																		{
+																			"eventType": "block",
+																			"conditions": [
+																				{
+																					"id": "is-boolean-instance-variable-set",
+																					"objectClass": "Notes",
+																					"sid": 587187825170273,
+																					"parameters": {
+																						"instance-variable": "Player"
+																					}
+																				}
+																			],
+																			"actions": [
+																				{
+																					"id": "create-object",
+																					"objectClass": "System",
+																					"sid": 904140668631122,
+																					"parameters": {
+																						"object-to-create": "Note",
+																						"layer": "ArrowLayer",
+																						"x": "Notes.x",
+																						"y": "528",
+																						"create-hierarchy": false
+																					}
+																				},
+																				{
+																					"id": "set-animation-frame",
+																					"objectClass": "Note",
+																					"sid": 694569416691980,
+																					"parameters": {
+																						"frame-number": "1"
+																					}
+																				},
+																				{
+																					"id": "set-instvar-value",
+																					"objectClass": "Note",
+																					"sid": 564372430254974,
+																					"parameters": {
+																						"instance-variable": "StartTime",
+																						"value": "int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".0\")) / 1000"
+																					}
+																				}
+																			],
+																			"sid": 698479857237217,
+																			"children": [
+																				{
+																					"eventType": "block",
+																					"conditions": [
+																						{
+																							"id": "repeat",
+																							"objectClass": "System",
+																							"sid": 705425913934137,
+																							"parameters": {
+																								"count": "round(int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".2\"))/150) * 3"
+																							}
+																						}
+																					],
+																					"actions": [
+																						{
+																							"id": "create-object",
+																							"objectClass": "System",
+																							"sid": 450924854562338,
+																							"parameters": {
+																								"object-to-create": "NoteTrail",
+																								"layer": "ArrowLayer",
+																								"x": "Notes.x",
+																								"y": "528 + (loopindex  * NoteTrail.Height)",
+																								"create-hierarchy": false
+																							}
+																						},
+																						{
+																							"id": "set-instvar-value",
+																							"objectClass": "NoteTrail",
+																							"sid": 717103061856669,
+																							"parameters": {
+																								"instance-variable": "StartTime",
+																								"value": "int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".0\")) / 1000"
+																							}
+																						},
+																						{
+																							"id": "set-animation-frame",
+																							"objectClass": "NoteTrail",
+																							"sid": 934395644808164,
+																							"parameters": {
+																								"frame-number": "1"
+																							}
+																						}
+																					],
+																					"sid": 422263455318672,
+																					"children": [
+																						{
+																							"eventType": "block",
+																							"conditions": [
+																								{
+																									"id": "compare-two-values",
+																									"objectClass": "System",
+																									"sid": 947718673853799,
+																									"parameters": {
+																										"first-value": "loopindex + 1",
+																										"comparison": 0,
+																										"second-value": "round(int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".2\"))/150) * 3"
+																									}
+																								}
+																							],
+																							"actions": [
+																								{
+																									"id": "create-object",
+																									"objectClass": "System",
+																									"sid": 938255975858393,
+																									"parameters": {
+																										"object-to-create": "NoteCap",
+																										"layer": "ArrowLayer",
+																										"x": "Notes.x",
+																										"y": "528 + ((loopindex + 1)  * NoteCap.Height)",
+																										"create-hierarchy": false
+																									}
+																								},
+																								{
+																									"id": "set-instvar-value",
+																									"objectClass": "NoteCap",
+																									"sid": 563532909954805,
+																									"parameters": {
+																										"instance-variable": "StartTime",
+																										"value": "int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".0\")) / 1000"
+																									}
+																								},
+																								{
+																									"id": "set-animation-frame",
+																									"objectClass": "NoteCap",
+																									"sid": 140149665973863,
+																									"parameters": {
+																										"frame-number": "1"
+																									}
+																								}
+																							],
+																							"sid": 514334341370339
+																						}
+																					]
+																				}
+																			]
+																		}
+																	]
+																},
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "compare-two-values",
+																			"objectClass": "System",
+																			"sid": 284542910997416,
+																			"parameters": {
+																				"first-value": "MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".mustHitSection\")",
+																				"comparison": 0,
+																				"second-value": "0"
+																			}
+																		}
+																	],
+																	"actions": [],
+																	"sid": 938871579210440,
+																	"children": [
+																		{
+																			"eventType": "block",
+																			"conditions": [
+																				{
+																					"id": "is-boolean-instance-variable-set",
+																					"objectClass": "Notes",
+																					"sid": 942347142404950,
+																					"parameters": {
+																						"instance-variable": "Player"
+																					},
+																					"isInverted": true
+																				}
+																			],
+																			"actions": [
+																				{
+																					"id": "create-object",
+																					"objectClass": "System",
+																					"sid": 398142036893161,
+																					"parameters": {
+																						"object-to-create": "Note",
+																						"layer": "ArrowLayer",
+																						"x": "Notes.x",
+																						"y": "528",
+																						"create-hierarchy": false
+																					}
+																				},
+																				{
+																					"id": "set-animation-frame",
+																					"objectClass": "Note",
+																					"sid": 108713672019861,
+																					"parameters": {
+																						"frame-number": "1"
+																					}
+																				},
+																				{
+																					"id": "set-instvar-value",
+																					"objectClass": "Note",
+																					"sid": 976611216981501,
+																					"parameters": {
+																						"instance-variable": "StartTime",
+																						"value": "int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".0\")) / 1000"
+																					}
+																				}
+																			],
+																			"sid": 702398631760897,
+																			"children": [
+																				{
+																					"eventType": "block",
+																					"conditions": [
+																						{
+																							"id": "repeat",
+																							"objectClass": "System",
+																							"sid": 116137873617757,
+																							"parameters": {
+																								"count": "round(int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".2\"))/150) * 3"
+																							}
+																						}
+																					],
+																					"actions": [
+																						{
+																							"id": "create-object",
+																							"objectClass": "System",
+																							"sid": 366480431797222,
+																							"parameters": {
+																								"object-to-create": "NoteTrail",
+																								"layer": "ArrowLayer",
+																								"x": "Notes.x",
+																								"y": "528 + (loopindex  * NoteTrail.Height)",
+																								"create-hierarchy": false
+																							}
+																						},
+																						{
+																							"id": "set-instvar-value",
+																							"objectClass": "NoteTrail",
+																							"sid": 839932454786602,
+																							"parameters": {
+																								"instance-variable": "StartTime",
+																								"value": "int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".0\")) / 1000"
+																							}
+																						},
+																						{
+																							"id": "set-animation-frame",
+																							"objectClass": "NoteTrail",
+																							"sid": 553676361743268,
+																							"parameters": {
+																								"frame-number": "1"
+																							}
+																						}
+																					],
+																					"sid": 859182804724065,
+																					"children": [
+																						{
+																							"eventType": "block",
+																							"conditions": [
+																								{
+																									"id": "compare-two-values",
+																									"objectClass": "System",
+																									"sid": 276187533605908,
+																									"parameters": {
+																										"first-value": "loopindex + 1",
+																										"comparison": 0,
+																										"second-value": "round(int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".2\"))/150) * 3"
+																									}
+																								}
+																							],
+																							"actions": [
+																								{
+																									"id": "create-object",
+																									"objectClass": "System",
+																									"sid": 968275205953034,
+																									"parameters": {
+																										"object-to-create": "NoteCap",
+																										"layer": "ArrowLayer",
+																										"x": "Notes.x",
+																										"y": "528 + ((loopindex + 1)  * NoteCap.Height)",
+																										"create-hierarchy": false
+																									}
+																								},
+																								{
+																									"id": "set-instvar-value",
+																									"objectClass": "NoteCap",
+																									"sid": 504561111076620,
+																									"parameters": {
+																										"instance-variable": "StartTime",
+																										"value": "int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".0\")) / 1000"
+																									}
+																								},
+																								{
+																									"id": "set-animation-frame",
+																									"objectClass": "NoteCap",
+																									"sid": 959258598798358,
+																									"parameters": {
+																										"frame-number": "1"
+																									}
+																								}
+																							],
+																							"sid": 195643242157852
+																						}
+																					]
+																				}
+																			]
+																		}
+																	]
+																}
+															]
+														}
+													]
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 115241641825469,
+															"parameters": {
+																"first-value": "MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".1\")",
+																"comparison": 0,
+																"second-value": "2"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "append-text",
+															"objectClass": "DebugText",
+															"sid": 433475801599981,
+															"parameters": {
+																"text": "newline & \"Up\""
+															}
+														}
+													],
+													"sid": 988251701915065,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "Notes",
+																	"sid": 840538402294722,
+																	"parameters": {
+																		"instance-variable": "Type",
+																		"comparison": 0,
+																		"value": "\"Up\""
+																	}
+																}
+															],
+															"actions": [],
+															"sid": 184108266643395,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "compare-two-values",
+																			"objectClass": "System",
+																			"sid": 884975972036671,
+																			"parameters": {
+																				"first-value": "MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".mustHitSection\")",
+																				"comparison": 0,
+																				"second-value": "1"
+																			}
+																		}
+																	],
+																	"actions": [],
+																	"sid": 547108753573707,
+																	"children": [
+																		{
+																			"eventType": "block",
+																			"conditions": [
+																				{
+																					"id": "is-boolean-instance-variable-set",
+																					"objectClass": "Notes",
+																					"sid": 456209587077621,
+																					"parameters": {
+																						"instance-variable": "Player"
+																					}
+																				}
+																			],
+																			"actions": [
+																				{
+																					"id": "create-object",
+																					"objectClass": "System",
+																					"sid": 121043809322202,
+																					"parameters": {
+																						"object-to-create": "Note",
+																						"layer": "ArrowLayer",
+																						"x": "Notes.x",
+																						"y": "528",
+																						"create-hierarchy": false
+																					}
+																				},
+																				{
+																					"id": "set-animation-frame",
+																					"objectClass": "Note",
+																					"sid": 198462688714697,
+																					"parameters": {
+																						"frame-number": "2"
+																					}
+																				},
+																				{
+																					"id": "set-instvar-value",
+																					"objectClass": "Note",
+																					"sid": 558588671799922,
+																					"parameters": {
+																						"instance-variable": "StartTime",
+																						"value": "int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".0\")) / 1000"
+																					}
+																				}
+																			],
+																			"sid": 241018948062621,
+																			"children": [
+																				{
+																					"eventType": "block",
+																					"conditions": [
+																						{
+																							"id": "repeat",
+																							"objectClass": "System",
+																							"sid": 507338745075999,
+																							"parameters": {
+																								"count": "round(int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".2\"))/150) * 3"
+																							}
+																						}
+																					],
+																					"actions": [
+																						{
+																							"id": "create-object",
+																							"objectClass": "System",
+																							"sid": 685767588072272,
+																							"parameters": {
+																								"object-to-create": "NoteTrail",
+																								"layer": "ArrowLayer",
+																								"x": "Notes.x",
+																								"y": "528 + (loopindex  * NoteTrail.Height)",
+																								"create-hierarchy": false
+																							}
+																						},
+																						{
+																							"id": "set-instvar-value",
+																							"objectClass": "NoteTrail",
+																							"sid": 536442799331686,
+																							"parameters": {
+																								"instance-variable": "StartTime",
+																								"value": "int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".0\")) / 1000"
+																							}
+																						},
+																						{
+																							"id": "set-animation-frame",
+																							"objectClass": "NoteTrail",
+																							"sid": 919034107786474,
+																							"parameters": {
+																								"frame-number": "2"
+																							}
+																						}
+																					],
+																					"sid": 923960350809196,
+																					"children": [
+																						{
+																							"eventType": "block",
+																							"conditions": [
+																								{
+																									"id": "compare-two-values",
+																									"objectClass": "System",
+																									"sid": 923188745793064,
+																									"parameters": {
+																										"first-value": "loopindex + 1",
+																										"comparison": 0,
+																										"second-value": "round(int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".2\"))/150) * 3"
+																									}
+																								}
+																							],
+																							"actions": [
+																								{
+																									"id": "create-object",
+																									"objectClass": "System",
+																									"sid": 337711360871595,
+																									"parameters": {
+																										"object-to-create": "NoteCap",
+																										"layer": "ArrowLayer",
+																										"x": "Notes.x",
+																										"y": "528 + ((loopindex + 1)  * NoteCap.Height)",
+																										"create-hierarchy": false
+																									}
+																								},
+																								{
+																									"id": "set-instvar-value",
+																									"objectClass": "NoteCap",
+																									"sid": 423385529047322,
+																									"parameters": {
+																										"instance-variable": "StartTime",
+																										"value": "int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".0\")) / 1000"
+																									}
+																								},
+																								{
+																									"id": "set-animation-frame",
+																									"objectClass": "NoteCap",
+																									"sid": 424827714175084,
+																									"parameters": {
+																										"frame-number": "2"
+																									}
+																								}
+																							],
+																							"sid": 899831645063643
+																						}
+																					]
+																				}
+																			]
+																		}
+																	]
+																},
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "compare-two-values",
+																			"objectClass": "System",
+																			"sid": 710822239636401,
+																			"parameters": {
+																				"first-value": "MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".mustHitSection\")",
+																				"comparison": 0,
+																				"second-value": "0"
+																			}
+																		}
+																	],
+																	"actions": [],
+																	"sid": 740107558586443,
+																	"children": [
+																		{
+																			"eventType": "block",
+																			"conditions": [
+																				{
+																					"id": "is-boolean-instance-variable-set",
+																					"objectClass": "Notes",
+																					"sid": 626755335558183,
+																					"parameters": {
+																						"instance-variable": "Player"
+																					},
+																					"isInverted": true
+																				}
+																			],
+																			"actions": [
+																				{
+																					"id": "create-object",
+																					"objectClass": "System",
+																					"sid": 472283016871765,
+																					"parameters": {
+																						"object-to-create": "Note",
+																						"layer": "ArrowLayer",
+																						"x": "Notes.X",
+																						"y": "528",
+																						"create-hierarchy": false
+																					}
+																				},
+																				{
+																					"id": "set-animation-frame",
+																					"objectClass": "Note",
+																					"sid": 620438922216211,
+																					"parameters": {
+																						"frame-number": "2"
+																					}
+																				},
+																				{
+																					"id": "set-instvar-value",
+																					"objectClass": "Note",
+																					"sid": 723501135834480,
+																					"parameters": {
+																						"instance-variable": "StartTime",
+																						"value": "int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".0\")) / 1000"
+																					}
+																				}
+																			],
+																			"sid": 622908810454389,
+																			"children": [
+																				{
+																					"eventType": "block",
+																					"conditions": [
+																						{
+																							"id": "repeat",
+																							"objectClass": "System",
+																							"sid": 473666427383086,
+																							"parameters": {
+																								"count": "round(int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".2\"))/150) * 3"
+																							}
+																						}
+																					],
+																					"actions": [
+																						{
+																							"id": "create-object",
+																							"objectClass": "System",
+																							"sid": 656293249783252,
+																							"parameters": {
+																								"object-to-create": "NoteTrail",
+																								"layer": "ArrowLayer",
+																								"x": "Notes.x",
+																								"y": "528 + (loopindex  * NoteTrail.Height)",
+																								"create-hierarchy": false
+																							}
+																						},
+																						{
+																							"id": "set-instvar-value",
+																							"objectClass": "NoteTrail",
+																							"sid": 582447862641858,
+																							"parameters": {
+																								"instance-variable": "StartTime",
+																								"value": "int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".0\")) / 1000"
+																							}
+																						},
+																						{
+																							"id": "set-animation-frame",
+																							"objectClass": "NoteTrail",
+																							"sid": 757732597680334,
+																							"parameters": {
+																								"frame-number": "2"
+																							}
+																						}
+																					],
+																					"sid": 919928573952416,
+																					"children": [
+																						{
+																							"eventType": "block",
+																							"conditions": [
+																								{
+																									"id": "compare-two-values",
+																									"objectClass": "System",
+																									"sid": 135598664497638,
+																									"parameters": {
+																										"first-value": "loopindex + 1",
+																										"comparison": 0,
+																										"second-value": "round(int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".2\"))/150) * 3"
+																									}
+																								}
+																							],
+																							"actions": [
+																								{
+																									"id": "create-object",
+																									"objectClass": "System",
+																									"sid": 208100615485993,
+																									"parameters": {
+																										"object-to-create": "NoteCap",
+																										"layer": "ArrowLayer",
+																										"x": "Notes.x",
+																										"y": "528 + ((loopindex + 1)  * NoteCap.Height)",
+																										"create-hierarchy": false
+																									}
+																								},
+																								{
+																									"id": "set-instvar-value",
+																									"objectClass": "NoteCap",
+																									"sid": 658224482135263,
+																									"parameters": {
+																										"instance-variable": "StartTime",
+																										"value": "int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".0\")) / 1000"
+																									}
+																								},
+																								{
+																									"id": "set-animation-frame",
+																									"objectClass": "NoteCap",
+																									"sid": 705838327621373,
+																									"parameters": {
+																										"frame-number": "2"
+																									}
+																								}
+																							],
+																							"sid": 602456493675352
+																						}
+																					]
+																				}
+																			]
+																		}
+																	]
+																}
+															]
+														}
+													]
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 516411008531139,
+															"parameters": {
+																"first-value": "MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".1\")",
+																"comparison": 0,
+																"second-value": "3"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "append-text",
+															"objectClass": "DebugText",
+															"sid": 894817150732826,
+															"parameters": {
+																"text": "newline & \"Right\""
+															}
+														}
+													],
+													"sid": 863675357418806,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "Notes",
+																	"sid": 641045506237124,
+																	"parameters": {
+																		"instance-variable": "Type",
+																		"comparison": 0,
+																		"value": "\"Right\""
+																	}
+																}
+															],
+															"actions": [],
+															"sid": 156088287843440,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "compare-two-values",
+																			"objectClass": "System",
+																			"sid": 341841842849592,
+																			"parameters": {
+																				"first-value": "MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".mustHitSection\")",
+																				"comparison": 0,
+																				"second-value": "1"
+																			}
+																		}
+																	],
+																	"actions": [],
+																	"sid": 626127806082363,
+																	"children": [
+																		{
+																			"eventType": "block",
+																			"conditions": [
+																				{
+																					"id": "is-boolean-instance-variable-set",
+																					"objectClass": "Notes",
+																					"sid": 782527494582993,
+																					"parameters": {
+																						"instance-variable": "Player"
+																					}
+																				}
+																			],
+																			"actions": [
+																				{
+																					"id": "create-object",
+																					"objectClass": "System",
+																					"sid": 737579760342263,
+																					"parameters": {
+																						"object-to-create": "Note",
+																						"layer": "ArrowLayer",
+																						"x": "Notes.x",
+																						"y": "528",
+																						"create-hierarchy": false
+																					}
+																				},
+																				{
+																					"id": "set-animation-frame",
+																					"objectClass": "Note",
+																					"sid": 166726793901483,
+																					"parameters": {
+																						"frame-number": "3"
+																					}
+																				},
+																				{
+																					"id": "set-instvar-value",
+																					"objectClass": "Note",
+																					"sid": 553626341810179,
+																					"parameters": {
+																						"instance-variable": "StartTime",
+																						"value": "int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".0\")) / 1000"
+																					}
+																				}
+																			],
+																			"sid": 417401689454872,
+																			"children": [
+																				{
+																					"eventType": "block",
+																					"conditions": [
+																						{
+																							"id": "repeat",
+																							"objectClass": "System",
+																							"sid": 634202640371330,
+																							"parameters": {
+																								"count": "round(int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".2\"))/150) * 3"
+																							}
+																						}
+																					],
+																					"actions": [
+																						{
+																							"id": "create-object",
+																							"objectClass": "System",
+																							"sid": 306684986283525,
+																							"parameters": {
+																								"object-to-create": "NoteTrail",
+																								"layer": "ArrowLayer",
+																								"x": "Notes.x",
+																								"y": "528 + (loopindex  * NoteTrail.Height)",
+																								"create-hierarchy": false
+																							}
+																						},
+																						{
+																							"id": "set-instvar-value",
+																							"objectClass": "NoteTrail",
+																							"sid": 758353337477659,
+																							"parameters": {
+																								"instance-variable": "StartTime",
+																								"value": "int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".0\")) / 1000"
+																							}
+																						},
+																						{
+																							"id": "set-animation-frame",
+																							"objectClass": "NoteTrail",
+																							"sid": 386541141616481,
+																							"parameters": {
+																								"frame-number": "3"
+																							}
+																						}
+																					],
+																					"sid": 653237577725610,
+																					"children": [
+																						{
+																							"eventType": "block",
+																							"conditions": [
+																								{
+																									"id": "compare-two-values",
+																									"objectClass": "System",
+																									"sid": 959373391816679,
+																									"parameters": {
+																										"first-value": "loopindex + 1",
+																										"comparison": 0,
+																										"second-value": "round(int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".2\"))/150) * 3"
+																									}
+																								}
+																							],
+																							"actions": [
+																								{
+																									"id": "create-object",
+																									"objectClass": "System",
+																									"sid": 698065612522749,
+																									"parameters": {
+																										"object-to-create": "NoteCap",
+																										"layer": "ArrowLayer",
+																										"x": "Notes.x",
+																										"y": "528 + ((loopindex + 1)  * NoteCap.Height)",
+																										"create-hierarchy": false
+																									}
+																								},
+																								{
+																									"id": "set-instvar-value",
+																									"objectClass": "NoteCap",
+																									"sid": 549768083286376,
+																									"parameters": {
+																										"instance-variable": "StartTime",
+																										"value": "int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".0\")) / 1000"
+																									}
+																								},
+																								{
+																									"id": "set-animation-frame",
+																									"objectClass": "NoteCap",
+																									"sid": 786520916692062,
+																									"parameters": {
+																										"frame-number": "3"
+																									}
+																								}
+																							],
+																							"sid": 428431561059450
+																						}
+																					]
+																				}
+																			]
+																		}
+																	]
+																},
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "compare-two-values",
+																			"objectClass": "System",
+																			"sid": 630619371366373,
+																			"parameters": {
+																				"first-value": "MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".mustHitSection\")",
+																				"comparison": 0,
+																				"second-value": "0"
+																			}
+																		}
+																	],
+																	"actions": [],
+																	"sid": 382928645003602,
+																	"children": [
+																		{
+																			"eventType": "block",
+																			"conditions": [
+																				{
+																					"id": "is-boolean-instance-variable-set",
+																					"objectClass": "Notes",
+																					"sid": 499516179005089,
+																					"parameters": {
+																						"instance-variable": "Player"
+																					},
+																					"isInverted": true
+																				}
+																			],
+																			"actions": [
+																				{
+																					"id": "create-object",
+																					"objectClass": "System",
+																					"sid": 914948290272604,
+																					"parameters": {
+																						"object-to-create": "Note",
+																						"layer": "ArrowLayer",
+																						"x": "Notes.x",
+																						"y": "528",
+																						"create-hierarchy": false
+																					}
+																				},
+																				{
+																					"id": "set-animation-frame",
+																					"objectClass": "Note",
+																					"sid": 867643463837000,
+																					"parameters": {
+																						"frame-number": "3"
+																					}
+																				},
+																				{
+																					"id": "set-instvar-value",
+																					"objectClass": "Note",
+																					"sid": 305847946454797,
+																					"parameters": {
+																						"instance-variable": "StartTime",
+																						"value": "int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".0\")) / 1000"
+																					}
+																				}
+																			],
+																			"sid": 113982082985574,
+																			"children": [
+																				{
+																					"eventType": "block",
+																					"conditions": [
+																						{
+																							"id": "repeat",
+																							"objectClass": "System",
+																							"sid": 311721443142870,
+																							"parameters": {
+																								"count": "round(int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".2\"))/150) * 3"
+																							}
+																						}
+																					],
+																					"actions": [
+																						{
+																							"id": "create-object",
+																							"objectClass": "System",
+																							"sid": 187450132031838,
+																							"parameters": {
+																								"object-to-create": "NoteTrail",
+																								"layer": "ArrowLayer",
+																								"x": "Notes.x",
+																								"y": "528 + (loopindex  * NoteTrail.Height)",
+																								"create-hierarchy": false
+																							}
+																						},
+																						{
+																							"id": "set-instvar-value",
+																							"objectClass": "NoteTrail",
+																							"sid": 920860506365244,
+																							"parameters": {
+																								"instance-variable": "StartTime",
+																								"value": "int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".0\")) / 1000"
+																							}
+																						},
+																						{
+																							"id": "set-animation-frame",
+																							"objectClass": "NoteTrail",
+																							"sid": 568525733723869,
+																							"parameters": {
+																								"frame-number": "3"
+																							}
+																						}
+																					],
+																					"sid": 860304427454513,
+																					"children": [
+																						{
+																							"eventType": "block",
+																							"conditions": [
+																								{
+																									"id": "compare-two-values",
+																									"objectClass": "System",
+																									"sid": 666540799458641,
+																									"parameters": {
+																										"first-value": "loopindex + 1",
+																										"comparison": 0,
+																										"second-value": "round(int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".2\"))/150) * 3"
+																									}
+																								}
+																							],
+																							"actions": [
+																								{
+																									"id": "create-object",
+																									"objectClass": "System",
+																									"sid": 540013096100713,
+																									"parameters": {
+																										"object-to-create": "NoteCap",
+																										"layer": "ArrowLayer",
+																										"x": "Notes.x",
+																										"y": "528 + ((loopindex + 1)  * NoteCap.Height)",
+																										"create-hierarchy": false
+																									}
+																								},
+																								{
+																									"id": "set-instvar-value",
+																									"objectClass": "NoteCap",
+																									"sid": 902608221192843,
+																									"parameters": {
+																										"instance-variable": "StartTime",
+																										"value": "int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".0\")) / 1000"
+																									}
+																								},
+																								{
+																									"id": "set-animation-frame",
+																									"objectClass": "NoteCap",
+																									"sid": 374491443931521,
+																									"parameters": {
+																										"frame-number": "3"
+																									}
+																								}
+																							],
+																							"sid": 900043848182451
+																						}
+																					]
+																				}
+																			]
+																		}
+																	]
+																}
+															]
+														}
+													]
+												}
+											],
+											"sid": 622297893509704
+										},
+										{
+											"eventType": "group",
+											"disabled": false,
+											"title": "Player 2s Turn",
+											"description": "",
+											"isActiveOnStart": true,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 474690421984315,
+															"parameters": {
+																"first-value": "MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".1\")",
+																"comparison": 0,
+																"second-value": "4"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "append-text",
+															"objectClass": "DebugText",
+															"sid": 521374334137023,
+															"parameters": {
+																"text": "newline & \"Left\""
+															}
+														}
+													],
+													"sid": 660483261680294,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "Notes",
+																	"sid": 843191293309164,
+																	"parameters": {
+																		"instance-variable": "Type",
+																		"comparison": 0,
+																		"value": "\"Left\""
+																	}
+																}
+															],
+															"actions": [],
+															"sid": 435385609338700,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "compare-two-values",
+																			"objectClass": "System",
+																			"sid": 423209442399592,
+																			"parameters": {
+																				"first-value": "MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".mustHitSection\")",
+																				"comparison": 0,
+																				"second-value": "1"
+																			}
+																		}
+																	],
+																	"actions": [],
+																	"sid": 419232545020286,
+																	"children": [
+																		{
+																			"eventType": "block",
+																			"conditions": [
+																				{
+																					"id": "is-boolean-instance-variable-set",
+																					"objectClass": "Notes",
+																					"sid": 999108510562755,
+																					"parameters": {
+																						"instance-variable": "Player"
+																					},
+																					"isInverted": true
+																				}
+																			],
+																			"actions": [
+																				{
+																					"id": "create-object",
+																					"objectClass": "System",
+																					"sid": 389643313834770,
+																					"parameters": {
+																						"object-to-create": "Note",
+																						"layer": "ArrowLayer",
+																						"x": "Notes.X",
+																						"y": "528",
+																						"create-hierarchy": false
+																					}
+																				},
+																				{
+																					"id": "set-animation-frame",
+																					"objectClass": "Note",
+																					"sid": 694242942323098,
+																					"parameters": {
+																						"frame-number": "0"
+																					}
+																				},
+																				{
+																					"id": "set-instvar-value",
+																					"objectClass": "Note",
+																					"sid": 547502809148065,
+																					"parameters": {
+																						"instance-variable": "StartTime",
+																						"value": "int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".0\")) / 1000"
+																					}
+																				}
+																			],
+																			"sid": 294563650206653,
+																			"children": [
+																				{
+																					"eventType": "block",
+																					"conditions": [
+																						{
+																							"id": "repeat",
+																							"objectClass": "System",
+																							"sid": 486198908551266,
+																							"parameters": {
+																								"count": "round(int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".2\"))/150) * 3"
+																							}
+																						}
+																					],
+																					"actions": [
+																						{
+																							"id": "create-object",
+																							"objectClass": "System",
+																							"sid": 369992233641459,
+																							"parameters": {
+																								"object-to-create": "NoteTrail",
+																								"layer": "ArrowLayer",
+																								"x": "Notes.x",
+																								"y": "528 + (loopindex  * NoteTrail.Height)",
+																								"create-hierarchy": false
+																							}
+																						},
+																						{
+																							"id": "set-instvar-value",
+																							"objectClass": "NoteTrail",
+																							"sid": 940228412080665,
+																							"parameters": {
+																								"instance-variable": "StartTime",
+																								"value": "int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".0\")) / 1000"
+																							}
+																						},
+																						{
+																							"id": "set-animation-frame",
+																							"objectClass": "NoteTrail",
+																							"sid": 849275051873288,
+																							"parameters": {
+																								"frame-number": "0"
+																							}
+																						}
+																					],
+																					"sid": 945806901529682,
+																					"children": [
+																						{
+																							"eventType": "block",
+																							"conditions": [
+																								{
+																									"id": "compare-two-values",
+																									"objectClass": "System",
+																									"sid": 347966212556037,
+																									"parameters": {
+																										"first-value": "loopindex + 1",
+																										"comparison": 0,
+																										"second-value": "round(int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".2\"))/150) * 3"
+																									}
+																								}
+																							],
+																							"actions": [
+																								{
+																									"id": "create-object",
+																									"objectClass": "System",
+																									"sid": 535414971975081,
+																									"parameters": {
+																										"object-to-create": "NoteCap",
+																										"layer": "ArrowLayer",
+																										"x": "Notes.x",
+																										"y": "528 + ((loopindex + 1)  * NoteCap.Height)",
+																										"create-hierarchy": false
+																									}
+																								},
+																								{
+																									"id": "set-instvar-value",
+																									"objectClass": "NoteCap",
+																									"sid": 254466851653659,
+																									"parameters": {
+																										"instance-variable": "StartTime",
+																										"value": "int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".0\")) / 1000"
+																									}
+																								},
+																								{
+																									"id": "set-animation-frame",
+																									"objectClass": "NoteCap",
+																									"sid": 326783820478379,
+																									"parameters": {
+																										"frame-number": "0"
+																									}
+																								}
+																							],
+																							"sid": 334562024350771
+																						}
+																					]
+																				}
+																			]
+																		}
+																	]
+																},
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "compare-two-values",
+																			"objectClass": "System",
+																			"sid": 724063231791927,
+																			"parameters": {
+																				"first-value": "MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".mustHitSection\")",
+																				"comparison": 0,
+																				"second-value": "0"
+																			}
+																		}
+																	],
+																	"actions": [],
+																	"sid": 640153110548942,
+																	"children": [
+																		{
+																			"eventType": "block",
+																			"conditions": [
+																				{
+																					"id": "is-boolean-instance-variable-set",
+																					"objectClass": "Notes",
+																					"sid": 957888465132865,
+																					"parameters": {
+																						"instance-variable": "Player"
+																					}
+																				}
+																			],
+																			"actions": [
+																				{
+																					"id": "create-object",
+																					"objectClass": "System",
+																					"sid": 783901142859668,
+																					"parameters": {
+																						"object-to-create": "Note",
+																						"layer": "ArrowLayer",
+																						"x": "Notes.X",
+																						"y": "528",
+																						"create-hierarchy": false
+																					}
+																				},
+																				{
+																					"id": "set-animation-frame",
+																					"objectClass": "Note",
+																					"sid": 514214016488406,
+																					"parameters": {
+																						"frame-number": "0"
+																					}
+																				},
+																				{
+																					"id": "set-instvar-value",
+																					"objectClass": "Note",
+																					"sid": 397938096249369,
+																					"parameters": {
+																						"instance-variable": "StartTime",
+																						"value": "int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".0\")) / 1000"
+																					}
+																				}
+																			],
+																			"sid": 728552261201936,
+																			"children": [
+																				{
+																					"eventType": "block",
+																					"conditions": [
+																						{
+																							"id": "repeat",
+																							"objectClass": "System",
+																							"sid": 986504314807029,
+																							"parameters": {
+																								"count": "round(int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".2\"))/150) * 3"
+																							}
+																						}
+																					],
+																					"actions": [
+																						{
+																							"id": "create-object",
+																							"objectClass": "System",
+																							"sid": 511342018031231,
+																							"parameters": {
+																								"object-to-create": "NoteTrail",
+																								"layer": "ArrowLayer",
+																								"x": "Notes.x",
+																								"y": "528 + (loopindex  * NoteTrail.Height)",
+																								"create-hierarchy": false
+																							}
+																						},
+																						{
+																							"id": "set-instvar-value",
+																							"objectClass": "NoteTrail",
+																							"sid": 568509311354324,
+																							"parameters": {
+																								"instance-variable": "StartTime",
+																								"value": "int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".0\")) / 1000"
+																							}
+																						},
+																						{
+																							"id": "set-animation-frame",
+																							"objectClass": "NoteTrail",
+																							"sid": 630609820245715,
+																							"parameters": {
+																								"frame-number": "0"
+																							}
+																						}
+																					],
+																					"sid": 355222743841183,
+																					"children": [
+																						{
+																							"eventType": "block",
+																							"conditions": [
+																								{
+																									"id": "compare-two-values",
+																									"objectClass": "System",
+																									"sid": 769625427285864,
+																									"parameters": {
+																										"first-value": "loopindex + 1",
+																										"comparison": 0,
+																										"second-value": "round(int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".2\"))/150) * 3"
+																									}
+																								}
+																							],
+																							"actions": [
+																								{
+																									"id": "create-object",
+																									"objectClass": "System",
+																									"sid": 567088461694158,
+																									"parameters": {
+																										"object-to-create": "NoteCap",
+																										"layer": "ArrowLayer",
+																										"x": "Notes.x",
+																										"y": "528 + ((loopindex + 1)  * NoteCap.Height)",
+																										"create-hierarchy": false
+																									}
+																								},
+																								{
+																									"id": "set-instvar-value",
+																									"objectClass": "NoteCap",
+																									"sid": 744055281809826,
+																									"parameters": {
+																										"instance-variable": "StartTime",
+																										"value": "int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".0\")) / 1000"
+																									}
+																								},
+																								{
+																									"id": "set-animation-frame",
+																									"objectClass": "NoteCap",
+																									"sid": 886337162429740,
+																									"parameters": {
+																										"frame-number": "0"
+																									}
+																								}
+																							],
+																							"sid": 903923171269464
+																						}
+																					]
+																				}
+																			]
+																		}
+																	]
+																}
+															]
+														}
+													]
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 516282892706901,
+															"parameters": {
+																"first-value": "MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".1\")",
+																"comparison": 0,
+																"second-value": "5"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "append-text",
+															"objectClass": "DebugText",
+															"sid": 983756581382668,
+															"parameters": {
+																"text": "newline & \"Down\""
+															}
+														}
+													],
+													"sid": 805274327602730,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "Notes",
+																	"sid": 384434655118028,
+																	"parameters": {
+																		"instance-variable": "Type",
+																		"comparison": 0,
+																		"value": "\"Down\""
+																	}
+																}
+															],
+															"actions": [],
+															"sid": 602831060163378,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "compare-two-values",
+																			"objectClass": "System",
+																			"sid": 734180246337683,
+																			"parameters": {
+																				"first-value": "MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".mustHitSection\")",
+																				"comparison": 0,
+																				"second-value": "1"
+																			}
+																		}
+																	],
+																	"actions": [],
+																	"sid": 479098482228426,
+																	"children": [
+																		{
+																			"eventType": "block",
+																			"conditions": [
+																				{
+																					"id": "is-boolean-instance-variable-set",
+																					"objectClass": "Notes",
+																					"sid": 603317289941074,
+																					"parameters": {
+																						"instance-variable": "Player"
+																					},
+																					"isInverted": true
+																				}
+																			],
+																			"actions": [
+																				{
+																					"id": "create-object",
+																					"objectClass": "System",
+																					"sid": 628820962099029,
+																					"parameters": {
+																						"object-to-create": "Note",
+																						"layer": "ArrowLayer",
+																						"x": "Notes.x",
+																						"y": "528",
+																						"create-hierarchy": false
+																					}
+																				},
+																				{
+																					"id": "set-animation-frame",
+																					"objectClass": "Note",
+																					"sid": 682032274307380,
+																					"parameters": {
+																						"frame-number": "1"
+																					}
+																				},
+																				{
+																					"id": "set-instvar-value",
+																					"objectClass": "Note",
+																					"sid": 932967260565115,
+																					"parameters": {
+																						"instance-variable": "StartTime",
+																						"value": "int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".0\")) / 1000"
+																					}
+																				}
+																			],
+																			"sid": 834882437853821,
+																			"children": [
+																				{
+																					"eventType": "block",
+																					"conditions": [
+																						{
+																							"id": "repeat",
+																							"objectClass": "System",
+																							"sid": 911490805131709,
+																							"parameters": {
+																								"count": "round(int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".2\"))/150) * 3"
+																							}
+																						}
+																					],
+																					"actions": [
+																						{
+																							"id": "create-object",
+																							"objectClass": "System",
+																							"sid": 477723574518591,
+																							"parameters": {
+																								"object-to-create": "NoteTrail",
+																								"layer": "ArrowLayer",
+																								"x": "Notes.x",
+																								"y": "528 + (loopindex  * NoteTrail.Height)",
+																								"create-hierarchy": false
+																							}
+																						},
+																						{
+																							"id": "set-instvar-value",
+																							"objectClass": "NoteTrail",
+																							"sid": 814143384448221,
+																							"parameters": {
+																								"instance-variable": "StartTime",
+																								"value": "int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".0\")) / 1000"
+																							}
+																						},
+																						{
+																							"id": "set-animation-frame",
+																							"objectClass": "NoteTrail",
+																							"sid": 761682439579204,
+																							"parameters": {
+																								"frame-number": "1"
+																							}
+																						}
+																					],
+																					"sid": 887575040048531,
+																					"children": [
+																						{
+																							"eventType": "block",
+																							"conditions": [
+																								{
+																									"id": "compare-two-values",
+																									"objectClass": "System",
+																									"sid": 252475608790514,
+																									"parameters": {
+																										"first-value": "loopindex + 1",
+																										"comparison": 0,
+																										"second-value": "round(int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".2\"))/150) * 3"
+																									}
+																								}
+																							],
+																							"actions": [
+																								{
+																									"id": "create-object",
+																									"objectClass": "System",
+																									"sid": 776652591426620,
+																									"parameters": {
+																										"object-to-create": "NoteCap",
+																										"layer": "ArrowLayer",
+																										"x": "Notes.x",
+																										"y": "528 + ((loopindex + 1)  * NoteCap.Height)",
+																										"create-hierarchy": false
+																									}
+																								},
+																								{
+																									"id": "set-instvar-value",
+																									"objectClass": "NoteCap",
+																									"sid": 949493589628972,
+																									"parameters": {
+																										"instance-variable": "StartTime",
+																										"value": "int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".0\")) / 1000"
+																									}
+																								},
+																								{
+																									"id": "set-animation-frame",
+																									"objectClass": "NoteCap",
+																									"sid": 457037649238352,
+																									"parameters": {
+																										"frame-number": "1"
+																									}
+																								}
+																							],
+																							"sid": 746714626968382
+																						}
+																					]
+																				}
+																			]
+																		}
+																	]
+																},
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "compare-two-values",
+																			"objectClass": "System",
+																			"sid": 827230465563074,
+																			"parameters": {
+																				"first-value": "MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".mustHitSection\")",
+																				"comparison": 0,
+																				"second-value": "0"
+																			}
+																		}
+																	],
+																	"actions": [],
+																	"sid": 466707016559976,
+																	"children": [
+																		{
+																			"eventType": "block",
+																			"conditions": [
+																				{
+																					"id": "is-boolean-instance-variable-set",
+																					"objectClass": "Notes",
+																					"sid": 907817098152544,
+																					"parameters": {
+																						"instance-variable": "Player"
+																					}
+																				}
+																			],
+																			"actions": [
+																				{
+																					"id": "create-object",
+																					"objectClass": "System",
+																					"sid": 400737906091740,
+																					"parameters": {
+																						"object-to-create": "Note",
+																						"layer": "ArrowLayer",
+																						"x": "Notes.x",
+																						"y": "528",
+																						"create-hierarchy": false
+																					}
+																				},
+																				{
+																					"id": "set-animation-frame",
+																					"objectClass": "Note",
+																					"sid": 903729234690585,
+																					"parameters": {
+																						"frame-number": "1"
+																					}
+																				},
+																				{
+																					"id": "set-instvar-value",
+																					"objectClass": "Note",
+																					"sid": 623518872214784,
+																					"parameters": {
+																						"instance-variable": "StartTime",
+																						"value": "int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".0\")) / 1000"
+																					}
+																				}
+																			],
+																			"sid": 186474808475619,
+																			"children": [
+																				{
+																					"eventType": "block",
+																					"conditions": [
+																						{
+																							"id": "repeat",
+																							"objectClass": "System",
+																							"sid": 885328485546093,
+																							"parameters": {
+																								"count": "round(int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".2\"))/150) * 3"
+																							}
+																						}
+																					],
+																					"actions": [
+																						{
+																							"id": "create-object",
+																							"objectClass": "System",
+																							"sid": 639649919470761,
+																							"parameters": {
+																								"object-to-create": "NoteTrail",
+																								"layer": "ArrowLayer",
+																								"x": "Notes.x",
+																								"y": "528 + (loopindex  * NoteTrail.Height)",
+																								"create-hierarchy": false
+																							}
+																						},
+																						{
+																							"id": "set-instvar-value",
+																							"objectClass": "NoteTrail",
+																							"sid": 747297791247628,
+																							"parameters": {
+																								"instance-variable": "StartTime",
+																								"value": "int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".0\")) / 1000"
+																							}
+																						},
+																						{
+																							"id": "set-animation-frame",
+																							"objectClass": "NoteTrail",
+																							"sid": 723408315454428,
+																							"parameters": {
+																								"frame-number": "1"
+																							}
+																						}
+																					],
+																					"sid": 201390254432026,
+																					"children": [
+																						{
+																							"eventType": "block",
+																							"conditions": [
+																								{
+																									"id": "compare-two-values",
+																									"objectClass": "System",
+																									"sid": 825184856769301,
+																									"parameters": {
+																										"first-value": "loopindex + 1",
+																										"comparison": 0,
+																										"second-value": "round(int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".2\"))/150) * 3"
+																									}
+																								}
+																							],
+																							"actions": [
+																								{
+																									"id": "create-object",
+																									"objectClass": "System",
+																									"sid": 107018055065460,
+																									"parameters": {
+																										"object-to-create": "NoteCap",
+																										"layer": "ArrowLayer",
+																										"x": "Notes.x",
+																										"y": "528 + ((loopindex + 1)  * NoteCap.Height)",
+																										"create-hierarchy": false
+																									}
+																								},
+																								{
+																									"id": "set-instvar-value",
+																									"objectClass": "NoteCap",
+																									"sid": 570259783451862,
+																									"parameters": {
+																										"instance-variable": "StartTime",
+																										"value": "int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".0\")) / 1000"
+																									}
+																								},
+																								{
+																									"id": "set-animation-frame",
+																									"objectClass": "NoteCap",
+																									"sid": 445030028828296,
+																									"parameters": {
+																										"frame-number": "1"
+																									}
+																								}
+																							],
+																							"sid": 356818747736875
+																						}
+																					]
+																				}
+																			]
+																		}
+																	]
+																}
+															]
+														}
+													]
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 511480237309558,
+															"parameters": {
+																"first-value": "MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".1\")",
+																"comparison": 0,
+																"second-value": "6"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "append-text",
+															"objectClass": "DebugText",
+															"sid": 118013165395937,
+															"parameters": {
+																"text": "newline & \"Up\""
+															}
+														}
+													],
+													"sid": 600700789859547,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "Notes",
+																	"sid": 167663520961147,
+																	"parameters": {
+																		"instance-variable": "Type",
+																		"comparison": 0,
+																		"value": "\"Up\""
+																	}
+																}
+															],
+															"actions": [],
+															"sid": 585788860170014,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "compare-two-values",
+																			"objectClass": "System",
+																			"sid": 538235043325409,
+																			"parameters": {
+																				"first-value": "MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".mustHitSection\")",
+																				"comparison": 0,
+																				"second-value": "1"
+																			}
+																		}
+																	],
+																	"actions": [],
+																	"sid": 990345987432558,
+																	"children": [
+																		{
+																			"eventType": "block",
+																			"conditions": [
+																				{
+																					"id": "is-boolean-instance-variable-set",
+																					"objectClass": "Notes",
+																					"sid": 449484352439790,
+																					"parameters": {
+																						"instance-variable": "Player"
+																					},
+																					"isInverted": true
+																				}
+																			],
+																			"actions": [
+																				{
+																					"id": "create-object",
+																					"objectClass": "System",
+																					"sid": 262467247928975,
+																					"parameters": {
+																						"object-to-create": "Note",
+																						"layer": "ArrowLayer",
+																						"x": "Notes.x",
+																						"y": "528",
+																						"create-hierarchy": false
+																					}
+																				},
+																				{
+																					"id": "set-animation-frame",
+																					"objectClass": "Note",
+																					"sid": 188449313453687,
+																					"parameters": {
+																						"frame-number": "2"
+																					}
+																				},
+																				{
+																					"id": "set-instvar-value",
+																					"objectClass": "Note",
+																					"sid": 592609301816059,
+																					"parameters": {
+																						"instance-variable": "StartTime",
+																						"value": "int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".0\")) / 1000"
+																					}
+																				}
+																			],
+																			"sid": 363442630523810,
+																			"children": [
+																				{
+																					"eventType": "block",
+																					"conditions": [
+																						{
+																							"id": "repeat",
+																							"objectClass": "System",
+																							"sid": 789638242020746,
+																							"parameters": {
+																								"count": "round(int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".2\"))/150) * 3"
+																							}
+																						}
+																					],
+																					"actions": [
+																						{
+																							"id": "create-object",
+																							"objectClass": "System",
+																							"sid": 687766912091271,
+																							"parameters": {
+																								"object-to-create": "NoteTrail",
+																								"layer": "ArrowLayer",
+																								"x": "Notes.x",
+																								"y": "528 + (loopindex  * NoteTrail.Height)",
+																								"create-hierarchy": false
+																							}
+																						},
+																						{
+																							"id": "set-instvar-value",
+																							"objectClass": "NoteTrail",
+																							"sid": 467824411807333,
+																							"parameters": {
+																								"instance-variable": "StartTime",
+																								"value": "int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".0\")) / 1000"
+																							}
+																						},
+																						{
+																							"id": "set-animation-frame",
+																							"objectClass": "NoteTrail",
+																							"sid": 734609959908516,
+																							"parameters": {
+																								"frame-number": "2"
+																							}
+																						}
+																					],
+																					"sid": 555216911965439,
+																					"children": [
+																						{
+																							"eventType": "block",
+																							"conditions": [
+																								{
+																									"id": "compare-two-values",
+																									"objectClass": "System",
+																									"sid": 797409936192692,
+																									"parameters": {
+																										"first-value": "loopindex + 1",
+																										"comparison": 0,
+																										"second-value": "round(int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".2\"))/150) * 3"
+																									}
+																								}
+																							],
+																							"actions": [
+																								{
+																									"id": "create-object",
+																									"objectClass": "System",
+																									"sid": 936585323852630,
+																									"parameters": {
+																										"object-to-create": "NoteCap",
+																										"layer": "ArrowLayer",
+																										"x": "Notes.x",
+																										"y": "528 + ((loopindex + 1)  * NoteCap.Height)",
+																										"create-hierarchy": false
+																									}
+																								},
+																								{
+																									"id": "set-instvar-value",
+																									"objectClass": "NoteCap",
+																									"sid": 284243696398756,
+																									"parameters": {
+																										"instance-variable": "StartTime",
+																										"value": "int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".0\")) / 1000"
+																									}
+																								},
+																								{
+																									"id": "set-animation-frame",
+																									"objectClass": "NoteCap",
+																									"sid": 142230043370673,
+																									"parameters": {
+																										"frame-number": "2"
+																									}
+																								}
+																							],
+																							"sid": 508597428642772
+																						}
+																					]
+																				}
+																			]
+																		}
+																	]
+																},
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "compare-two-values",
+																			"objectClass": "System",
+																			"sid": 690597712770161,
+																			"parameters": {
+																				"first-value": "MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".mustHitSection\")",
+																				"comparison": 0,
+																				"second-value": "0"
+																			}
+																		}
+																	],
+																	"actions": [],
+																	"sid": 165862874623018,
+																	"children": [
+																		{
+																			"eventType": "block",
+																			"conditions": [
+																				{
+																					"id": "is-boolean-instance-variable-set",
+																					"objectClass": "Notes",
+																					"sid": 600644092675204,
+																					"parameters": {
+																						"instance-variable": "Player"
+																					}
+																				}
+																			],
+																			"actions": [
+																				{
+																					"id": "create-object",
+																					"objectClass": "System",
+																					"sid": 695033108807206,
+																					"parameters": {
+																						"object-to-create": "Note",
+																						"layer": "ArrowLayer",
+																						"x": "Notes.X",
+																						"y": "528",
+																						"create-hierarchy": false
+																					}
+																				},
+																				{
+																					"id": "set-animation-frame",
+																					"objectClass": "Note",
+																					"sid": 841910223735474,
+																					"parameters": {
+																						"frame-number": "2"
+																					}
+																				},
+																				{
+																					"id": "set-instvar-value",
+																					"objectClass": "Note",
+																					"sid": 149276022124352,
+																					"parameters": {
+																						"instance-variable": "StartTime",
+																						"value": "int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".0\")) / 1000"
+																					}
+																				}
+																			],
+																			"sid": 545526370374060,
+																			"children": [
+																				{
+																					"eventType": "block",
+																					"conditions": [
+																						{
+																							"id": "repeat",
+																							"objectClass": "System",
+																							"sid": 595228467944599,
+																							"parameters": {
+																								"count": "round(int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".2\"))/150) * 3"
+																							}
+																						}
+																					],
+																					"actions": [
+																						{
+																							"id": "create-object",
+																							"objectClass": "System",
+																							"sid": 563939786364956,
+																							"parameters": {
+																								"object-to-create": "NoteTrail",
+																								"layer": "ArrowLayer",
+																								"x": "Notes.x",
+																								"y": "528 + (loopindex  * NoteTrail.Height)",
+																								"create-hierarchy": false
+																							}
+																						},
+																						{
+																							"id": "set-instvar-value",
+																							"objectClass": "NoteTrail",
+																							"sid": 684991838438553,
+																							"parameters": {
+																								"instance-variable": "StartTime",
+																								"value": "int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".0\")) / 1000"
+																							}
+																						},
+																						{
+																							"id": "set-animation-frame",
+																							"objectClass": "NoteTrail",
+																							"sid": 450015643076122,
+																							"parameters": {
+																								"frame-number": "2"
+																							}
+																						}
+																					],
+																					"sid": 632677938410617,
+																					"children": [
+																						{
+																							"eventType": "block",
+																							"conditions": [
+																								{
+																									"id": "compare-two-values",
+																									"objectClass": "System",
+																									"sid": 454576696476981,
+																									"parameters": {
+																										"first-value": "loopindex + 1",
+																										"comparison": 0,
+																										"second-value": "round(int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".2\"))/150) * 3"
+																									}
+																								}
+																							],
+																							"actions": [
+																								{
+																									"id": "create-object",
+																									"objectClass": "System",
+																									"sid": 708738674239279,
+																									"parameters": {
+																										"object-to-create": "NoteCap",
+																										"layer": "ArrowLayer",
+																										"x": "Notes.x",
+																										"y": "528 + ((loopindex + 1)  * NoteCap.Height)",
+																										"create-hierarchy": false
+																									}
+																								},
+																								{
+																									"id": "set-instvar-value",
+																									"objectClass": "NoteCap",
+																									"sid": 626244662537390,
+																									"parameters": {
+																										"instance-variable": "StartTime",
+																										"value": "int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".0\")) / 1000"
+																									}
+																								},
+																								{
+																									"id": "set-animation-frame",
+																									"objectClass": "NoteCap",
+																									"sid": 537646709764259,
+																									"parameters": {
+																										"frame-number": "2"
+																									}
+																								}
+																							],
+																							"sid": 552322847759486
+																						}
+																					]
+																				}
+																			]
+																		}
+																	]
+																}
+															]
+														}
+													]
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-two-values",
+															"objectClass": "System",
+															"sid": 228557885657945,
+															"parameters": {
+																"first-value": "MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".1\")",
+																"comparison": 0,
+																"second-value": "7"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "append-text",
+															"objectClass": "DebugText",
+															"sid": 660066227127576,
+															"parameters": {
+																"text": "newline & \"Right\""
+															}
+														}
+													],
+													"sid": 957617914752275,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "compare-instance-variable",
+																	"objectClass": "Notes",
+																	"sid": 951400417076745,
+																	"parameters": {
+																		"instance-variable": "Type",
+																		"comparison": 0,
+																		"value": "\"Right\""
+																	}
+																}
+															],
+															"actions": [],
+															"sid": 563204165702295,
+															"children": [
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "compare-two-values",
+																			"objectClass": "System",
+																			"sid": 680215768746039,
+																			"parameters": {
+																				"first-value": "MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".mustHitSection\")",
+																				"comparison": 0,
+																				"second-value": "1"
+																			}
+																		}
+																	],
+																	"actions": [],
+																	"sid": 419006208036039,
+																	"children": [
+																		{
+																			"eventType": "block",
+																			"conditions": [
+																				{
+																					"id": "is-boolean-instance-variable-set",
+																					"objectClass": "Notes",
+																					"sid": 394955554050837,
+																					"parameters": {
+																						"instance-variable": "Player"
+																					},
+																					"isInverted": true
+																				}
+																			],
+																			"actions": [
+																				{
+																					"id": "create-object",
+																					"objectClass": "System",
+																					"sid": 929318932316132,
+																					"parameters": {
+																						"object-to-create": "Note",
+																						"layer": "ArrowLayer",
+																						"x": "Notes.x",
+																						"y": "528",
+																						"create-hierarchy": false
+																					}
+																				},
+																				{
+																					"id": "set-animation-frame",
+																					"objectClass": "Note",
+																					"sid": 580642379718113,
+																					"parameters": {
+																						"frame-number": "3"
+																					}
+																				},
+																				{
+																					"id": "set-instvar-value",
+																					"objectClass": "Note",
+																					"sid": 668535722681545,
+																					"parameters": {
+																						"instance-variable": "StartTime",
+																						"value": "int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".0\")) / 1000"
+																					}
+																				}
+																			],
+																			"sid": 557285379182154,
+																			"children": [
+																				{
+																					"eventType": "block",
+																					"conditions": [
+																						{
+																							"id": "repeat",
+																							"objectClass": "System",
+																							"sid": 454148295742509,
+																							"parameters": {
+																								"count": "round(int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".2\"))/150) * 3"
+																							}
+																						}
+																					],
+																					"actions": [
+																						{
+																							"id": "create-object",
+																							"objectClass": "System",
+																							"sid": 852251266813975,
+																							"parameters": {
+																								"object-to-create": "NoteTrail",
+																								"layer": "ArrowLayer",
+																								"x": "Notes.x",
+																								"y": "528 + (loopindex  * NoteTrail.Height)",
+																								"create-hierarchy": false
+																							}
+																						},
+																						{
+																							"id": "set-instvar-value",
+																							"objectClass": "NoteTrail",
+																							"sid": 125143760414635,
+																							"parameters": {
+																								"instance-variable": "StartTime",
+																								"value": "int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".0\")) / 1000"
+																							}
+																						},
+																						{
+																							"id": "set-animation-frame",
+																							"objectClass": "NoteTrail",
+																							"sid": 985680445812470,
+																							"parameters": {
+																								"frame-number": "3"
+																							}
+																						}
+																					],
+																					"sid": 393387252543466,
+																					"children": [
+																						{
+																							"eventType": "block",
+																							"conditions": [
+																								{
+																									"id": "compare-two-values",
+																									"objectClass": "System",
+																									"sid": 320864443108206,
+																									"parameters": {
+																										"first-value": "loopindex + 1",
+																										"comparison": 0,
+																										"second-value": "round(int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".2\"))/150) * 3"
+																									}
+																								}
+																							],
+																							"actions": [
+																								{
+																									"id": "create-object",
+																									"objectClass": "System",
+																									"sid": 577983667849937,
+																									"parameters": {
+																										"object-to-create": "NoteCap",
+																										"layer": "ArrowLayer",
+																										"x": "Notes.x",
+																										"y": "528 + ((loopindex + 1)  * NoteCap.Height)",
+																										"create-hierarchy": false
+																									}
+																								},
+																								{
+																									"id": "set-instvar-value",
+																									"objectClass": "NoteCap",
+																									"sid": 181348152243705,
+																									"parameters": {
+																										"instance-variable": "StartTime",
+																										"value": "int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".0\")) / 1000"
+																									}
+																								},
+																								{
+																									"id": "set-animation-frame",
+																									"objectClass": "NoteCap",
+																									"sid": 760387014995940,
+																									"parameters": {
+																										"frame-number": "3"
+																									}
+																								}
+																							],
+																							"sid": 580765884209013
+																						}
+																					]
+																				}
+																			]
+																		}
+																	]
+																},
+																{
+																	"eventType": "block",
+																	"conditions": [
+																		{
+																			"id": "compare-two-values",
+																			"objectClass": "System",
+																			"sid": 607999797512748,
+																			"parameters": {
+																				"first-value": "MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".mustHitSection\")",
+																				"comparison": 0,
+																				"second-value": "0"
+																			}
+																		}
+																	],
+																	"actions": [],
+																	"sid": 193061326255187,
+																	"children": [
+																		{
+																			"eventType": "block",
+																			"conditions": [
+																				{
+																					"id": "is-boolean-instance-variable-set",
+																					"objectClass": "Notes",
+																					"sid": 418799130221820,
+																					"parameters": {
+																						"instance-variable": "Player"
+																					}
+																				}
+																			],
+																			"actions": [
+																				{
+																					"id": "create-object",
+																					"objectClass": "System",
+																					"sid": 411877019866300,
+																					"parameters": {
+																						"object-to-create": "Note",
+																						"layer": "ArrowLayer",
+																						"x": "Notes.x",
+																						"y": "528",
+																						"create-hierarchy": false
+																					}
+																				},
+																				{
+																					"id": "set-animation-frame",
+																					"objectClass": "Note",
+																					"sid": 788477161778502,
+																					"parameters": {
+																						"frame-number": "3"
+																					}
+																				},
+																				{
+																					"id": "set-instvar-value",
+																					"objectClass": "Note",
+																					"sid": 417986031085800,
+																					"parameters": {
+																						"instance-variable": "StartTime",
+																						"value": "int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".0\")) / 1000"
+																					}
+																				}
+																			],
+																			"sid": 269743490686523,
+																			"children": [
+																				{
+																					"eventType": "block",
+																					"conditions": [
+																						{
+																							"id": "repeat",
+																							"objectClass": "System",
+																							"sid": 982324339453345,
+																							"parameters": {
+																								"count": "round(int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".2\"))/150) * 3"
+																							}
+																						}
+																					],
+																					"actions": [
+																						{
+																							"id": "create-object",
+																							"objectClass": "System",
+																							"sid": 531963738151684,
+																							"parameters": {
+																								"object-to-create": "NoteTrail",
+																								"layer": "ArrowLayer",
+																								"x": "Notes.x",
+																								"y": "528 + (loopindex  * NoteTrail.Height)",
+																								"create-hierarchy": false
+																							}
+																						},
+																						{
+																							"id": "set-instvar-value",
+																							"objectClass": "NoteTrail",
+																							"sid": 741100951703970,
+																							"parameters": {
+																								"instance-variable": "StartTime",
+																								"value": "int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".0\")) / 1000"
+																							}
+																						},
+																						{
+																							"id": "set-animation-frame",
+																							"objectClass": "NoteTrail",
+																							"sid": 107034800927149,
+																							"parameters": {
+																								"frame-number": "3"
+																							}
+																						}
+																					],
+																					"sid": 535922969817366,
+																					"children": [
+																						{
+																							"eventType": "block",
+																							"conditions": [
+																								{
+																									"id": "compare-two-values",
+																									"objectClass": "System",
+																									"sid": 545671833454541,
+																									"parameters": {
+																										"first-value": "loopindex + 1",
+																										"comparison": 0,
+																										"second-value": "round(int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".2\"))/150) * 3"
+																									}
+																								}
+																							],
+																							"actions": [
+																								{
+																									"id": "create-object",
+																									"objectClass": "System",
+																									"sid": 568862352920568,
+																									"parameters": {
+																										"object-to-create": "NoteCap",
+																										"layer": "ArrowLayer",
+																										"x": "Notes.x",
+																										"y": "528 + ((loopindex + 1)  * NoteCap.Height)",
+																										"create-hierarchy": false
+																									}
+																								},
+																								{
+																									"id": "set-instvar-value",
+																									"objectClass": "NoteCap",
+																									"sid": 324539876799570,
+																									"parameters": {
+																										"instance-variable": "StartTime",
+																										"value": "int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".0\")) / 1000"
+																									}
+																								},
+																								{
+																									"id": "set-animation-frame",
+																									"objectClass": "NoteCap",
+																									"sid": 593892409849570,
+																									"parameters": {
+																										"frame-number": "3"
+																									}
+																								}
+																							],
+																							"sid": 308748761195748
+																						}
+																					]
+																				}
+																			]
+																		}
+																	]
+																}
+															]
+														}
+													]
+												}
+											],
+											"sid": 349166050952518
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"sid": 319164582278431
+}

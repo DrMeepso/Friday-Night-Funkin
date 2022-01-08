@@ -1,0 +1,2523 @@
+{
+	"name": "BGMakerDev",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "LastPicked",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 768530132680109
+		},
+		{
+			"eventType": "variable",
+			"name": "Ammoiunt",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 305196061400280
+		},
+		{
+			"eventType": "variable",
+			"name": "ZoomedAmmount",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 710346620043966
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 157093392414215
+				}
+			],
+			"actions": [
+				{
+					"id": "set-cursor-style",
+					"objectClass": "Mouse",
+					"sid": 766036346082699,
+					"parameters": {
+						"cursor-style": "normal"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 321522209387806,
+					"parameters": {
+						"variable": "Ammoiunt",
+						"value": "0"
+					}
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 500946775405513,
+					"parameters": {
+						"layer": "2",
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-position",
+					"objectClass": "Camra",
+					"sid": 186728590424424,
+					"parameters": {
+						"x": "0",
+						"y": "0"
+					}
+				},
+				{
+					"id": "set-size",
+					"objectClass": "Camra",
+					"sid": 919879744034102,
+					"parameters": {
+						"width": "ViewportWidth(1)",
+						"height": "ViewportHeight(1)"
+					}
+				},
+				{
+					"id": "set-layer-scale",
+					"objectClass": "System",
+					"sid": 447296145574277,
+					"parameters": {
+						"layer": "0",
+						"scale": "0.5"
+					}
+				},
+				{
+					"id": "set-animation-speed",
+					"objectClass": "Player2",
+					"sid": 557239759175029,
+					"parameters": {
+						"speed": "0"
+					}
+				}
+			],
+			"sid": 121977750520654,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "StageObjectStandIn",
+							"sid": 184589763364244
+						}
+					],
+					"sid": 338815598940243
+				}
+			]
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "CTRL-Z",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "Amount",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 153691703542900
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-drag-start",
+							"objectClass": "BFStandIn",
+							"sid": 739184422354410,
+							"behaviorType": "DragDrop"
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 451153628589828,
+							"parameters": {
+								"variable": "Ammoiunt",
+								"value": "1"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "BFStandIn",
+							"sid": 721053785953834,
+							"parameters": {
+								"instance-variable": "OldX",
+								"value": "Self.X"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "BFStandIn",
+							"sid": 103079882849751,
+							"parameters": {
+								"instance-variable": "OldY",
+								"value": "Self.Y"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 660414896678803,
+							"parameters": {
+								"variable": "LastPicked",
+								"value": "BFStandIn.UID"
+							}
+						}
+					],
+					"sid": 211371510567181
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-drop",
+							"objectClass": "BFStandIn",
+							"sid": 146894040899148,
+							"behaviorType": "DragDrop"
+						}
+					],
+					"actions": [
+						{
+							"id": "add-key",
+							"objectClass": "Actions",
+							"sid": 683627854090273,
+							"parameters": {
+								"key": "str(Ammoiunt)",
+								"value": "BFStandIn.UID & \" \" & BFStandIn.OldX & \" \" & BFStandIn.OldY &\" \"& BFStandIn.x &\" \"& BFStandIn.Y"
+							}
+						}
+					],
+					"sid": 124193365792904
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-drag-start",
+							"objectClass": "StageObjectStandIn",
+							"sid": 618013336518627,
+							"behaviorType": "DragDrop"
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 835156522899775,
+							"parameters": {
+								"variable": "Ammoiunt",
+								"value": "1"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "StageObjectStandIn",
+							"sid": 520953426714603,
+							"parameters": {
+								"instance-variable": "OldX",
+								"value": "Self.X"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "StageObjectStandIn",
+							"sid": 462380357346639,
+							"parameters": {
+								"instance-variable": "OldY",
+								"value": "Self.Y"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 726928968293201,
+							"parameters": {
+								"variable": "LastPicked",
+								"value": "StageObjectStandIn.UID"
+							}
+						}
+					],
+					"sid": 254993024302737
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-drop",
+							"objectClass": "StageObjectStandIn",
+							"sid": 491098759786008,
+							"behaviorType": "DragDrop"
+						}
+					],
+					"actions": [
+						{
+							"id": "add-key",
+							"objectClass": "Actions",
+							"sid": 811854155290884,
+							"parameters": {
+								"key": "str(Ammoiunt)",
+								"value": "StageObjectStandIn.UID & \" \" & StageObjectStandIn.OldX & \" \" & StageObjectStandIn.OldY &\" \"& StageObjectStandIn.x &\" \"& StageObjectStandIn.Y"
+							}
+						}
+					],
+					"sid": 251461006645375
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-drag-start",
+							"objectClass": "GFStandIn",
+							"sid": 752883118375424,
+							"behaviorType": "DragDrop"
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 894418984284629,
+							"parameters": {
+								"variable": "Ammoiunt",
+								"value": "1"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "GFStandIn",
+							"sid": 429770786962010,
+							"parameters": {
+								"instance-variable": "OldX",
+								"value": "Self.X"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "GFStandIn",
+							"sid": 357732836166729,
+							"parameters": {
+								"instance-variable": "OldY",
+								"value": "Self.Y"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 286417124222860,
+							"parameters": {
+								"variable": "LastPicked",
+								"value": "GFStandIn.UID"
+							}
+						}
+					],
+					"sid": 187509114960149
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-drop",
+							"objectClass": "GFStandIn",
+							"sid": 485582763598189,
+							"behaviorType": "DragDrop"
+						}
+					],
+					"actions": [
+						{
+							"id": "add-key",
+							"objectClass": "Actions",
+							"sid": 634693611991514,
+							"parameters": {
+								"key": "str(Ammoiunt)",
+								"value": "GFStandIn.UID & \" \" & GFStandIn.OldX & \" \" & GFStandIn.OldY &\" \"& GFStandIn.x &\" \"& GFStandIn.Y"
+							}
+						}
+					],
+					"sid": 224472508371024
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 509598063590854,
+							"parameters": {
+								"key": 90
+							}
+						},
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 132973559490326,
+							"parameters": {
+								"key": 17
+							}
+						}
+					],
+					"actions": [],
+					"sid": 457782123164774,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "Once",
+							"type": "boolean",
+							"initialValue": "false",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 802361225516275
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [],
+							"sid": 216786158863612,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 377531244575461,
+											"parameters": {
+												"variable": "Once"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "GFStandIn",
+											"sid": 339838836336481,
+											"parameters": {
+												"unique-id": "int(tokenat(Actions.Get(str(Ammoiunt)),0,\" \"))"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 511811070202123,
+											"parameters": {
+												"variable": "Once",
+												"value": "true"
+											}
+										},
+										{
+											"id": "set-position",
+											"objectClass": "GFStandIn",
+											"sid": 420890282468688,
+											"parameters": {
+												"x": "int(tokenat(Actions.Get(str(Ammoiunt)),1,\" \"))",
+												"y": "int(tokenat(Actions.Get(str(Ammoiunt)),2,\" \"))"
+											}
+										},
+										{
+											"id": "delete-key",
+											"objectClass": "Actions",
+											"sid": 820514405194552,
+											"parameters": {
+												"key": "str(Ammoiunt)"
+											}
+										},
+										{
+											"id": "subtract-from-eventvar",
+											"objectClass": "System",
+											"sid": 538124711888167,
+											"parameters": {
+												"variable": "Ammoiunt",
+												"value": "1"
+											}
+										}
+									],
+									"sid": 478279500826340
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 292483535678722,
+											"parameters": {
+												"variable": "Once"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "BFStandIn",
+											"sid": 233387220879599,
+											"parameters": {
+												"unique-id": "int(tokenat(Actions.Get(str(Ammoiunt)),0,\" \"))"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 717183878485765,
+											"parameters": {
+												"variable": "Once",
+												"value": "true"
+											}
+										},
+										{
+											"id": "set-position",
+											"objectClass": "BFStandIn",
+											"sid": 135055930541857,
+											"parameters": {
+												"x": "int(tokenat(Actions.Get(str(Ammoiunt)),1,\" \"))",
+												"y": "int(tokenat(Actions.Get(str(Ammoiunt)),2,\" \"))"
+											}
+										},
+										{
+											"id": "delete-key",
+											"objectClass": "Actions",
+											"sid": 134051181124450,
+											"parameters": {
+												"key": "str(Ammoiunt)"
+											}
+										},
+										{
+											"id": "subtract-from-eventvar",
+											"objectClass": "System",
+											"sid": 982607843136789,
+											"parameters": {
+												"variable": "Ammoiunt",
+												"value": "1"
+											}
+										}
+									],
+									"sid": 251155965501828
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 702912826578406,
+											"parameters": {
+												"variable": "Once"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "StageObjectStandIn",
+											"sid": 309108017848396,
+											"parameters": {
+												"unique-id": "int(tokenat(Actions.Get(str(Ammoiunt)),0,\" \"))"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 349262334551813,
+											"parameters": {
+												"variable": "Once",
+												"value": "true"
+											}
+										},
+										{
+											"id": "set-position",
+											"objectClass": "StageObjectStandIn",
+											"sid": 413171384618835,
+											"parameters": {
+												"x": "int(tokenat(Actions.Get(str(Ammoiunt)),1,\" \"))",
+												"y": "int(tokenat(Actions.Get(str(Ammoiunt)),2,\" \"))"
+											}
+										},
+										{
+											"id": "delete-key",
+											"objectClass": "Actions",
+											"sid": 614466214802202,
+											"parameters": {
+												"key": "str(Ammoiunt)"
+											}
+										},
+										{
+											"id": "subtract-from-eventvar",
+											"objectClass": "System",
+											"sid": 610321450720938,
+											"parameters": {
+												"variable": "Ammoiunt",
+												"value": "1"
+											}
+										}
+									],
+									"sid": 554826989042383
+								}
+							]
+						}
+					]
+				}
+			],
+			"sid": 837447064683836
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Right Click",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "Close Menu",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 242307882156500,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "layer-is-visible",
+									"objectClass": "System",
+									"sid": 644571217406861,
+									"parameters": {
+										"layer": "2"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "RightClickMenu",
+									"sid": 773311216728074
+								}
+							],
+							"sid": 755815717006848,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 346447308746975,
+											"parameters": {
+												"object": "BFStandIn"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-enabled",
+											"objectClass": "BFStandIn",
+											"sid": 737816925310991,
+											"behaviorType": "DragDrop",
+											"parameters": {
+												"state": "enabled"
+											}
+										}
+									],
+									"sid": 701891040249183
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 321696245698596,
+											"parameters": {
+												"object": "StageObjectStandIn"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-enabled",
+											"objectClass": "StageObjectStandIn",
+											"sid": 197635875546337,
+											"behaviorType": "DragDrop",
+											"parameters": {
+												"state": "enabled"
+											}
+										}
+									],
+									"sid": 315634045467237
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 327943886223917,
+											"parameters": {
+												"object": "GFStandIn"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-enabled",
+											"objectClass": "GFStandIn",
+											"sid": 409371677479356,
+											"behaviorType": "DragDrop",
+											"parameters": {
+												"state": "enabled"
+											}
+										}
+									],
+									"sid": 138101548635156
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 485448598548216,
+											"parameters": {
+												"object": "Player2"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-enabled",
+											"objectClass": "Player2",
+											"sid": 658495937982681,
+											"behaviorType": "DragDrop",
+											"parameters": {
+												"state": "enabled"
+											}
+										}
+									],
+									"sid": 883701086912172
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 689567393386701,
+							"parameters": {
+								"layer": "2"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [],
+					"sid": 756771047761154,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-any-click",
+									"objectClass": "Mouse",
+									"sid": 489706197593661
+								},
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 622198894569743,
+									"parameters": {
+										"object": "RightClickMenu"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "Close Menu",
+									"sid": 303785213818559
+								}
+							],
+							"sid": 951920648964540
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-click",
+									"objectClass": "Mouse",
+									"sid": 821109069218207,
+									"parameters": {
+										"mouse-button": "right",
+										"click-type": "clicked"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "Close Menu",
+									"sid": 468133890545664
+								}
+							],
+							"sid": 220062314607063
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-click",
+							"objectClass": "Mouse",
+							"sid": 207573537681069,
+							"parameters": {
+								"mouse-button": "right",
+								"click-type": "clicked"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 727415577935658,
+							"parameters": {
+								"object-to-create": "RightClickMenu",
+								"layer": "1",
+								"x": "Mouse.x",
+								"y": "Mouse.Y",
+								"create-hierarchy": false
+							}
+						}
+					],
+					"sid": 356394998570899,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 128704909160456,
+									"parameters": {
+										"object": "StageObjectStandIn"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "RightClickMenu",
+									"sid": 215243910531281,
+									"parameters": {
+										"instance-variable": "Selected",
+										"value": "StageObjectStandIn.UID"
+									}
+								}
+							],
+							"sid": 935901477576191
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 420860974564176
+								}
+							],
+							"actions": [],
+							"sid": 157211197914172,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "cursor-is-over-object",
+											"objectClass": "Mouse",
+											"sid": 286778110571643,
+											"parameters": {
+												"object": "BFStandIn"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "RightClickMenu",
+											"sid": 809944362489236,
+											"parameters": {
+												"instance-variable": "Selected",
+												"value": "BFStandIn.UID"
+											}
+										}
+									],
+									"sid": 864394763774118
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 938239496048397
+										}
+									],
+									"actions": [],
+									"sid": 585982589887529,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "cursor-is-over-object",
+													"objectClass": "Mouse",
+													"sid": 932732814500137,
+													"parameters": {
+														"object": "GFStandIn"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "RightClickMenu",
+													"sid": 786314920150156,
+													"parameters": {
+														"instance-variable": "Selected",
+														"value": "GFStandIn.UID"
+													}
+												}
+											],
+											"sid": 134875610710782
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 637235285403790
+												}
+											],
+											"actions": [],
+											"sid": 497932876773438,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "cursor-is-over-object",
+															"objectClass": "Mouse",
+															"sid": 531301064049676,
+															"parameters": {
+																"object": "Player2"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-instvar-value",
+															"objectClass": "RightClickMenu",
+															"sid": 465111121958248,
+															"parameters": {
+																"instance-variable": "Selected",
+																"value": "Player2.UID"
+															}
+														}
+													],
+													"sid": 868589589072000
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 893621782602710
+														}
+													],
+													"actions": [
+														{
+															"id": "set-instvar-value",
+															"objectClass": "RightClickMenu",
+															"sid": 142506207566443,
+															"parameters": {
+																"instance-variable": "Selected",
+																"value": "-1"
+															}
+														}
+													],
+													"sid": 411879452747315
+												}
+											]
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "repeat",
+									"objectClass": "System",
+									"sid": 772436001659068,
+									"parameters": {
+										"count": "7"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 902154765152882,
+									"parameters": {
+										"object-to-create": "RightClickButton",
+										"layer": "1",
+										"x": "RightClickMenu.X + 5",
+										"y": "(5 + (loopindex * 25)) + RightClickMenu.y",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 993129665774098,
+									"parameters": {
+										"object-to-create": "ButtonText",
+										"layer": "1",
+										"x": "RightClickMenu.X + 5",
+										"y": "(5 + (loopindex * 25)) + RightClickMenu.y",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "add-child",
+									"objectClass": "RightClickButton",
+									"sid": 687612946432812,
+									"parameters": {
+										"child": "ButtonText",
+										"transform-x": true,
+										"transform-y": true,
+										"transform-w": true,
+										"transform-h": true,
+										"transform-a": true,
+										"transform-z-elevation": true,
+										"destroy-with-parent": true
+									}
+								},
+								{
+									"id": "add-child",
+									"objectClass": "RightClickMenu",
+									"sid": 279716572706327,
+									"parameters": {
+										"child": "RightClickButton",
+										"transform-x": true,
+										"transform-y": true,
+										"transform-w": true,
+										"transform-h": true,
+										"transform-a": true,
+										"transform-z-elevation": true,
+										"destroy-with-parent": true
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "RightClickButton",
+									"sid": 701724293600661,
+									"parameters": {
+										"instance-variable": "Value",
+										"value": "loopindex"
+									}
+								}
+							],
+							"sid": 236172305400093
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 481489612247723,
+									"parameters": {
+										"object": "BFStandIn"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-enabled",
+									"objectClass": "BFStandIn",
+									"sid": 621953732724075,
+									"behaviorType": "DragDrop",
+									"parameters": {
+										"state": "disabled"
+									}
+								}
+							],
+							"sid": 576953265072971
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 626757426686020,
+									"parameters": {
+										"object": "GFStandIn"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-enabled",
+									"objectClass": "GFStandIn",
+									"sid": 934782082720511,
+									"behaviorType": "DragDrop",
+									"parameters": {
+										"state": "disabled"
+									}
+								}
+							],
+							"sid": 604591101776898
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 915641515043997,
+									"parameters": {
+										"object": "StageObjectStandIn"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-enabled",
+									"objectClass": "StageObjectStandIn",
+									"sid": 139998109502307,
+									"behaviorType": "DragDrop",
+									"parameters": {
+										"state": "disabled"
+									}
+								}
+							],
+							"sid": 491192506940508
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 921558197185851,
+									"parameters": {
+										"object": "Player2"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-enabled",
+									"objectClass": "Player2",
+									"sid": 302467843655357,
+									"behaviorType": "DragDrop",
+									"parameters": {
+										"state": "disabled"
+									}
+								}
+							],
+							"sid": 102920698655667
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "RightClickButton",
+							"sid": 933035347424378
+						}
+					],
+					"actions": [
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 310585872522376,
+							"parameters": {
+								"seconds": "0.001"
+							}
+						}
+					],
+					"sid": 523297018901440,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-children",
+									"objectClass": "RightClickButton",
+									"sid": 808526893629096,
+									"parameters": {
+										"child": "ButtonText",
+										"which": "own"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 952626890079588,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "RightClickButton",
+											"sid": 298478934530189,
+											"parameters": {
+												"instance-variable": "Value",
+												"comparison": 0,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "ButtonText",
+											"sid": 195522436157951,
+											"parameters": {
+												"text": "\"New Object\""
+											}
+										},
+										{
+											"id": "set-font-size",
+											"objectClass": "ButtonText",
+											"sid": 573431026886885,
+											"parameters": {
+												"size-pt": "7"
+											}
+										}
+									],
+									"sid": 329441905192217
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "RightClickButton",
+											"sid": 240092916696904,
+											"parameters": {
+												"instance-variable": "Value",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "ButtonText",
+											"sid": 523216458190865,
+											"parameters": {
+												"text": "\"Save\""
+											}
+										},
+										{
+											"id": "set-font-size",
+											"objectClass": "ButtonText",
+											"sid": 350197527944770,
+											"parameters": {
+												"size-pt": "11"
+											}
+										}
+									],
+									"sid": 756244022379478
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "RightClickButton",
+											"sid": 303139798361433,
+											"parameters": {
+												"instance-variable": "Value",
+												"comparison": 0,
+												"value": "2"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "ButtonText",
+											"sid": 968855522948357,
+											"parameters": {
+												"text": "\"Load\""
+											}
+										},
+										{
+											"id": "set-font-size",
+											"objectClass": "ButtonText",
+											"sid": 895507301225230,
+											"parameters": {
+												"size-pt": "11"
+											}
+										}
+									],
+									"sid": 531564305944627
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "RightClickButton",
+											"sid": 539055319050410,
+											"parameters": {
+												"instance-variable": "Value",
+												"comparison": 0,
+												"value": "3"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "ButtonText",
+											"sid": 409076642265628,
+											"parameters": {
+												"text": "\"New\""
+											}
+										},
+										{
+											"id": "set-font-size",
+											"objectClass": "ButtonText",
+											"sid": 431557884117061,
+											"parameters": {
+												"size-pt": "11"
+											}
+										}
+									],
+									"sid": 320788394213280
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 637832201514858,
+											"parameters": {
+												"first-value": "RightClickMenu.Selected",
+												"comparison": 1,
+												"second-value": "-1"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 848655621736347,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "RightClickButton",
+													"sid": 633659246384120,
+													"parameters": {
+														"instance-variable": "Value",
+														"comparison": 0,
+														"value": "4"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-text",
+													"objectClass": "ButtonText",
+													"sid": 638159646175158,
+													"parameters": {
+														"text": "\"Up\""
+													}
+												},
+												{
+													"id": "set-font-size",
+													"objectClass": "ButtonText",
+													"sid": 940675904639129,
+													"parameters": {
+														"size-pt": "11"
+													}
+												}
+											],
+											"sid": 165539550686276
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "RightClickButton",
+													"sid": 381424439470676,
+													"parameters": {
+														"instance-variable": "Value",
+														"comparison": 0,
+														"value": "5"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-text",
+													"objectClass": "ButtonText",
+													"sid": 232134835004847,
+													"parameters": {
+														"text": "\"Down\""
+													}
+												},
+												{
+													"id": "set-font-size",
+													"objectClass": "ButtonText",
+													"sid": 869049634957073,
+													"parameters": {
+														"size-pt": "11"
+													}
+												}
+											],
+											"sid": 100845562110709
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "RightClickButton",
+													"sid": 829749834158044,
+													"parameters": {
+														"instance-variable": "Value",
+														"comparison": 0,
+														"value": "6"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-text",
+													"objectClass": "ButtonText",
+													"sid": 892838586617287,
+													"parameters": {
+														"text": "\"Remove\""
+													}
+												},
+												{
+													"id": "set-font-size",
+													"objectClass": "ButtonText",
+													"sid": 299141194632406,
+													"parameters": {
+														"size-pt": "9"
+													}
+												}
+											],
+											"sid": 736693406215684
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 540048562061486
+										}
+									],
+									"actions": [],
+									"sid": 149541724025565,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "RightClickButton",
+													"sid": 278952309613944,
+													"parameters": {
+														"instance-variable": "Value",
+														"comparison": 0,
+														"value": "4"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "destroy",
+													"objectClass": "RightClickButton",
+													"sid": 242105610423555
+												}
+											],
+											"sid": 872600984472758
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "RightClickButton",
+													"sid": 566743136822703,
+													"parameters": {
+														"instance-variable": "Value",
+														"comparison": 0,
+														"value": "5"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "destroy",
+													"objectClass": "RightClickButton",
+													"sid": 964891114442400
+												}
+											],
+											"sid": 826023842634073
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "RightClickButton",
+													"sid": 477919819043415,
+													"parameters": {
+														"instance-variable": "Value",
+														"comparison": 0,
+														"value": "6"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "destroy",
+													"objectClass": "RightClickButton",
+													"sid": 455977319559332
+												}
+											],
+											"sid": 254270618495955
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-object-clicked",
+							"objectClass": "Mouse",
+							"sid": 911659123888049,
+							"parameters": {
+								"mouse-button": "left",
+								"click-type": "clicked",
+								"object-clicked": "RightClickButton"
+							}
+						},
+						{
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 265772590906848,
+							"parameters": {
+								"layer": "2"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [],
+					"sid": 758316464331104,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "RightClickButton",
+									"sid": 861686042831176,
+									"parameters": {
+										"instance-variable": "Value",
+										"comparison": 0,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 849686533206939,
+									"parameters": {
+										"layer": "2",
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 103401750473138
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "RightClickButton",
+									"sid": 167269466262261,
+									"parameters": {
+										"instance-variable": "Value",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "clear",
+									"objectClass": "Save",
+									"sid": 305738817020063
+								}
+							],
+							"sid": 487009692547850,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 771737317304963,
+											"parameters": {
+												"object": "StageObjectStandIn"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-key",
+											"objectClass": "Save",
+											"sid": 337028259330683,
+											"parameters": {
+												"key": "\"Object \" & StageObjectStandIn.IID",
+												"value": "StageObjectStandIn.X &\":\"& StageObjectStandIn.Y &\":\"& StageObjectStandIn.ZIndex&\":\"& StageObjectStandIn.AnimationName"
+											}
+										}
+									],
+									"sid": 506123697165784
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 587212553418557,
+											"parameters": {
+												"object": "BFStandIn"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-key",
+											"objectClass": "Save",
+											"sid": 152558803477955,
+											"parameters": {
+												"key": "\"BF \" & BFStandIn.IID",
+												"value": "BFStandIn.X &\" \"& BFStandIn.Y &\" \"& BFStandIn.ZElevation"
+											}
+										}
+									],
+									"sid": 198416980811001
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 401152079631842,
+											"parameters": {
+												"object": "GFStandIn"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-key",
+											"objectClass": "Save",
+											"sid": 483738987296459,
+											"parameters": {
+												"key": "\"GF \" & GFStandIn.IID",
+												"value": "GFStandIn.X &\" \"& GFStandIn.Y &\" \"& GFStandIn.ZElevation"
+											}
+										}
+									],
+									"sid": 699133449537780
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 265823074040646,
+											"parameters": {
+												"object": "Player2"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-key",
+											"objectClass": "Save",
+											"sid": 986205645240939,
+											"parameters": {
+												"key": "\"P2 \" & Player2.IID",
+												"value": "Player2.X &\" \"& Player2.Y &\" \"& Player2.ZElevation"
+											}
+										}
+									],
+									"sid": 851730795382817
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "download",
+											"objectClass": "Save",
+											"sid": 864701731357575,
+											"parameters": {
+												"filename": "\"Stage.Fri\""
+											}
+										}
+									],
+									"sid": 693199707981254
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "RightClickButton",
+									"sid": 306440388400856,
+									"parameters": {
+										"instance-variable": "Value",
+										"comparison": 0,
+										"value": "2"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "click",
+									"objectClass": "FileChooser",
+									"sid": 665104324968440
+								}
+							],
+							"sid": 831403044989764
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "RightClickButton",
+									"sid": 176177642367708,
+									"parameters": {
+										"instance-variable": "Value",
+										"comparison": 0,
+										"value": "3"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "restart-layout",
+									"objectClass": "System",
+									"sid": 350797934525454
+								}
+							],
+							"sid": 372424942029409,
+							"disabled": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "RightClickButton",
+									"sid": 327455279487977,
+									"parameters": {
+										"instance-variable": "Value",
+										"comparison": 0,
+										"value": "4"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 506041619387800,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "StageObjectStandIn",
+											"sid": 149103362532320,
+											"parameters": {
+												"unique-id": "RightClickMenu.Selected"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-z-elevation",
+											"objectClass": "StageObjectStandIn",
+											"sid": 225027836000842,
+											"parameters": {
+												"z": "Self.ZElevation + 1"
+											}
+										}
+									],
+									"sid": 962833099405975
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "BFStandIn",
+											"sid": 493853716231892,
+											"parameters": {
+												"unique-id": "RightClickMenu.Selected"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-z-elevation",
+											"objectClass": "BFStandIn",
+											"sid": 815525290969660,
+											"parameters": {
+												"z": "Self.ZElevation + 1"
+											}
+										}
+									],
+									"sid": 929377942562166
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "GFStandIn",
+											"sid": 804706470053461,
+											"parameters": {
+												"unique-id": "RightClickMenu.Selected"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-z-elevation",
+											"objectClass": "GFStandIn",
+											"sid": 545227193489567,
+											"parameters": {
+												"z": "Self.ZElevation + 1"
+											}
+										}
+									],
+									"sid": 612647915381759
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "Player2",
+											"sid": 279183390317426,
+											"parameters": {
+												"unique-id": "RightClickMenu.Selected"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-z-elevation",
+											"objectClass": "Player2",
+											"sid": 429132062458803,
+											"parameters": {
+												"z": "Self.ZElevation + 1"
+											}
+										}
+									],
+									"sid": 392169702063073
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "RightClickButton",
+									"sid": 588048939251706,
+									"parameters": {
+										"instance-variable": "Value",
+										"comparison": 0,
+										"value": "5"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 218019709507455,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "StageObjectStandIn",
+											"sid": 192269052306646,
+											"parameters": {
+												"unique-id": "RightClickMenu.Selected"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-z-elevation",
+											"objectClass": "StageObjectStandIn",
+											"sid": 205431805492135,
+											"parameters": {
+												"z": "Self.ZElevation - 1"
+											}
+										}
+									],
+									"sid": 366291386763244
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "BFStandIn",
+											"sid": 803416119840666,
+											"parameters": {
+												"unique-id": "RightClickMenu.Selected"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-z-elevation",
+											"objectClass": "BFStandIn",
+											"sid": 699430218205388,
+											"parameters": {
+												"z": "Self.ZElevation - 1"
+											}
+										}
+									],
+									"sid": 651335268828801
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "GFStandIn",
+											"sid": 692309069659018,
+											"parameters": {
+												"unique-id": "RightClickMenu.Selected"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-z-elevation",
+											"objectClass": "GFStandIn",
+											"sid": 527307959828945,
+											"parameters": {
+												"z": "Self.ZElevation - 1"
+											}
+										}
+									],
+									"sid": 696437963292871
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "Player2",
+											"sid": 930469449136272,
+											"parameters": {
+												"unique-id": "RightClickMenu.Selected"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-z-elevation",
+											"objectClass": "Player2",
+											"sid": 746249673178286,
+											"parameters": {
+												"z": "Self.ZElevation - 1"
+											}
+										}
+									],
+									"sid": 333057199216983
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "RightClickButton",
+									"sid": 709625838409466,
+									"parameters": {
+										"instance-variable": "Value",
+										"comparison": 0,
+										"value": "6"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "Close Menu",
+									"sid": 505232540966434
+								}
+							],
+							"sid": 629330367537532,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "StageObjectStandIn",
+											"sid": 467648630771300,
+											"parameters": {
+												"unique-id": "RightClickMenu.Selected"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "StageObjectStandIn",
+											"sid": 970534608945856
+										}
+									],
+									"sid": 823928327299010
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-clicked",
+							"objectClass": "Button",
+							"sid": 860094239098533
+						},
+						{
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 133501808155394,
+							"parameters": {
+								"layer": "2"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "spawn-another-object",
+							"objectClass": "RightClickMenu",
+							"sid": 586990458657970,
+							"parameters": {
+								"object": "StageObjectStandIn",
+								"layer": "0",
+								"image-point": "0",
+								"create-hierarchy": false
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "StageObjectStandIn",
+							"sid": 293206227713902,
+							"parameters": {
+								"animation": "List.SelectedText",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 486024346078797,
+							"parameters": {
+								"layer": "2",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"callFunction": "Close Menu",
+							"sid": 299447417348006
+						}
+					],
+					"sid": 784993189223170
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-changed",
+							"objectClass": "FileChooser",
+							"sid": 845560668967788
+						}
+					],
+					"actions": [
+						{
+							"id": "request-url",
+							"objectClass": "AJAX",
+							"sid": 268312429365518,
+							"parameters": {
+								"tag": "\"Level\"",
+								"url": "FileChooser.FileURLAt(0)"
+							}
+						}
+					],
+					"sid": 151519460139475
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-completed",
+							"objectClass": "AJAX",
+							"sid": 939258202225800,
+							"parameters": {
+								"tag": "\"Level\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "load",
+							"objectClass": "Save",
+							"sid": 369225391968035,
+							"parameters": {
+								"json": "AJAX.LastData"
+							}
+						}
+					],
+					"sid": 136164136086610,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each-key",
+									"objectClass": "Save",
+									"sid": 934963388368072
+								}
+							],
+							"actions": [],
+							"sid": 975726052277899,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 352420023784170,
+											"parameters": {
+												"first-value": "tokenat(Save.CurrentKey,0,\" \")",
+												"comparison": 0,
+												"second-value": "\"Object\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "create-object",
+											"objectClass": "System",
+											"sid": 422046082808328,
+											"parameters": {
+												"object-to-create": "StageObjectStandIn",
+												"layer": "0",
+												"x": "int(tokenat(Save.CurrentValue,0,\":\"))",
+												"y": "int(tokenat(Save.CurrentValue,1,\":\"))",
+												"create-hierarchy": false
+											}
+										},
+										{
+											"id": "set-z-elevation",
+											"objectClass": "StageObjectStandIn",
+											"sid": 103574720074816,
+											"parameters": {
+												"z": "int(tokenat(Save.CurrentValue,2,\":\"))"
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "StageObjectStandIn",
+											"sid": 562082070770238,
+											"parameters": {
+												"animation": "tokenat(Save.CurrentValue,3,\":\")",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-z-elevation",
+											"objectClass": "Camra",
+											"sid": 794624749834766,
+											"parameters": {
+												"z": "int(tokenat(Save.CurrentValue,2,\":\")) + 2"
+											}
+										}
+									],
+									"sid": 275563877631125
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 850580439458230,
+											"parameters": {
+												"first-value": "tokenat(Save.CurrentKey,0,\" \")",
+												"comparison": 0,
+												"second-value": "\"BF\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-position",
+											"objectClass": "BFStandIn",
+											"sid": 223991377299117,
+											"parameters": {
+												"x": "int(tokenat(Save.CurrentValue,0,\" \"))",
+												"y": "int(tokenat(Save.CurrentValue,1,\" \"))"
+											}
+										},
+										{
+											"id": "set-z-elevation",
+											"objectClass": "BFStandIn",
+											"sid": 598141037695049,
+											"parameters": {
+												"z": "int(tokenat(Save.CurrentValue,2,\" \"))"
+											}
+										}
+									],
+									"sid": 609795948161767
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 154727306725715,
+											"parameters": {
+												"first-value": "tokenat(Save.CurrentKey,0,\" \")",
+												"comparison": 0,
+												"second-value": "\"GF\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-position",
+											"objectClass": "GFStandIn",
+											"sid": 105068853228710,
+											"parameters": {
+												"x": "int(tokenat(Save.CurrentValue,0,\" \"))",
+												"y": "int(tokenat(Save.CurrentValue,1,\" \"))"
+											}
+										},
+										{
+											"id": "set-z-elevation",
+											"objectClass": "GFStandIn",
+											"sid": 861712180423052,
+											"parameters": {
+												"z": "int(tokenat(Save.CurrentValue,2,\" \"))"
+											}
+										}
+									],
+									"sid": 730486053021948
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 494896128879209,
+											"parameters": {
+												"first-value": "tokenat(Save.CurrentKey,0,\" \")",
+												"comparison": 0,
+												"second-value": "\"P2\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-position",
+											"objectClass": "Player2",
+											"sid": 764929716713582,
+											"parameters": {
+												"x": "int(tokenat(Save.CurrentValue,0,\" \"))",
+												"y": "int(tokenat(Save.CurrentValue,1,\" \"))"
+											}
+										},
+										{
+											"id": "set-z-elevation",
+											"objectClass": "Player2",
+											"sid": 212749593636957,
+											"parameters": {
+												"z": "int(tokenat(Save.CurrentValue,2,\" \"))"
+											}
+										}
+									],
+									"sid": 680534837664483
+								}
+							]
+						}
+					]
+				}
+			],
+			"sid": 906130413833841
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 678383607159723,
+					"parameters": {
+						"key": 8
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 894370539851335,
+					"parameters": {
+						"layout": "FreePlayMenu"
+					}
+				}
+			],
+			"sid": 332768863509394
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-tick",
+					"objectClass": "System",
+					"sid": 419748735574281
+				}
+			],
+			"actions": [],
+			"sid": 228421353269164,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 804774890200267,
+							"parameters": {
+								"object": "StageObjectStandIn"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-size",
+							"objectClass": "StageObjectStandIn",
+							"sid": 367802827634976,
+							"parameters": {
+								"width": "StageObjectStandIn.ImageWidth / 1.6",
+								"height": "StageObjectStandIn.ImageHeight / 1.6"
+							}
+						}
+					],
+					"sid": 866705123510067
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 904674373541122,
+					"parameters": {
+						"key": 81
+					}
+				}
+			],
+			"actions": [],
+			"sid": 338614103202486,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 674607211242321,
+							"parameters": {
+								"first-value": "LayerScale(0)",
+								"comparison": 0,
+								"second-value": "0.5"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-layer-scale",
+							"objectClass": "System",
+							"sid": 446417268136964,
+							"parameters": {
+								"layer": "0",
+								"scale": "1"
+							}
+						},
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 792330018197732,
+							"parameters": {
+								"type": "log",
+								"message": "\"1\""
+							}
+						}
+					],
+					"sid": 273928902109883
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 403601775361221
+						}
+					],
+					"actions": [
+						{
+							"id": "set-layer-scale",
+							"objectClass": "System",
+							"sid": 890927598157956,
+							"parameters": {
+								"layer": "0",
+								"scale": "0.5"
+							}
+						},
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 376697350134371,
+							"parameters": {
+								"type": "log",
+								"message": "\"0.5\""
+							}
+						}
+					],
+					"sid": 892842466946420
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 800128961584229,
+					"parameters": {
+						"key": 81
+					}
+				}
+			],
+			"actions": [
+				{
+					"type": "script",
+					"script": "runtime.globalVars.ZoomedAmmount = prompt(\"Set Zoom Scale\",0.5)"
+				},
+				{
+					"id": "set-layer-scale",
+					"objectClass": "System",
+					"sid": 653813849251137,
+					"parameters": {
+						"layer": "0",
+						"scale": "ZoomedAmmount"
+					}
+				}
+			],
+			"sid": 972964079569663
+		}
+	],
+	"sid": 579248517878973
+}

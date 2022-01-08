@@ -1,0 +1,56 @@
+{
+	"name": "BFStandIn",
+	"plugin-id": "Sprite",
+	"sid": 420546523270104,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "OldX",
+			"type": "number",
+			"desc": "",
+			"sid": 195257176974981
+		},
+		{
+			"name": "OldY",
+			"type": "number",
+			"desc": "",
+			"sid": 455640383338713
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "DragnDrop",
+			"name": "DragDrop",
+			"sid": 932029225235151
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 410,
+						"height": 412,
+						"originX": 0.5,
+						"originY": 1,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 6461102,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 322068918100233,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}
