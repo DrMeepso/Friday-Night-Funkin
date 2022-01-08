@@ -1,7 +1,7 @@
 {
 	"projectFormatVersion": 1,
 	"savedWithRelease": 27602,
-	"name": "FNFRewrite",
+	"name": "FNFC3",
 	"runtime": "c3",
 	"useWorker": "auto",
 	"bundleAddons": true,
