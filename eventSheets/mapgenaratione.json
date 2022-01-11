@@ -182,9 +182,9 @@
 																						{
 																							"id": "repeat",
 																							"objectClass": "System",
-																							"sid": 726715769483724,
+																							"sid": 952619845813043,
 																							"parameters": {
-																								"count": "round(int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".2\"))/150) * 3"
+																								"count": "((int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".2\")) / 1000) * int(SongSpeed) * SongSpeedMultiplyer * 60) / NoteTrail.Height\n"
 																							}
 																						}
 																					],
@@ -227,11 +227,11 @@
 																								{
 																									"id": "compare-two-values",
 																									"objectClass": "System",
-																									"sid": 838979799451722,
+																									"sid": 798066392718536,
 																									"parameters": {
 																										"first-value": "loopindex + 1",
 																										"comparison": 0,
-																										"second-value": "round(int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".2\"))/150) * 3"
+																										"second-value": "((int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".2\")) / 1000) * int(SongSpeed) * SongSpeedMultiplyer * 60) / NoteTrail.Height"
 																									}
 																								}
 																							],
@@ -239,12 +239,12 @@
 																								{
 																									"id": "create-object",
 																									"objectClass": "System",
-																									"sid": 444706887997697,
+																									"sid": 790044290681464,
 																									"parameters": {
 																										"object-to-create": "NoteCap",
 																										"layer": "ArrowLayer",
 																										"x": "Notes.x",
-																										"y": "528 + ((loopindex + 1)  * NoteCap.Height)",
+																										"y": "528 + (loopindex  * NoteTrail.Height)",
 																										"create-hierarchy": false
 																									}
 																								},
@@ -343,9 +343,9 @@
 																						{
 																							"id": "repeat",
 																							"objectClass": "System",
-																							"sid": 956315081612387,
+																							"sid": 529041861326485,
 																							"parameters": {
-																								"count": "round(int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".2\"))/150) * 3"
+																								"count": "((int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".2\")) / 1000) * int(SongSpeed) * SongSpeedMultiplyer * 60) / NoteTrail.Height"
 																							}
 																						}
 																					],
@@ -388,11 +388,11 @@
 																								{
 																									"id": "compare-two-values",
 																									"objectClass": "System",
-																									"sid": 293840749624731,
+																									"sid": 373652658622548,
 																									"parameters": {
 																										"first-value": "loopindex + 1",
 																										"comparison": 0,
-																										"second-value": "round(int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".2\"))/150) * 3"
+																										"second-value": "((int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".2\")) / 1000) * int(SongSpeed) * SongSpeedMultiplyer * 60) / NoteTrail.Height"
 																									}
 																								}
 																							],
@@ -400,12 +400,12 @@
 																								{
 																									"id": "create-object",
 																									"objectClass": "System",
-																									"sid": 873403971285252,
+																									"sid": 255827754916945,
 																									"parameters": {
 																										"object-to-create": "NoteCap",
 																										"layer": "ArrowLayer",
 																										"x": "Notes.x",
-																										"y": "528 + ((loopindex + 1)  * NoteCap.Height)",
+																										"y": "528 + (loopindex  * NoteTrail.Height)",
 																										"create-hierarchy": false
 																									}
 																								},
@@ -550,9 +550,9 @@
 																						{
 																							"id": "repeat",
 																							"objectClass": "System",
-																							"sid": 705425913934137,
+																							"sid": 724423362407558,
 																							"parameters": {
-																								"count": "round(int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".2\"))/150) * 3"
+																								"count": "((int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".2\")) / 1000) * int(SongSpeed) * SongSpeedMultiplyer * 60) / NoteTrail.Height"
 																							}
 																						}
 																					],
@@ -595,11 +595,11 @@
 																								{
 																									"id": "compare-two-values",
 																									"objectClass": "System",
-																									"sid": 947718673853799,
+																									"sid": 704573225245707,
 																									"parameters": {
 																										"first-value": "loopindex + 1",
 																										"comparison": 0,
-																										"second-value": "round(int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".2\"))/150) * 3"
+																										"second-value": "((int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".2\")) / 1000) * int(SongSpeed) * SongSpeedMultiplyer * 60) / NoteTrail.Height"
 																									}
 																								}
 																							],
@@ -607,12 +607,12 @@
 																								{
 																									"id": "create-object",
 																									"objectClass": "System",
-																									"sid": 938255975858393,
+																									"sid": 186730388660039,
 																									"parameters": {
 																										"object-to-create": "NoteCap",
 																										"layer": "ArrowLayer",
 																										"x": "Notes.x",
-																										"y": "528 + ((loopindex + 1)  * NoteCap.Height)",
+																										"y": "528 + (loopindex  * NoteTrail.Height)",
 																										"create-hierarchy": false
 																									}
 																								},
@@ -711,9 +711,9 @@
 																						{
 																							"id": "repeat",
 																							"objectClass": "System",
-																							"sid": 116137873617757,
+																							"sid": 699512422627342,
 																							"parameters": {
-																								"count": "round(int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".2\"))/150) * 3"
+																								"count": "((int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".2\")) / 1000) * int(SongSpeed) * SongSpeedMultiplyer * 60) / NoteTrail.Height"
 																							}
 																						}
 																					],
@@ -756,11 +756,11 @@
 																								{
 																									"id": "compare-two-values",
 																									"objectClass": "System",
-																									"sid": 276187533605908,
+																									"sid": 371274566123542,
 																									"parameters": {
 																										"first-value": "loopindex + 1",
 																										"comparison": 0,
-																										"second-value": "round(int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".2\"))/150) * 3"
+																										"second-value": "((int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".2\")) / 1000) * int(SongSpeed) * SongSpeedMultiplyer * 60) / NoteTrail.Height"
 																									}
 																								}
 																							],
@@ -768,12 +768,12 @@
 																								{
 																									"id": "create-object",
 																									"objectClass": "System",
-																									"sid": 968275205953034,
+																									"sid": 874478723850211,
 																									"parameters": {
 																										"object-to-create": "NoteCap",
 																										"layer": "ArrowLayer",
 																										"x": "Notes.x",
-																										"y": "528 + ((loopindex + 1)  * NoteCap.Height)",
+																										"y": "528 + (loopindex  * NoteTrail.Height)",
 																										"create-hierarchy": false
 																									}
 																								},
@@ -918,9 +918,9 @@
 																						{
 																							"id": "repeat",
 																							"objectClass": "System",
-																							"sid": 507338745075999,
+																							"sid": 207151442171289,
 																							"parameters": {
-																								"count": "round(int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".2\"))/150) * 3"
+																								"count": "((int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".2\")) / 1000) * int(SongSpeed) * SongSpeedMultiplyer * 60) / NoteTrail.Height"
 																							}
 																						}
 																					],
@@ -963,11 +963,11 @@
 																								{
 																									"id": "compare-two-values",
 																									"objectClass": "System",
-																									"sid": 923188745793064,
+																									"sid": 989866318617269,
 																									"parameters": {
 																										"first-value": "loopindex + 1",
 																										"comparison": 0,
-																										"second-value": "round(int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".2\"))/150) * 3"
+																										"second-value": "((int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".2\")) / 1000) * int(SongSpeed) * SongSpeedMultiplyer * 60) / NoteTrail.Height"
 																									}
 																								}
 																							],
@@ -975,12 +975,12 @@
 																								{
 																									"id": "create-object",
 																									"objectClass": "System",
-																									"sid": 337711360871595,
+																									"sid": 842201629781138,
 																									"parameters": {
 																										"object-to-create": "NoteCap",
 																										"layer": "ArrowLayer",
 																										"x": "Notes.x",
-																										"y": "528 + ((loopindex + 1)  * NoteCap.Height)",
+																										"y": "528 + (loopindex  * NoteTrail.Height)",
 																										"create-hierarchy": false
 																									}
 																								},
@@ -1079,9 +1079,9 @@
 																						{
 																							"id": "repeat",
 																							"objectClass": "System",
-																							"sid": 473666427383086,
+																							"sid": 898313030057818,
 																							"parameters": {
-																								"count": "round(int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".2\"))/150) * 3"
+																								"count": "((int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".2\")) / 1000) * int(SongSpeed) * SongSpeedMultiplyer * 60) / NoteTrail.Height"
 																							}
 																						}
 																					],
@@ -1124,11 +1124,11 @@
 																								{
 																									"id": "compare-two-values",
 																									"objectClass": "System",
-																									"sid": 135598664497638,
+																									"sid": 928309538670891,
 																									"parameters": {
 																										"first-value": "loopindex + 1",
 																										"comparison": 0,
-																										"second-value": "round(int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".2\"))/150) * 3"
+																										"second-value": "((int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".2\")) / 1000) * int(SongSpeed) * SongSpeedMultiplyer * 60) / NoteTrail.Height"
 																									}
 																								}
 																							],
@@ -1136,12 +1136,12 @@
 																								{
 																									"id": "create-object",
 																									"objectClass": "System",
-																									"sid": 208100615485993,
+																									"sid": 994100725215657,
 																									"parameters": {
 																										"object-to-create": "NoteCap",
 																										"layer": "ArrowLayer",
 																										"x": "Notes.x",
-																										"y": "528 + ((loopindex + 1)  * NoteCap.Height)",
+																										"y": "528 + (loopindex  * NoteTrail.Height)",
 																										"create-hierarchy": false
 																									}
 																								},
@@ -1286,9 +1286,9 @@
 																						{
 																							"id": "repeat",
 																							"objectClass": "System",
-																							"sid": 634202640371330,
+																							"sid": 617581136422301,
 																							"parameters": {
-																								"count": "round(int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".2\"))/150) * 3"
+																								"count": "((int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".2\")) / 1000) * int(SongSpeed) * SongSpeedMultiplyer * 60) / NoteTrail.Height"
 																							}
 																						}
 																					],
@@ -1331,11 +1331,11 @@
 																								{
 																									"id": "compare-two-values",
 																									"objectClass": "System",
-																									"sid": 959373391816679,
+																									"sid": 516447881164137,
 																									"parameters": {
 																										"first-value": "loopindex + 1",
 																										"comparison": 0,
-																										"second-value": "round(int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".2\"))/150) * 3"
+																										"second-value": "((int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".2\")) / 1000) * int(SongSpeed) * SongSpeedMultiplyer * 60) / NoteTrail.Height"
 																									}
 																								}
 																							],
@@ -1343,12 +1343,12 @@
 																								{
 																									"id": "create-object",
 																									"objectClass": "System",
-																									"sid": 698065612522749,
+																									"sid": 509410675704709,
 																									"parameters": {
 																										"object-to-create": "NoteCap",
 																										"layer": "ArrowLayer",
 																										"x": "Notes.x",
-																										"y": "528 + ((loopindex + 1)  * NoteCap.Height)",
+																										"y": "528 + (loopindex  * NoteTrail.Height)",
 																										"create-hierarchy": false
 																									}
 																								},
@@ -1447,9 +1447,9 @@
 																						{
 																							"id": "repeat",
 																							"objectClass": "System",
-																							"sid": 311721443142870,
+																							"sid": 495831885729887,
 																							"parameters": {
-																								"count": "round(int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".2\"))/150) * 3"
+																								"count": "((int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".2\")) / 1000) * int(SongSpeed) * SongSpeedMultiplyer * 60) / NoteTrail.Height"
 																							}
 																						}
 																					],
@@ -1492,11 +1492,11 @@
 																								{
 																									"id": "compare-two-values",
 																									"objectClass": "System",
-																									"sid": 666540799458641,
+																									"sid": 829670952930546,
 																									"parameters": {
 																										"first-value": "loopindex + 1",
 																										"comparison": 0,
-																										"second-value": "round(int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".2\"))/150) * 3"
+																										"second-value": "((int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".2\")) / 1000) * int(SongSpeed) * SongSpeedMultiplyer * 60) / NoteTrail.Height"
 																									}
 																								}
 																							],
@@ -1504,12 +1504,12 @@
 																								{
 																									"id": "create-object",
 																									"objectClass": "System",
-																									"sid": 540013096100713,
+																									"sid": 453596034717183,
 																									"parameters": {
 																										"object-to-create": "NoteCap",
 																										"layer": "ArrowLayer",
 																										"x": "Notes.x",
-																										"y": "528 + ((loopindex + 1)  * NoteCap.Height)",
+																										"y": "528 + (loopindex  * NoteTrail.Height)",
 																										"create-hierarchy": false
 																									}
 																								},
@@ -1665,9 +1665,9 @@
 																						{
 																							"id": "repeat",
 																							"objectClass": "System",
-																							"sid": 486198908551266,
+																							"sid": 801187514807401,
 																							"parameters": {
-																								"count": "round(int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".2\"))/150) * 3"
+																								"count": "((int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".2\")) / 1000) * int(SongSpeed) * SongSpeedMultiplyer * 60) / NoteTrail.Height"
 																							}
 																						}
 																					],
@@ -1722,12 +1722,12 @@
 																								{
 																									"id": "create-object",
 																									"objectClass": "System",
-																									"sid": 535414971975081,
+																									"sid": 260656523470677,
 																									"parameters": {
 																										"object-to-create": "NoteCap",
 																										"layer": "ArrowLayer",
 																										"x": "Notes.x",
-																										"y": "528 + ((loopindex + 1)  * NoteCap.Height)",
+																										"y": "528 + (loopindex  * NoteTrail.Height)",
 																										"create-hierarchy": false
 																									}
 																								},
@@ -1825,9 +1825,9 @@
 																						{
 																							"id": "repeat",
 																							"objectClass": "System",
-																							"sid": 986504314807029,
+																							"sid": 617746720626399,
 																							"parameters": {
-																								"count": "round(int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".2\"))/150) * 3"
+																								"count": "((int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".2\")) / 1000) * int(SongSpeed) * SongSpeedMultiplyer * 60) / NoteTrail.Height"
 																							}
 																						}
 																					],
@@ -1882,12 +1882,12 @@
 																								{
 																									"id": "create-object",
 																									"objectClass": "System",
-																									"sid": 567088461694158,
+																									"sid": 782682858673309,
 																									"parameters": {
 																										"object-to-create": "NoteCap",
 																										"layer": "ArrowLayer",
 																										"x": "Notes.x",
-																										"y": "528 + ((loopindex + 1)  * NoteCap.Height)",
+																										"y": "528 + (loopindex  * NoteTrail.Height)",
 																										"create-hierarchy": false
 																									}
 																								},
@@ -2033,9 +2033,9 @@
 																						{
 																							"id": "repeat",
 																							"objectClass": "System",
-																							"sid": 911490805131709,
+																							"sid": 354378346711019,
 																							"parameters": {
-																								"count": "round(int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".2\"))/150) * 3"
+																								"count": "((int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".2\")) / 1000) * int(SongSpeed) * SongSpeedMultiplyer * 60) / NoteTrail.Height"
 																							}
 																						}
 																					],
@@ -2090,12 +2090,12 @@
 																								{
 																									"id": "create-object",
 																									"objectClass": "System",
-																									"sid": 776652591426620,
+																									"sid": 604839102602369,
 																									"parameters": {
 																										"object-to-create": "NoteCap",
 																										"layer": "ArrowLayer",
 																										"x": "Notes.x",
-																										"y": "528 + ((loopindex + 1)  * NoteCap.Height)",
+																										"y": "528 + (loopindex  * NoteTrail.Height)",
 																										"create-hierarchy": false
 																									}
 																								},
@@ -2193,9 +2193,9 @@
 																						{
 																							"id": "repeat",
 																							"objectClass": "System",
-																							"sid": 885328485546093,
+																							"sid": 237997097566849,
 																							"parameters": {
-																								"count": "round(int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".2\"))/150) * 3"
+																								"count": "((int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".2\")) / 1000) * int(SongSpeed) * SongSpeedMultiplyer * 60) / NoteTrail.Height"
 																							}
 																						}
 																					],
@@ -2250,12 +2250,12 @@
 																								{
 																									"id": "create-object",
 																									"objectClass": "System",
-																									"sid": 107018055065460,
+																									"sid": 251189021646966,
 																									"parameters": {
 																										"object-to-create": "NoteCap",
 																										"layer": "ArrowLayer",
 																										"x": "Notes.x",
-																										"y": "528 + ((loopindex + 1)  * NoteCap.Height)",
+																										"y": "528 + (loopindex  * NoteTrail.Height)",
 																										"create-hierarchy": false
 																									}
 																								},
@@ -2401,9 +2401,9 @@
 																						{
 																							"id": "repeat",
 																							"objectClass": "System",
-																							"sid": 789638242020746,
+																							"sid": 876099004454477,
 																							"parameters": {
-																								"count": "round(int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".2\"))/150) * 3"
+																								"count": "((int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".2\")) / 1000) * int(SongSpeed) * SongSpeedMultiplyer * 60) / NoteTrail.Height"
 																							}
 																						}
 																					],
@@ -2458,12 +2458,12 @@
 																								{
 																									"id": "create-object",
 																									"objectClass": "System",
-																									"sid": 936585323852630,
+																									"sid": 161894881458708,
 																									"parameters": {
 																										"object-to-create": "NoteCap",
 																										"layer": "ArrowLayer",
 																										"x": "Notes.x",
-																										"y": "528 + ((loopindex + 1)  * NoteCap.Height)",
+																										"y": "528 + (loopindex  * NoteTrail.Height)",
 																										"create-hierarchy": false
 																									}
 																								},
@@ -2561,9 +2561,9 @@
 																						{
 																							"id": "repeat",
 																							"objectClass": "System",
-																							"sid": 595228467944599,
+																							"sid": 735005100958829,
 																							"parameters": {
-																								"count": "round(int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".2\"))/150) * 3"
+																								"count": "((int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".2\")) / 1000) * int(SongSpeed) * SongSpeedMultiplyer * 60) / NoteTrail.Height"
 																							}
 																						}
 																					],
@@ -2618,12 +2618,12 @@
 																								{
 																									"id": "create-object",
 																									"objectClass": "System",
-																									"sid": 708738674239279,
+																									"sid": 280441712766658,
 																									"parameters": {
 																										"object-to-create": "NoteCap",
 																										"layer": "ArrowLayer",
 																										"x": "Notes.x",
-																										"y": "528 + ((loopindex + 1)  * NoteCap.Height)",
+																										"y": "528 + (loopindex  * NoteTrail.Height)",
 																										"create-hierarchy": false
 																									}
 																								},
@@ -2769,9 +2769,9 @@
 																						{
 																							"id": "repeat",
 																							"objectClass": "System",
-																							"sid": 454148295742509,
+																							"sid": 807430018537730,
 																							"parameters": {
-																								"count": "round(int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".2\"))/150) * 3"
+																								"count": "((int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".2\")) / 1000) * int(SongSpeed) * SongSpeedMultiplyer * 60) / NoteTrail.Height"
 																							}
 																						}
 																					],
@@ -2826,12 +2826,12 @@
 																								{
 																									"id": "create-object",
 																									"objectClass": "System",
-																									"sid": 577983667849937,
+																									"sid": 816225813635340,
 																									"parameters": {
 																										"object-to-create": "NoteCap",
 																										"layer": "ArrowLayer",
 																										"x": "Notes.x",
-																										"y": "528 + ((loopindex + 1)  * NoteCap.Height)",
+																										"y": "528 + (loopindex  * NoteTrail.Height)",
 																										"create-hierarchy": false
 																									}
 																								},
@@ -2929,9 +2929,9 @@
 																						{
 																							"id": "repeat",
 																							"objectClass": "System",
-																							"sid": 982324339453345,
+																							"sid": 767742465620299,
 																							"parameters": {
-																								"count": "round(int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".2\"))/150) * 3"
+																								"count": "((int(MapLoader.Get(NotePath&\"notes.\"&loopindex(\"Stream\")&\".sectionNotes.\"&loopindex(\"Notes\")&\".2\")) / 1000) * int(SongSpeed) * SongSpeedMultiplyer * 60) / NoteTrail.Height"
 																							}
 																						}
 																					],
@@ -2986,12 +2986,12 @@
 																								{
 																									"id": "create-object",
 																									"objectClass": "System",
-																									"sid": 568862352920568,
+																									"sid": 603356506579847,
 																									"parameters": {
 																										"object-to-create": "NoteCap",
 																										"layer": "ArrowLayer",
 																										"x": "Notes.x",
-																										"y": "528 + ((loopindex + 1)  * NoteCap.Height)",
+																										"y": "528 + (loopindex  * NoteTrail.Height)",
 																										"create-hierarchy": false
 																									}
 																								},

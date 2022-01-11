@@ -5598,9 +5598,9 @@
 								{
 									"id": "wait",
 									"objectClass": "System",
-									"sid": 731375118093627,
+									"sid": 113926261459814,
 									"parameters": {
-										"seconds": "distance(0,69,0,528) / (int(SongSpeed) * SongSpeedMultiplyer) /60"
+										"seconds": "distance(0,69,0,528) / (int(SongSpeed) * SongSpeedMultiplyer) / 60"
 									}
 								},
 								{

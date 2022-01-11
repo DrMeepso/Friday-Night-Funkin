@@ -16,9 +16,9 @@
 				1
 			],
 			"backgroundColor": [
-				1,
-				0.8235294117647058,
-				0.5803921568627451,
+				0,
+				0,
+				0,
 				1
 			],
 			"isTransparent": false,
@@ -225,9 +225,9 @@
 				1
 			],
 			"backgroundColor": [
-				1,
-				1,
-				1,
+				0,
+				0,
+				0,
 				1
 			],
 			"isTransparent": true,
@@ -981,9 +981,9 @@
 				1
 			],
 			"backgroundColor": [
-				1,
-				1,
-				1,
+				0,
+				0,
+				0,
 				1
 			],
 			"isTransparent": true,
@@ -1079,9 +1079,9 @@
 				1
 			],
 			"backgroundColor": [
-				1,
-				1,
-				1,
+				0,
+				0,
+				0,
 				1
 			],
 			"isTransparent": true,
@@ -1225,9 +1225,9 @@
 				1
 			],
 			"backgroundColor": [
-				1,
-				1,
-				1,
+				0,
+				0,
+				0,
 				1
 			],
 			"isTransparent": true,
