@@ -21,7 +21,7 @@ Some things that need doing, if you fix them please make a fork and make a pull 
 - [ ] Fix bugs
     - [ ] Fix unhitable notes 
     - [ ] Fix json shitting itself
-- [ ] Fix note trail length
+- [X] Fix note trail length
 - [ ] Add weeks
 - [ ] Add scoring system
 - [ ] Maybe add replays????
